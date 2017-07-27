@@ -172,12 +172,6 @@ class LoadDepartment extends AbstractFixture implements OrderedFixtureInterface
         $dep32 = new Department();
         $dep32->setCode('31');
         $dep32->setDepartment('Haute-Garonne');
-        $dep32->addTraining($this->getReference('bac'));
-        $dep32->addTraining($this->getReference('llcer'));
-        $dep32->addTraining($this->getReference('histoire'));
-        $dep32->addTraining($this->getReference('lp'));
-        $dep32->addTraining($this->getReference('m1'));
-        $dep32->addTraining($this->getReference('m2'));
         $manager->persist($dep32);
         $this->addReference('dep31', $dep32);
 
@@ -531,6 +525,6 @@ class LoadDepartment extends AbstractFixture implements OrderedFixtureInterface
 
     public function getOrder()
     {
-        return 2;
+        return 1;
     }
 }

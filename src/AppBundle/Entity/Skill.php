@@ -156,4 +156,3 @@ class Skill
         return $this->category;
     }
 }
-

@@ -78,8 +78,8 @@ class Training
     private $mention;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Department", inversedBy="trainings")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Department")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $department;
 
@@ -297,9 +297,8 @@ class Training
     /**
      * @param mixed $department
      */
-    public function setDepartment($department)
+    public function setDepartment(Department $department)
     {
         $this->department = $department;
     }
 }
-

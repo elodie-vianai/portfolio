@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -48,6 +49,23 @@ class Project
      * @ORM\Column(name="year", type="integer")
      */
     private $year;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Experience", inversedBy="projects")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $experience;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Skill", cascade={"persist"})
+     */
+    private $skills;
+
+
+    public function __construct()
+    {
+        $this->skills = new ArrayCollection();
+    }
 
 
     /**
@@ -155,5 +173,46 @@ class Project
     {
         return $this->year;
     }
-}
 
+    /**
+     * @return mixed
+     */
+    public function getExperience()
+    {
+        return $this->experience;
+    }
+
+    /**
+     * @param mixed $experience
+     */
+    public function setExperience(Experience $experience)
+    {
+        $experience->addProject($this);
+
+        $this->experience = $experience;
+    }
+
+    /**
+     * @param Skill $sill
+     */
+    public function addSkill(Skill $sill)
+    {
+        $this->skills[] = $sill;
+    }
+
+    /**
+     * @param Skill $skill
+     */
+    public function removeSkill(Skill $skill)
+    {
+        $this->skills->removeElement($skill);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSkills()
+    {
+        return $this->skills;
+    }
+}

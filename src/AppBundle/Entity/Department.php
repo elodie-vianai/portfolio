@@ -36,17 +36,13 @@ class Department
      */
     private $department;
 
-    /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Training", mappedBy="training", cascade={"persist"})
-     *
-     */
-    private $trainings;
+//    /**
+//     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Experience", mappedBy="experience", cascade={"persist"})
+//     *
+//     */
+//    private $experiences;
 
 
-    function __construct()
-    {
-        $this->trainings    = new ArrayCollection();
-    }
 
 
     /**
@@ -107,41 +103,38 @@ class Department
         return $this->department;
     }
 
-    /**
-     * Link a training to a department
-     *
-     * @param \AppBundle\Entity\Training $training
-     *
-     * @return Department
-     */
-    public function addTraining(Training $training)
-    {
-        $this->trainings[] = $training;
 
-        // Link the advert to the application
-        $training->setDepartment($this);
-
-        return $this;
-    }
-
-    /**
-     * Remove Training
-     *
-     * @param \AppBundle\Entity\Training $training
-     */
-    public function removeTraining(Training $training)
-    {
-        $this->trainings->removeElement($training);
-    }
-
-    /**
-     * Get trainings
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getTrainings()
-    {
-        return $this->trainings;
-    }
+//    /**
+//     * Link an experience to a department
+//     *
+//     * @param \AppBundle\Entity\Experience $experience
+//     *
+//     * @return Department
+//     */
+//    public function addExperience(Experience $experience)
+//    {
+//        $this->experiences[] = $experience;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Remove an experience
+//     *
+//     * @param \AppBundle\Entity\Experience $experience
+//     */
+//    public function removeExperience(Experience $experience)
+//    {
+//        $this->experiences->removeElement($experience);
+//    }
+//
+//    /**
+//     * Get experiences
+//     *
+//     * @return \Doctrine\Common\Collections\Collection
+//     */
+//    public function getExperiences()
+//    {
+//        return $this->experiences;
+//    }
 }
-

@@ -70,6 +70,31 @@ class Experience
      */
     private $imagePath;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Department")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $department;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Project", mappedBy="project", cascade={"persist"})
+     *
+     */
+    private $projects;
+
+
+
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->projects = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+
+
 
     /**
      * Get id
@@ -248,5 +273,54 @@ class Experience
     {
         return $this->imagePath;
     }
-}
 
+    /**
+     * @return mixed
+     */
+    public function getDepartment()
+    {
+        return $this->department;
+    }
+
+    /**
+     * @param mixed $department
+     */
+    public function setDepartment(Department $department)
+    {
+        $this->department = $department;
+    }
+
+    /**
+     * Link a project to an experience
+     *
+     * @param \AppBundle\Entity\Project $project
+     *
+     * @return Experience
+     */
+    public function addProject(Project $project)
+    {
+        $this->projects[] = $project;
+
+        return $this;
+    }
+
+    /**
+     * Remove a project
+     *
+     * @param \AppBundle\Entity\Project $project
+     */
+    public function removeProject(Project $project)
+    {
+        $this->projects->removeElement($project);
+    }
+
+    /**
+     * Get projects
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProjects()
+    {
+        return $this->projects;
+    }
+}

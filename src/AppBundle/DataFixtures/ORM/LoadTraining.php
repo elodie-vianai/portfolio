@@ -25,6 +25,7 @@ class LoadTraining extends AbstractFixture implements OrderedFixtureInterface
         $end_at->setDate(2010, 7, 02);
         $training1->setEndAt($end_at);
         $training1->setMention('P');
+        $training1->setDepartment($this->getReference('dep31'));
 
         $training2  = new Training();
         $training2->setName('Licence Langues, Littérature et Civilisation Etrangère');
@@ -39,7 +40,8 @@ class LoadTraining extends AbstractFixture implements OrderedFixtureInterface
         $training2->setEndAt($end_at);
         $training2->setMention('P');
         $training2->setImagePath('logoMirail.png');
-//
+        $training2->setDepartment($this->getReference('dep31'));
+
         $training3  = new Training();
         $training3->setName('Licence d\'Histoire');
         $training3->setType('Diplôme');
@@ -53,6 +55,7 @@ class LoadTraining extends AbstractFixture implements OrderedFixtureInterface
         $training3->setEndAt($end_at);
         $training3->setMention('P');
         $training3->setImagePath('logoMirail.png');
+        $training3->setDepartment($this->getReference('dep31'));
 
         $training4  = new Training();
         $training4->setName('Licence professionnelle Image et Histoire');
@@ -67,6 +70,7 @@ class LoadTraining extends AbstractFixture implements OrderedFixtureInterface
         $training4->setEndAt($end_at);
         $training4->setMention('AB');
         $training4->setImagePath('logoUT2J.png');
+        $training4->setDepartment($this->getReference('dep31'));
 
         $training5  = new Training();
         $training5->setName('Maîtrise d\'Information-Documentation');
@@ -81,6 +85,7 @@ class LoadTraining extends AbstractFixture implements OrderedFixtureInterface
         $training5->setEndAt($end_at);
         $training5->setMention('AB');
         $training5->setImagePath('logoUT2J.png');
+        $training5->setDepartment($this->getReference('dep31'));
 
         $training6 = new Training();
         $training6->setName('Master 2 Ingénierie de l\'Information Numérique, I2N');
@@ -95,6 +100,7 @@ class LoadTraining extends AbstractFixture implements OrderedFixtureInterface
         $training6->setEndAt($end_at);
         $training6->setMention('P');
         $training6->setImagePath('logoUT2J.png');
+        $training6->setDepartment($this->getReference('dep31'));
 
         $manager->persist($training1);
         $manager->persist($training2);
@@ -115,6 +121,6 @@ class LoadTraining extends AbstractFixture implements OrderedFixtureInterface
 
     public function getOrder()
     {
-        return 1;
+        return 3;
     }
 }
