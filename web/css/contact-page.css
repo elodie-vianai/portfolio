@@ -1,0 +1,29 @@
+.spacebetween {
+    border-left: 5px solid #eee;
+    height: 150px;
+}
+
+.adresse {
+    color: grey;
+}
+
+.rs .pseudo {
+    color: grey;
+    font-size: small;
+}
+
+/*.form-control:required {
+    background: url(../img/asterisk.png) 98% center no-repeat #fff;
+}*/
+
+div .formulaire {
+    padding-top: 2%;
+    text-align: center;
+    border-top: 5px solid #eee;
+    border-top: 1px dotted #125688;
+}
+
+#formObligatoire {
+    color: red;
+    padding: 1%;
+}

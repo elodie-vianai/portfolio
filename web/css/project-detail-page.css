@@ -1,0 +1,15 @@
+#imgdiv {
+    width: 1200px;
+    height : 500px;
+}
+#imageProject {
+    border: 1px solid #125688;
+    padding: 0;
+    height: 100%;
+    width: auto;
+}
+
+.logosTechnos {
+    max-width: 100px;
+    max-height: 100px;
+}

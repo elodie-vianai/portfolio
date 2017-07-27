@@ -1,0 +1,22 @@
+.page-link {
+    background-color: #125688;
+    color: #dddddd;
+    margin-bottom: 10%;
+}
+.page-item #tout {
+    background-color: white;
+    color: #125688;
+    border: solid 1px #125688;
+}
+
+.image-container {
+    margin: 1%;
+}
+
+.image-skill {
+    height: 100px;
+    width: auto;
+}
+.image-skill:hover {
+    -webkit-transform: rotate(7deg);
+}

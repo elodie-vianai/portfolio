@@ -1,0 +1,43 @@
+/****************************************************** SECTIONS ********************************************************/
+section {
+    padding-top: 3%;
+    padding-bottom: 3%;
+    border-bottom: 1px dotted #125688;
+}
+
+.blockquote span {
+    font-family: "Courier New", cursive;
+}
+.blockquote footer {
+    padding-top: 4%;
+}
+
+#aboutMe {
+    padding-left: 2%; padding-right: 5%;
+    border-right: 1px dotted #125688;
+}
+
+#mesAtouts {
+    padding-left: 5%; padding-right: 5%;
+}
+
+
+/****************************************************** CAROUSEL ********************************************************/
+#my-carousel{
+    width: 100%;
+    height:450px;
+    background-color: grey;
+}
+.carrousel-link {
+    margin: auto;
+}
+.carousel-images {
+    max-width: 100%;
+    height: 450px;
+}
+.carousel-caption {
+    font-size: larger;
+    color: #125688;
+    font-weight: bold;
+    text-decoration: underline;
+}

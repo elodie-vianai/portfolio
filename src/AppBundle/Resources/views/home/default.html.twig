@@ -1,0 +1,172 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block session %}session_start();{% endblock session %}
+
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/homepage.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/api-spotify.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/font-awesome-4.7.0/css/font-awesome.min.css') }}"
+{% endblock stylesheets %}
+
+
+{% block javascript %}
+    <script type="text/javascript" src="{{ asset('js/api_spotify.js') }}"></script>
+{% endblock javascript %}
+
+
+{% block title %}Elodie's portfolio{% endblock title %}
+
+
+{% block header %}
+    {#{% if 'user' in user.roles %}#}
+        {#{% include ('UsersZone/Headers/userHeader.html.twig') %}#}
+    {#{% else %}#}
+        {{ parent() }}
+    {#{% endif %}#}
+{% endblock header %}
+
+
+{% block body %}
+    <!-- WELCOME SECTION !-->
+    <section class="row">
+        <div class="col-3 justify-content-center">
+            <img src="{{ asset('images/Me.jpg') }}" alt="me" class="rounded-circle">
+        </div>
+        <div class="col-9 text-center">
+            <h1 class="h1">Elodie Vianai, développeuse web</h1>
+            <br>
+            {#{% if 'user' in user.roles %}#}
+                {#<blockquote class="blockquote">#}
+                    {#<span id="citation">#}
+                        {#<em>#}
+                            {#Bonjour et bienvenue sur mon Portfolio !#}
+                            {#<br>#}
+                            {#Vous pouvez maintenant écouter un aperçu des musiques que j'écoute quand je travaille.#}
+                        {#</em>#}
+                    {#</span>#}
+                    {#<footer class="blockquote-footer">Elodie</footer>#}
+                {#</blockquote>#}
+            {#{% else %}#}
+                <blockquote class="blockquote">
+                    <span id="citation">
+                        <em>
+                            "Assurez-vous d’apprendre quelque chose de nouveau chaque jour."
+                        </em>
+                    </span>
+                    <footer class="blockquote-footer">Anders M. Andersen</footer>
+                </blockquote>
+            {#{% endif %}#}
+        </div>
+    </section>
+
+    <!-- ABOUT + ASSETS SECTION !-->
+    <section class="row">
+        <div class="col-7 text-justify" id="aboutMe">
+            <h2 class="h2 padding-bottom-3">A propos de moi</h2>
+            <p>
+                Je m'appelle Elodie Vianai, j'ai commencé le développement web en 2015 en développant une petite application
+                servant à archiver des documents familiaux sur l'aéropostale. Puis une application test destiner à la gestion
+                des adhérents de mon club de natation. C'est vite devenu un plaisir et une vocation. Etant curieuse de                 nature, j'aime expérimenter, découvrir et apprendre.
+            </p>
+        </div>
+        <div class="col-5 text-justify" id="mesAtouts">
+            <h2 class="h2">Mes atouts :</h2>
+            <br>
+            <ul>
+                <li>Sérieuse</li>
+                <li>Organisée</li>
+                <li>Curieuse</li>
+                <li>Motivée</li>
+                <li>Esprit d'équipe</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- INTERESTS SECTION !-->
+    <section>
+        <h2 class="h2 padding-bottom-3">Mes intérêts</h2>
+        <div class="row justify-content-center">
+            <div class="col-2">
+                <i class="fa fa-laptop"></i>
+                <span>Technologies</span>
+            </div>
+            <div class="col-2">
+                <i class="fa fa-globe"></i>
+                <span>Univers du web</span>
+            </div>
+            <div class="col-2">
+                <i class="fa fa-trophy"></i>
+                <span>Sports</span>
+            </div>
+            <div class="col-2">
+                <i class="fa fa-camera-retro"></i>
+                <span>Photographie</span>
+            </div>
+            <div class="col-2">
+                <i class="fa fa-plane"></i>
+                <span>Voyages</span>
+            </div>
+            <div class="col-2">
+                <i class="fa fa-film"></i>
+                <span>Films & séries</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION !-->
+    <section id="section-carousel" class="padding-bottom-5">
+        <h2 class="h2 padding-bottom-3">Mes projets</h2>
+        <div class="row">
+            <div id="my-carousel" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#my-carousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#my-carousel" data-slide-to="1"></li>
+                    <li data-target="#my-carousel" data-slide-to="2"></li>
+                    <li data-target="#my-carousel" data-slide-to="3"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    {% for project in projects %}
+                        <div class="carousel-item {% if lastProject.0.id == project.id %}active{% endif %}">
+                            {% if project.imagePath %}
+                                {#{% if 'user' in user.roles %}#}
+                                {#<a href="/user/projet/{{ project.id }}" class="carrousel-link">#}
+                                {#<img class="d-block carousel-images" src="/img{{ project.image_path }}">#}
+                                {#<div class="carousel-caption d-none d-block">{{ project.name }}</div>#}
+                                {#</a>#}
+                                {#{% else %}#}
+                                <a href="/projet/{{ project.id }}" class="carrousel-link">
+                                    <img class="d-block carousel-images" src="{{ asset('images/projects/'~project.imagePath) }}">
+                                    <div class="carousel-caption d-none d-block">{{ project.name }}</div>
+                                </a>
+                                {#{% endif %}#}
+                            {% else %}
+                                {#{% if 'user' in user.roles %}#}
+                                {#<a href="/user/projet/{{ project.id }}" class="carrousel-link">#}
+                                {#<img class="d-block carousel-images" src="/img{{ project.image_path }}">#}
+                                {#<div class="carousel-caption d-none d-block">{{ project.name }}</div>#}
+                                {#</a>#}
+                                {#{% else %}#}
+                                <a href="/projet/{{ project.id }}" class="carrousel-link">
+                                    <img class="d-block carousel-images" src="{{ asset('images/noImage-2.png') }}">
+                                    <div class="carousel-caption d-none d-block">{{ project.name }}</div>
+                                </a>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+                <a class="carousel-control-prev" href="#my-carousel" data-slide="prev">
+                    <span class="carousel-control-prev-icon carousel-icon"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#my-carousel" data-slide="next">
+                    <span class="carousel-control-next-icon carousel-icon"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- MUSIC SECTION !-->
+{% endblock body %}

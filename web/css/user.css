@@ -1,0 +1,14 @@
+#myusername {
+    padding-top: 5%;
+    color: #000000;
+    text-decoration: underline;
+}
+
+/********** ADMIN **********/
+#gestionCv {
+    margin-top: 20%;
+    height: 50px;
+}
+#administrator {
+    margin-top: 3%;
+}

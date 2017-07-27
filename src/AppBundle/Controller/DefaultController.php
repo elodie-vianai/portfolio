@@ -11,11 +11,33 @@ class DefaultController extends Controller
     /**
      * @Route("/", name="homepage")
      */
-    public function indexAction(Request $request)
+    public function indexAction()
     {
-        // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
+        // Get the repository and the entity manager
+        $em =   $this->getDoctrine()->getManager();
+
+        // Get the 5 last projects
+        $projects   = $em->getRepository('AppBundle:Project')
+            ->findBy(
+                array(),                            // no criteria
+                array('year' => 'desc'),            // sort by decreasing date
+                5,                             // selection of 5 projects maximum
+                0                             // from the first element
+            );
+
+        $lastProject = $em->getRepository('AppBundle:Project')
+            ->findBy(
+                array(),
+                array('year' => 'desc', 'id' => 'desc'),
+                1,
+                0
+            );
+//        var_dump($projects);var_dump($lastProject);die;
+
+        //users
+        return $this->render('AppBundle:home:default.html.twig', array(
+            'projects'      =>  $projects,
+            'lastProject'    =>  $lastProject
+        ));
     }
 }

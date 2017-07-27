@@ -1,0 +1,249 @@
+/* GENERALITIES */
+.apiSpotify {
+    font-family: 'Open Sans', sans-serif;
+    font-size: small;
+    /*overflow: hidden;*/
+}
+
+
+/* TOP ZONE */
+.topgroup {
+    height: 50px;
+    background-color: #125688;
+    margin-bottom: 3px;
+    padding: 1%;
+}
+.topgroup .playlist-link {
+    color: white;
+    font-size: medium;
+}
+
+/* MIDDLE ZONE */
+.midgroup{
+    height: 500px;
+    display: flex;
+}
+
+/*lateral zone */
+.menuview {
+    height: 500px;
+    width: 220px;
+    margin-right: 3px;
+    background-color: #125688;
+}
+.menuview .list {
+    overflow: auto;
+    border-bottom: 2px solid black;
+    height: 220px;
+}
+.menuview .list > b {
+    display: block;
+    margin: 10px 0 5px 10px;
+}
+.menuview ul.menuitems {
+    margin: 0 0 20px 0;
+    padding: 0;
+    list-style: none;
+}
+.menuview ul.menuitems li {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 2px 15px;
+    margin: 0;
+    cursor: pointer;
+}
+ul.menuitems li:hover {
+    background-color: white;
+    border: 1px solid #125688;
+
+}
+ul.menuitems li a:hover {
+    color: #125688;
+}
+.menuview .-ew {
+    height: 260px;
+}
+.menuview .preview {
+    display: flex;
+    flex-direction: column;
+}
+.menuview .preview > p {
+    display: block;
+    padding: 5px;
+}
+.menuview .preview > p b {
+    display: block;
+    font-weight: 300;
+}
+.menuview .preview > p a {
+    display: block;
+    font-size: 7pt;
+}
+.menuview a {
+    color: white;
+    text-decoration: none;
+}
+#imagealbum {
+    height: 220px;
+    width: 100% \9;
+}
+.menuview .preview .track {
+    height: 60px;
+    width: 100%;
+    border-top: 2px solid black;
+    padding: 3px;
+}
+.menuview .preview .track b {
+    color: white;
+}
+
+/* central zone */
+.mainview {
+    height: 500px;
+    background-color: whitesmoke;
+    flex: 1;
+}
+.mainview th {
+    background-color: lightgrey;
+}
+.mainview .titres {
+    padding-left: 5%;
+    color: black;
+}
+.mainview .artistes {
+}
+.mainview .albums {
+    padding-left: 5%;
+}
+.track-link {
+    cursor: pointer;
+}
+
+
+/* BOTTOM ZONE */
+.bottomgroup {
+    height: 50px;
+    margin-top: 3px;
+    background-color: #125688;
+}
+/* zone de gauche */
+.bottomgroup .leftcontrols {
+    display: flex;
+}
+.bottomgroup .leftcontrols a img {
+    width: 40px;
+}
+.bottomgroup .controlVol{
+    height: 50px;
+    width: 45px;
+}
+.bottomgroup .controlVol a {
+    background: #ebebeb;
+    width: 8px;
+    margin-left: 0;
+    margin-right: 0;
+    cursor: pointer;
+    border-left: 1px solid #fff;
+    position: absolute;
+    bottom: 30%;
+}
+#stick0 {
+    height: 5px;
+    left: 0;
+}
+#stick03 {
+    height: 10px;
+    left: 9px;
+}
+#stick05 {
+    height: 15px;
+    left: 18px;
+}
+#stick07 {
+    height: 20px;
+    left: 27px;
+}
+#stick1 {
+    height: 25px;
+    left: 36px;
+}
+
+/* zone centrale */
+.bottomgroup .seekcontrols {
+    padding: 0;
+}
+.bottomgroup .seekcontrols .slider {
+    position: absolute;
+    top: 12px;
+    left: 60px;
+    right: 60px;
+}
+.bottomgroup .seekcontrols input {
+    width: 100%;
+}
+.bottomgroup .seekcontrols div.progress {
+    position: absolute;
+    top: 12px;
+    left: 0;
+    text-align: center;
+}
+.bottomgroup .seekcontrols div.progress #bar{
+    border: 1px solid darkgrey;
+    width: 800px;
+}
+.sr-only {
+    background-color: #2b542c;
+}
+#nowBar{
+    background-color: darkgrey;
+    position: relative;
+}
+.bottomgroup .seekcontrols div.duration {
+    position: absolute;
+    right: 0;
+    top: 12px;
+    text-align: center;
+}
+
+/* zone de droite */
+.bottomgroup .rightcontrols {
+    height: inherit;
+    width: 105px;
+    padding: 12px;
+    color: white;
+}
+
+
+/* LOGIN ZONE */
+.loginview h2 {
+    color: #125688;
+    font-size: xx-large;
+}
+.loginview p {
+    color: #125688;
+}
+.seconnecter {
+    background-color: #125688;
+    color: white;
+}
+
+
+::-webkit-scrollbar-track {
+    background-color: #1c1c1f;
+}
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: #1c1c1f;
+}
+::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+::-webkit-scrollbar-thumb {
+    border: 1px solid #1c1c1f;
+    border-radius: 10px;
+    background-color: #323438;
+}
+::-webkit-scrollbar-corner {
+    background-color: #1c1c1f;
+}

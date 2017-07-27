@@ -1,13 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ app.request.locale }}">
     <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <meta charset="UTF-8"/>
+        <meta name="author" content="Elodie VIANAI;Web-atrio;">
+        <title>{% block title %}<!-- Title here !-->{% endblock title %}</title>
+
+        <link rel="stylesheet" type="text/css" href="{{ asset('vendor/bootstrap.min.css') }}">
+        {% block stylesheets %}<!-- Stylesheets links here !-->{% endblock stylesheets %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block header %}<!-- Header of the application here !-->{% endblock header %}
+        {% block content %}<!-- Content of the page here !-->{% endblock content %}
+        {% block footer %}<!-- Footer of the application here !-->{% endblock footer %}
+
+
+        <script src="{{ asset('vendor/jquery-3.2.1.min.js') }}"></script>
+        <script src="{{ asset('vendor/bootstrap.min.js') }}"></script>
+        {% block javascript %}<!-- JavaScript links here !-->{% endblock %}
     </body>
 </html>

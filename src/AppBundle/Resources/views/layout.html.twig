@@ -1,0 +1,93 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/header.css') }}">
+{% endblock stylesheets %}
+
+{% block title %}<!-- Title here !-->{% endblock title %}
+
+{% block header %}
+    <header id="header">
+        <div class="row">
+            <div class="col-3" id="logo">
+                <a href="/">
+                    <img src="{{ asset('images/logos/companies/logoWA.png') }}" alt="logo-WA" id="WALogo"/>
+                    <br/>
+                    <img src="{{ asset('images/logos/companies/logoWA-text.png') }}" alt="Web-atrio" id="WAText">
+                </a>
+            </div>
+            <div class="col">
+                <nav class="navbar navbar-toggleable-md" id="menuPublic">
+                    <div class="navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a href="/" class="nav-link">Accueil<span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/experiences" class="nav-link">Expériences</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/formation" class="nav-link">Formation</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/competences" class="nav-link">Compétences</a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav justify-content-end">
+                            <li class="nav-item active">
+                                <a href='/inscription' class="nav-link">Inscription</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href='/connexion' class="nav-link">Connexion</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+{% endblock header %}
+
+{% block content %}
+    <div class="container">
+        {% block body %}<!-- Rest of the page here !-->{% endblock body %}
+    </div>
+{% endblock content %}
+
+{% block footer %}
+    <footer class="panel-footer text-center" id="footer">
+        <div class="row">
+            <br>
+            <div class="col-4">
+                Créé par Elodie Vianai
+            </div>
+            <div class="col-4">
+                Portfolio - 2017
+            </div>
+            <div class="col-4">
+                <a href="https://twitter.com/elodiev31" target="_blank">
+                    <img src="{{ asset('images/logos/TwitterLogo.png') }}" alt="logo Twitter">
+                </a>
+                <a href="https://fr.linkedin.com/in/elodie-vianai" target="_blank">
+                    <img src="{{ asset('images/logos/LinkedinLogo.png') }}" alt="logo Linkedin">
+                </a>
+                {#{% if 'user' in user.roles %}#}
+                    {#<a href="user/contact">#}
+                        {#<img src="{{ asset('images/logos/email.png') }}" alt="logo contact">#}
+                    {#</a>#}
+                {#{% elseif 'admin' in user.roles %}#}
+                    {#<a href="admin/contact">#}
+                        {#<img src="{{ asset('images/logos/email.png') }}" alt="logo contact">#}
+                    {#</a>#}
+                {#{% else %}#}
+                    <a href="/contact">
+                        <img src="{{ asset('images/logos/email.png') }}" alt="logo contact">
+                    </a>
+                {#{% endif %}#}
+            </div>
+        </div>
+    </footer>
+{% endblock footer %}
+
+{% block javascript %}<!-- JavaScript links here !-->{% endblock %}

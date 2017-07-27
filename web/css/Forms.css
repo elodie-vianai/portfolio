@@ -1,0 +1,9 @@
+.consigne{
+    padding-bottom: 3%;
+    color: red;
+    font-style: italic;
+}
+
+.form-control:required {
+    background: url(../images/asterisk.png) 98% center no-repeat #fff;
+}
