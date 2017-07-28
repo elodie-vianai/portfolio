@@ -1,0 +1,128 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block title %}Contact - {{ parent() }}{% endblock title %}
+
+
+{% block header %}
+    {#{% if 'user' in user.roles %}#}
+    {#{% include ('UsersZone/Headers/userHeader.html.twig') %}#}
+    {#{% else %}#}
+    {{ parent() }}
+    {#{% endif %}#}
+{% endblock header %}
+
+
+{% block body %}
+    <div class="row padding-bottom-3">
+        <h1 class="h1">Me contacter</h1>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <h4>Contacter mon entreprise actuelle</h4>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <address>
+                    <div class="row"><strong>Web Atrio</strong></div>
+                    <div class="col-1"></div>
+                    <div class=" row adresse">2 rue Marcel Doret</div>
+                    <div class="co-1"></div>
+                    <div class="row adresse">Burolines 2</div>
+                    <div class="col-1"></div>
+                    <div class="row adresse">31700 Blagnac</div>
+                    <div class="row espace"><div class="col-lg-1"></div></div>
+                    <div class="col-1"></div>
+                    <div class="row adresse">06.81.77.39.99</div>
+                </address>
+            </div>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-1 spacebetween"> </div>
+        <div class="col-1"></div>
+        <div class="col">
+            <div class="row">
+                <h4>Je suis aussi sur ces réseaux sociaux</h4>
+            </div>
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-3 rs">
+                    <a href="https://twitter.com/elodiev31" target="_blank">
+                        <img src="{{ asset('images/logos/TwitterLogo.png') }}">
+                    </a>
+                    <br>
+                    <span class="nomRS">Twitter</span>
+                    <br>
+                    <span class="pseudo"><em>@elodiev31</em></span>
+                </div>
+                <div class="col-3 rs">
+                    <a href="https://fr.linkedin.com/in/elodie-vianai" target="_blank">
+                        <img src="{{ asset('images/logos/LinkedinLogo.png') }}">
+                    </a>
+                    <br>
+                    <span class="nomRS">Linkedin</span>
+                    <br>
+                    <span class="pseudo"><em>elodie-vianai</em></span>
+                </div>
+                <div class="col-3 rs">
+                    <a href="http://fr.viadeo.com/fr/profile/elodie.vianai" target="_blank">
+                        <img src="{{ asset('images/logos/ViadeoLogo.png') }}">
+                    </a>
+                    <br>
+                    <span class="nomRS">Viadeo</span>
+                    <br>
+                    <span class="pseudo"><em>elodie.vianai</em></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="formulaire">
+        <h4>Me contacter directement par formulaire</h4>
+        <div class="row">
+            <p id="formObligatoire">Tous les champs marqués d'un * sont obligatoires.</p>
+        </div>
+
+        <form class="form-horizontal padding-bottom-5" method="post" enctype="application/x-www-form-urlencoded" action="/contact">
+            <div class="row form-group">
+                <div class="col">
+                    <label for="nom" class="control-label">Nom</label>
+                </div>
+                <div class="col">
+                    <input type="text" name="nom" placeholder="Nom" class="form-control" disabled>
+                </div>
+                <div class="col">
+                    <label for="prenom" class="control-label">Prénom</label>
+                </div>
+                <div class="col">
+                    <input type="text" name="prenom" placeholder="Prénom" class="form-control" disabled>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col">
+                    <label for="mail" class="control-label">Email</label>
+                </div>
+                <div class="col">
+                    <input type="email" name="email" placeholder="Email" class="form-control" disabled>
+                </div>
+                <div class="col">
+                    <label for="phone" class="control-label">Téléphone</label>
+                </div>
+                <div class="col">
+                    <input type="tel" name="phone" placeholder="Numéro de téléphone" class="form-control" disabled>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-3">
+                    <label for="msg" class="control-label">Votre message</label>
+                </div>
+                <div class="col-9">
+                    <textarea class="form-control" name="message" rows="10" placeholder="Tapez ici votre message" disabled></textarea>
+                </div>
+            </div>
+            <div class="row form-group justify-content-center">
+                <button type="submit" class="btn btn-primary" name="envoyer" value="envoyer">Envoyer</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

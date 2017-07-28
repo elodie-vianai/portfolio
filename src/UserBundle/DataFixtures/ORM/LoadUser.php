@@ -13,9 +13,24 @@ class LoadUser extends AbstractFixture implements OrderedFixtureInterface
         $user1 = new User();
         $user1->setUsername('elodie.vianai');
         $user1->setPassword('cheval');
-        $user1->setRoles(array('ROLE_USER', 'ROLE_ADMIN'));
+        $user1->setPlainPassword('cheval');
+        $user1->setEmail('elodie.vianai@web-atrio.com');
+        $user1->setEnabled(1);
         $user1->setSalt('');
+        $user1->setRoles(array('ROLE_ADMIN'));
+
+        $user2 = new User();
+        $user2->setUsername('simple-user');
+        $user2->setPassword('mdp');
+        $user2->setPlainPassword('mdp');
+        $user2->setEmail('simple-user@externe.com');
+        $user2->setEnabled(1);
+        $user2->setSalt('');
+        $user2->setRoles(array('ROLE_USER'));
+
         $manager->persist($user1);
+        $manager->persist($user2);
+
         $manager->flush();
     }
 

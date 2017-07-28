@@ -5,47 +5,17 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/header.css') }}">
 {% endblock stylesheets %}
 
-{% block title %}<!-- Title here !-->{% endblock title %}
+{% block title %}Elodie's portfolio{% endblock title %}
 
 {% block header %}
     <header id="header">
-        <div class="row">
-            <div class="col-3" id="logo">
-                <a href="/">
-                    <img src="{{ asset('images/logos/companies/logoWA.png') }}" alt="logo-WA" id="WALogo"/>
-                    <br/>
-                    <img src="{{ asset('images/logos/companies/logoWA-text.png') }}" alt="Web-atrio" id="WAText">
-                </a>
-            </div>
-            <div class="col">
-                <nav class="navbar navbar-toggleable-md" id="menuPublic">
-                    <div class="navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item">
-                                <a href="/" class="nav-link">Accueil<span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/experiences" class="nav-link">Expériences</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/formation" class="nav-link">Formation</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/competences" class="nav-link">Compétences</a>
-                            </li>
-                        </ul>
-                        <ul class="navbar-nav justify-content-end">
-                            <li class="nav-item active">
-                                <a href='/inscription' class="nav-link">Inscription</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href='/connexion' class="nav-link">Connexion</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </div>
+        {% if is_granted('ROLE_ADMIN') %}
+            {% include ('AppBundle:headers:adminHeader.html.twig') %}
+        {% elseif is_granted('ROLE_USER') %}
+            {% include ('AppBundle:headers:userHeader.html.twig') %}
+        {% else %}
+            {% include ('AppBundle:headers:anonymHeader.html.twig') %}
+        {% endif %}
     </header>
 {% endblock header %}
 
@@ -81,7 +51,7 @@
                         {#<img src="{{ asset('images/logos/email.png') }}" alt="logo contact">#}
                     {#</a>#}
                 {#{% else %}#}
-                    <a href="/contact">
+                    <a href="{{ path('contactPage') }}">
                         <img src="{{ asset('images/logos/email.png') }}" alt="logo contact">
                     </a>
                 {#{% endif %}#}

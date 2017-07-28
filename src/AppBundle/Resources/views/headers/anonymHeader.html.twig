@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-3" id="logo">
+        <a href="{{ path('homepage') }}">
+            <img src="{{ asset('images/logos/companies/logoWA.png') }}" alt="logo-WA" id="WALogo"/>
+            <br/>
+            <img src="{{ asset('images/logos/companies/logoWA-text.png') }}" alt="Web-atrio" id="WAText">
+        </a>
+    </div>
+    <div class="col">
+        <nav class="navbar navbar-toggleable-md" id="menuPublic">
+            <div class="navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a href="{{ path('homepage') }}" class="nav-link">Accueil<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/experiences" class="nav-link">Expériences</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/formation" class="nav-link">Formation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/competences" class="nav-link">Compétences</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav justify-content-end">
+                    <li class="nav-item active">
+                        <a href="{{ path('fos_user_registration_register') }}" class="nav-link">Inscription</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ path('fos_user_security_login') }}" class="nav-link">Connexion</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>

@@ -69,3 +69,29 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+
+# FOSUserBundle Configuration
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: UserBundle\Entity\User
+    service:
+        mailer: fos_user.mailer.twig_swift
+    registration:
+        form:
+            type: FOS\UserBundle\Form\Type\RegistrationFormType
+            name: fos_user_registration_form
+            validation_groups: [Registration, Default]
+        confirmation:
+            enabled: true
+            template: '@FOSUser/Registration/email.txt.twig'
+    profile:
+        form:
+            type: FOS\UserBundle\Form\Type\ProfileFormType
+            #validation_groups: [Profile, Default]
+    resetting:
+        email:
+            template: '@FOSUser/Resetting/email.txt.twig'
+    from_email:
+        address: elodie.vianai@web-atrio.com
+        sender_name: user

@@ -1,0 +1,39 @@
+<div class="row align-middle">
+    <div class="col-3" id="logo">
+        <a href="">
+            <img src="{{ asset('images/logos/companies/logoWA.png') }}" alt="logo-WA" id="WALogo"/>
+            <br/>
+            <img src="{{ asset('images/logos/companies/logoWA-text.png') }}" alt="Web-atrio" id="WAText">
+        </a>
+    </div>
+    <div class="col">
+        <nav class="navbar navbar-toggleable-md" id="menuConnected">
+            <div class="navbar-collapse" id="navbarSupportedContent">
+                <div class="navbar-nav mr-auto">
+                    <div class="nav-item"><a class="nav-link" href="">Accueil</a></div>
+                    <!-- dropdown !-->
+                    <div class="btn-group dropdown" role="group">
+                        <button id="gestionCv" type="button" class="btn btn-secondary dropdown-toggle"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Gestion du CV
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="gestionCv">
+                            <a class="dropdown-item nav-link" href="">Gestion des expériences</a>
+                            <a class="dropdown-item nav-link" href="">Gestion des formations</a>
+                            <a class="dropdown-item nav-link" href="">Gestion des projets</a>
+                            <a class="dropdown-item nav-link" href="">Gestion des compétences</a>
+                        </div>
+                    </div>
+                    <!-- end dropdown !-->
+                    <div class="nav-item"><a class="nav-link" href="">Gestion des utilisateurs</a></div>
+                </div>
+                <div class="nav navbar-nav navbar-right" id="administrator">
+                    <p class="justify-content-end text-right">
+                        <strong>Adminsitrateur</strong>
+                        <br>
+                        <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></p>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>

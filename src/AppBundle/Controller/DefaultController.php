@@ -32,12 +32,23 @@ class DefaultController extends Controller
                 1,
                 0
             );
-//        var_dump($projects);var_dump($lastProject);die;
 
         //users
+        $user = $this->getUser();
+
         return $this->render('AppBundle:home:default.html.twig', array(
-            'projects'      =>  $projects,
-            'lastProject'    =>  $lastProject
+            'projects'          =>  $projects,
+            'lastProject'       =>  $lastProject,
+            'user'              => $user
         ));
+    }
+
+
+    /**
+     * @Route("/contact", name="contactPage")
+     */
+    public function contactAction(Request $request)
+    {
+       return $this->render('AppBundle:home:contact.html.twig');
     }
 }
