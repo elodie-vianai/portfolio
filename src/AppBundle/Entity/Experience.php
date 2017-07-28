@@ -77,7 +77,7 @@ class Experience
     private $department;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Project", mappedBy="project", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Project", mappedBy="experience", cascade={"persist"})
      *
      */
     private $projects;

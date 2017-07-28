@@ -307,7 +307,8 @@ $hasMinorProblems = (bool) count($minorProblems);
             }
             .sf-reset p.help {
                 padding: 12px 16px;
-                word-break: break-word;
+                /*word-break: break-word; <-- original*/
+                word-break: break-all;
             }
             .version {
                 text-align: right;
