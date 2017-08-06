@@ -2,15 +2,10 @@
 
 {% block title %}Contact - {{ parent() }}{% endblock title %}
 
-
-{% block header %}
-    {#{% if 'user' in user.roles %}#}
-    {#{% include ('UsersZone/Headers/userHeader.html.twig') %}#}
-    {#{% else %}#}
+{% block stylesheets %}
     {{ parent() }}
-    {#{% endif %}#}
-{% endblock header %}
-
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/contact-page.css') }}">
+{% endblock stylesheets %}
 
 {% block body %}
     <div class="row padding-bottom-3">

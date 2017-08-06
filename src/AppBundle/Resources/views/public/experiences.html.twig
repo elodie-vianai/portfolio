@@ -1,0 +1,75 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block title %}Expériences - {{ parent() }}{% endblock title %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/experiences-page.css') }}">
+{% endblock stylesheets %}
+
+{% block body %}
+    <div class="row justify-content-center padding-bottom-3">
+        <h1 class="h1 text-center">Mes expériences</h1>
+    </div>
+
+    <div class="row">
+        <h2 class="h2 padding-bottom-3">Expériences professionnelles</h2>
+    </div>
+    <div class="row padding-bottom-3">
+        <table class="table table-border">
+            <thead class="thead-default">
+            <tr>
+                <th>Date de début</th>
+                <th>Date de fin</th>
+                {#<th>Durée</th>#}
+                <th>Poste occupé</th>
+                <th>Type de contrat</th>
+                <th>Entreprise</th>
+                <th>Ville</th>
+                <th>Departement</th>
+                <th>Logo</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for experience in experiences %}
+                <tr>
+                    <td scope="row">{{ experience.beginAt | date('M-Y') }}</td>
+                    <td>{{ experience.endAt | date('M-Y') }}</td>
+                    {#<td>{{ experience.duree }}</td>#}
+                    <td>{{ experience.name }}</td>
+                    <td>{{ experience.contract }}</td>
+                    <td>{{ experience.company }}</td>
+                    <td>{{ experience.city }}</td>
+                    <td>{{ experience.department.code }}</td>
+                    <td><img src="{{ asset('images/logos/companies/'~experience.imagePath) }}" class="logos text-center" alt="logo de l'entreprise"></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="row">
+        <h2 class="h2 padding-bottom-3">Projets réalisés</h2>
+    </div>
+
+    <div class="row">
+        {% for project in projects %}
+            <!-- NEW CARD !-->
+            <div class="card col-3">
+                <div class="thumbnail text-center">
+                    {% if project.imagePath is empty or null %}
+                        <img src="{{ asset('images/noImage-2.png') }}" class="logos" alt="Logo de l'établissement">
+                    {% else %}
+                        <img class="card-img-top" src="{{ asset('images/projects/'~project.ImagePath) }}" alt="Card image cap">
+                    {% endif %}
+                </div>
+                <div class="card-block">
+                    <h4 class="card-title">{{ project.name }}</h4>
+                    <p class="card-text text-justify">{{ project.description}}</p>
+                    <a href="{{ path('projectDetail', {'id': project.id}) }}" class="btn btn-primary">Plus de détails</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock body %}

@@ -1,0 +1,68 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block title %}Détail projet - {{ parent() }}{% endblock title %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/project-detail-page.css') }}">
+{% endblock stylesheets %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1 class="h1"> Détail du projet</h1>
+            <h3 class="h2 padding-bottom-3 subtitle">{{ project.name }}</h3>
+        </div>
+    </div>
+
+    <div class="row text-center margin-bottom-3" id="imgdiv">
+        {% if project.imagePath is empty or null %}
+            <img src="{{ asset('images/noImage.png') }}" alt="screenshot projet" class="img-fluid mx-auto" id="imageProject">
+        {% else %}
+            <img src="{{ asset('images/projects/'~project.ImagePath) }}" alt="screenshot projet" class="img-fluid mx-auto" id="imageProject">
+        {% endif %}
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <p><span class="font-weight-bold">Nom du projet :</span> {{ project.name }}</p>
+        </div>
+        <div class="col-4"></div>
+        <div class="col-4">
+            <p><span class="font-weight-bold">Année de réalisation :</span> {{ project.year }}</p>
+            <br/>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <p>
+                <span class="font-weight-bold">Cadre de réalisation :</span>
+                {% if project.experience %}
+                    dans le cadre de mon {{ project.experience.contract | lower }} avec {{ project.experience.company }}.
+                {% endif %}
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <p><span class="font-weight-bold">Description du projet :</span> {{ project.description }}</p>
+            <br>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <p><span class="font-weight-bold">Technologies utilisées pour réaliser ce projet :</span></p>
+            <br/>
+        </div>
+    </div>
+    <div class="row padding-bottom-3">
+        {% for skill in project.skills %}
+            <div class="col-2 padding-3">
+                <img src="{{ asset('images/logos/skills/'~ skill.ImagePath) }}" alt="{{ skill.name }}" class="logosTechnos">
+            </div>
+        {% endfor %}
+    </div>
+{% endblock body %}

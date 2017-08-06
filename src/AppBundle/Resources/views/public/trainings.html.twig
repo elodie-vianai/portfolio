@@ -1,0 +1,38 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block title %}Formations - {{ parent() }}{% endblock title %}
+
+{% block body %}
+    <div class="row justify-content-center padding-bottom-3">
+        <h1 class="h1 text-center">Ma formation</h1>
+    </div>
+
+    {% for training in trainings %}
+        <div class="row padding-bottom-3">
+            <div class="col-2">
+                {% if training.imagePath is empty or null %}
+                    <img src="{{ asset('images/noImage-2.png') }}" class="logos" alt="Logo de l'établissement">
+                {% else %}
+                    <img src="{{ asset('images/logos/institutions/'~training.imagePath) }}" class="logos" alt="Logo de l'établissement">
+                {% endif %}
+            </div>
+            <div class="col-8">
+                <p>
+                    <strong>{{ training.name }}</strong>
+                    {% if training.mention != 'P' %}(mention {{ training.mention }}) {% endif %}
+                    <br>
+                    {{ training.institution }}
+                    <br>
+                    {{ training.city }}, {{ training.department.code }}
+                </p>
+            </div>
+            <div class="col-2">
+                {% if training.type == 'Formation' %}
+                    <h3 class="text-right">{{ training.beginAt|date('Y') }} - {{ training.endAt|date('Y') }}</h3>
+                {% else %}
+                    <h3 class="text-right">{{ training.endAt|date('Y') }}</h3>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+{% endblock body %}

@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-3" id="logo">
-        <a href="/">
+        <a href="{{ path('homepage') }}">
             <img src="{{ asset('images/logos/companies/logoWA.png') }}" alt="logo-WA" id="WALogo"/>
             <br/>
             <img src="{{ asset('images/logos/companies/logoWA-text.png') }}" alt="Web-atrio" id="WAText">
@@ -11,16 +11,16 @@
             <div class="navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a href="/" class="nav-link">Accueil<span class="sr-only">(current)</span></a>
+                        <a href="{{ path('homepage') }}" class="nav-link">Accueil<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="/" class="nav-link">Expériences</a>
+                        <a href="{{ path('experiences') }}" class="nav-link">Expériences</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/" class="nav-link">Formation</a>
+                        <a href="{{ path('trainings') }}" class="nav-link">Formation</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/" class="nav-link">Compétences</a>
+                        <a href="{{ path('skills') }}" class="nav-link">Compétences</a>
                     </li>
                 </ul>
                 <div class="navbar-nav">
@@ -28,7 +28,7 @@
                         <strong>
                             Bonjour,
                             <em>
-                                <a href="{{ path('fos_user_profile_show') }}" id="myusername">{{ user.username }}</a>
+                                <a href="{{ path('fos_user_profile_show') }}" id="myusername">{{ app.user.username }}</a>
                             </em>
                         </strong>
                         <br>
