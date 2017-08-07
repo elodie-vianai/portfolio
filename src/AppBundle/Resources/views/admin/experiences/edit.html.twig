@@ -1,0 +1,83 @@
+{% extends '@App/layout.html.twig' %}
+
+{% block title %}Modifier une expérience - {{ parent() }}{% endblock title %}
+
+{% block body %}
+    <h1 class="h1 margin-bottom-5 text-center">Modifier une expérience</h1>
+
+    {{ form_start(form) }}
+
+    <div class="form-group padding-bottom-3">
+        <div class="row form-group backgroundWA">
+            <h3>Dates</h3>
+        </div>
+        <div class="row form-group">
+            {{ form_label(form.beginAt, 'Date de début', {'label_attr': {'class': 'col-form-label col-2'} }) }}
+            {{ form_widget(form.beginAt, {'label_attr': {'class': 'form-control col-3'} }) }}
+            <div class="col-2"></div>
+            {{ form_label(form.endAt, 'Date de fin', {'label_attr': {'class': 'col-form-label col-2'} }) }}
+            {{ form_widget(form.endAt, {'label_attr': {'class': 'form-control col-3'} }) }}
+        </div>
+    </div>
+
+    <div class="form-group padding-bottom-3">
+        <div class="row form-group backgroundWA">
+            <h3>Contrat</h3>
+        </div>
+        <div class="row form-group">
+            {{ form_label(form.contract, 'Type de contrat', {'label_attr': {'class': 'col-form-label col-3'} }) }}
+            {{ form_widget(form.contract, {'label_attr': {'class': 'form-control col-3'} }) }}
+            {{ form_label(form.name, 'Titre du poste occupé', {'label_attr': {'class': 'col-form-label col-2'} }) }}
+            {{ form_widget(form.name, {'label_attr': {'class': 'form-control col-4'} }) }}
+        </div>
+    </div>
+
+    <div class="form-group padding-bottom-3">
+        <div class="row form-group backgroundWA">
+            <h3>Entreprise / Administration</h3>
+        </div>
+        <div class="row form-group">
+            {{ form_label(form.company, 'Nom de l\'entreprise', {'label_attr': {'class': 'col-form-label col-3'} }) }}
+            {{ form_widget(form.company, {'label_attr': {'class': 'form-control col-9'} }) }}
+        </div>
+        <div class="row form-group">
+            {{ form_label(form.city, 'Ville', {'label_attr': {'class': 'col-form-label col-3'} }) }}
+            {{ form_widget(form.city, {'label_attr': {'class': 'form-control col-9'} }) }}
+        </div>
+        <div class="row form-group">
+            {{ form_label(form.department, 'Département', {'label_attr': {'class': 'col-form-label col-3'} }) }}
+            {{ form_widget(form.department, {'label_attr': {'class': 'form-control col-9'} }) }}
+        </div>
+        <div class="form-group row">
+            {{ form_label(form.imagePath, 'Logo de l\entreprise', {'label_attr': {'class': 'col-form-label col-3'} }) }}
+            {{ form_widget(form.imagePath, {'label_attr': {'class': 'form-control col-9'} }) }}
+        </div>
+    </div>
+
+    {#<div class="form-group padding-bottom-3">#}
+    {#<div class="row form-group backgroundWA">#}
+    {#<h3>Projets réalisés lors de l'expérience</h3>#}
+    {#</div>#}
+    {#<div class="form-group row">#}
+    {#{{ form_label(form.projects, 'Projets réalisés', {'label_attr': {'class': 'col-form-label col-3'} }) }}#}
+    {#{{ form_widget(form.projects, {'label_attr': {'class': 'form-control col-9'} }) }}#}
+    {#</div>#}
+    {#</div>#}
+
+    <div class="alert alert-info">
+        <strong>Attention :</strong> cette expérience sera ajoutée directement sur la page d'accueil après validation du formulaire.
+    </div>
+
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-2">
+            <a href="{{ path('crud-trainings') }}" class="btn btn-danger">Annuler</a>
+        </div>
+        <div class="col-2">{{ form_widget(form.save, {'attr': {'class': 'btn btn-success'}, 'label': 'Modifier' }) }}</div>
+        <div class="col-4"></div>
+    </div>
+
+    {{ form_rest(form) }}
+
+    {{ form_end(form) }}
+{% endblock body %}

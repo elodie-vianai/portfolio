@@ -1,0 +1,63 @@
+{% extends '@App/admin/crud-layout.html.twig' %}
+
+{% block titleName %}expériences{% endblock titleName %}
+
+{% block body %}
+    {% block titrePage %}<h1 class="h1 text-center">Gestion des expériences</h1>{% endblock %}
+
+    {% block boutonAjouter %}
+        <a href="{{ path('add-experience') }}" class="btn btn-success margin-bottom-3" id="add-button">
+            Ajouter une nouvelle expérience
+        </a>
+    {% endblock %}
+
+    {% block table %}
+        <table class="table table-bordered margin-bottom-5 table_crud">
+            <thead class="table-info">
+            <tr>
+                <th class="align-middle text-center">Date de début</th>
+                <th class="align-middle text-center">Date de fin</th>
+                <th class="align-middle text-center">Contrat</th>
+                <th class="align-middle text-center">Poste</th>
+                <th class="align-middle text-center">Entreprise</th>
+                <th class="align-middle text-center">Lieu</th>
+                <th class="align-middle text-center">Logo</th>
+                <th class="align-middle text-center">Projets associés</th>
+                <th class="align-middle text-center" colspan="2">Édition</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for experience in experiences %}
+                <tr>
+                    <td  class="align-middle">{{ experience.beginAt|date('M-Y') }}</td>
+                    <td  class="align-middle" id="td-end_at">{{ experience.endAt|date('M-Y') }}</td>
+                    <td  class="align-middle">{{ experience.contract }}</td>
+                    <td  class="align-middle">{{ experience.name }}</td>
+                    <td  class="align-middle">{{ experience.company }}</td>
+                    <td  class="align-middle">{{ experience.city }} ({{ experience.department.code }})</td>
+                    <td  class="align-middle">
+                        {% if experience.imagePath is empty or null %}
+                            <img src="{{ asset('images/noImage-2.png') }}" class="logos_crud" alt="Aucune image disponible">
+                        {% else %}
+                            <img src="{{ asset('images/logos/companies/'~experience.imagePath) }}" class="logos_crud" alt="Logo de l'entreprise">
+                        {% endif %}
+                    </td>
+                    <td  class="align-middle">
+                        <ul class="lists_crud">
+                            {% for project in experience.projects %}
+                                <li>{{project.name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                    <td class="align-middle" id="td-edition">
+                        <a class="btn btn-warning" href="{{ path('edit-experience', {'id': experience.id}) }}"><img src="{{ asset('images/edit.png') }}"></a>
+                    </td>
+                    <td class="align-middle" id="td-edition">
+                        <a class="btn btn-danger" href="{{ path('delete-experience', {'id': experience.id}) }}"><img src="{{ asset('images/delete.png') }}"></a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endblock %}
+{% endblock body %}

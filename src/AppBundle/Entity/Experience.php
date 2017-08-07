@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints\Date;
 
 /**
  * Experience
@@ -50,16 +52,16 @@ class Experience
     private $city;
 
     /**
-     * @var \DateTime
+     * @var Date
      *
-     * @ORM\Column(name="begin_at", type="datetime")
+     * @ORM\Column(name="begin_at", type="date")
      */
     private $beginAt;
 
     /**
-     * @var \DateTime
+     * @var Date
      *
-     * @ORM\Column(name="end_at", type="datetime", nullable=true)
+     * @ORM\Column(name="end_at", type="date", nullable=true)
      */
     private $endAt;
 
@@ -90,7 +92,7 @@ class Experience
      */
     public function __construct()
     {
-        $this->projects = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->projects = new ArrayCollection();
     }
 
 
@@ -205,7 +207,7 @@ class Experience
     /**
      * Set beginAt
      *
-     * @param \DateTime $beginAt
+     * @param Date $beginAt
      *
      * @return Experience
      */
@@ -219,7 +221,7 @@ class Experience
     /**
      * Get beginAt
      *
-     * @return \DateTime
+     * @return Date
      */
     public function getBeginAt()
     {
@@ -229,7 +231,7 @@ class Experience
     /**
      * Set endAt
      *
-     * @param \DateTime $endAt
+     * @param Date $endAt
      *
      * @return Experience
      */
@@ -243,7 +245,7 @@ class Experience
     /**
      * Get endAt
      *
-     * @return \DateTime
+     * @return Date
      */
     public function getEndAt()
     {

@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\Date;
 
 /**
  * Training
@@ -50,16 +51,16 @@ class Training
     private $city;
 
     /**
-     * @var \DateTime
+     * @var Date
      *
-     * @ORM\Column(name="begin_at", type="datetime")
+     * @ORM\Column(name="begin_at", type="date")
      */
     private $beginAt;
 
     /**
-     * @var \DateTime
+     * @var Date
      *
-     * @ORM\Column(name="end_at", type="datetime", nullable=true)
+     * @ORM\Column(name="end_at", type="date", nullable=true)
      */
     private $endAt;
 
@@ -207,7 +208,7 @@ class Training
     /**
      * Get beginAt
      *
-     * @return \DateTime
+     * @return Date
      */
     public function getBeginAt()
     {
@@ -217,7 +218,7 @@ class Training
     /**
      * Set endAt
      *
-     * @param \DateTime $endAt
+     * @param Date $endAt
      *
      * @return Training
      */
@@ -231,7 +232,7 @@ class Training
     /**
      * Get endAt
      *
-     * @return \DateTime
+     * @return Date
      */
     public function getEndAt()
     {
