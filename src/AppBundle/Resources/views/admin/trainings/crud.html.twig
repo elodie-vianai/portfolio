@@ -1,0 +1,57 @@
+{% extends '@App/admin/crud-layout.html.twig' %}
+
+{% block titleName %}formations{% endblock titleName %}
+
+{% block body %}
+    {% block titrePage %}<h1 class="h1 text-center">Gestion des formations</h1>{% endblock %}
+
+    {% block boutonAjouter %}
+        <a href="{{ path('add-training') }}" class="btn btn-success margin-bottom-3" id="add-button">
+            Ajouter une nouvelle formation
+        </a>
+    {% endblock %}
+
+    {% block table %}
+        <table class="table table-bordered margin-bottom-5 table_crud">
+            <thead class="table-info">
+            <tr>
+                <th class="align-middle text-center">Date de début</th>
+                <th class="align-middle text-center">Date de fin</th>
+                <th class="align-middle text-center">Type</th>
+                <th class="align-middle text-center">Nom</th>
+                <th class="align-middle text-center">Mention</th>
+                <th class="align-middle text-center">Etablissement</th>
+                <th class="align-middle text-center">Ville</th>
+                <th class="align-middle text-center">Logo</th>
+                <th class="align-middle text-center" colspan="2">Édition</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for training in trainings %}
+                <tr>
+                    <td  class="align-middle">{{ training.beginAt|date('M-Y') }}</td>
+                    <td  class="align-middle" id="td-end_at">{{ training.endAt|date('M-Y') }}</td>
+                    <td  class="align-middle">{{ training.type }}</td>
+                    <td  class="align-middle">{{ training.name }}</td>
+                    <td  class="align-middle text-center">{{ training.mention }}</td>
+                    <td  class="align-middle">{{ training.institution }}</td>
+                    <td  class="align-middle">{{ training.city }} ({{ training.department.code }})</td>
+                    <td  class="align-middle">
+                        {% if training.imagePath is empty or null %}
+                            <img src="{{ asset('images/noImage-2.png') }}" class="logos_crud" alt="Logo de l'établissement">
+                        {% else %}
+                            <img src="{{ asset('images/logos/institutions/'~training.imagePath) }}" class="logos_crud" alt="Logo de l'établissement">
+                        {% endif %}
+                    </td>
+                    <td class="align-middle" id="td-edition">
+                        <a class="btn btn-warning" href="{{ path('edit-training', {'id': training.id}) }}"><img src="{{ asset('images/edit.png') }}"></a>
+                    </td>
+                    <td class="align-middle" id="td-edition">
+                        <a class="btn btn-danger" href="{{ path('delete-training', {'id': training.id}) }}"><img src="{{ asset('images/delete.png') }}"></a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endblock %}
+{% endblock body %}

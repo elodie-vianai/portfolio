@@ -7,3 +7,19 @@
 .form-control:required {
     background: url(../images/asterisk.png) 98% center no-repeat #fff;
 }
+
+.deleteForm{
+    margin-top: 5%;
+    width: 50%;
+    margin-left: 25%;
+    text-align: center;
+    border: solid 1px #125688;
+    border-radius: 10px;
+    box-shadow: 6px 6px 6px lightgrey;
+
+}
+
+.btn-form{
+    margin-left: 50%;
+    margin-bottom: 3%;
+}

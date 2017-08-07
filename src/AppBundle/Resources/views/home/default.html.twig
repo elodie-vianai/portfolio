@@ -18,34 +18,40 @@
 {% block body %}
     <!-- WELCOME SECTION !-->
     <section class="row">
-        <div class="col-3 justify-content-center">
-            <img src="{{ asset('images/Me.jpg') }}" alt="me" class="rounded-circle">
-        </div>
-        <div class="col-9 text-center">
-            <h1 class="h1">Elodie Vianai, développeuse web</h1>
-            <br>
-            {#{% if 'user' in user.roles %}#}
-                {#<blockquote class="blockquote">#}
-                    {#<span id="citation">#}
-                        {#<em>#}
-                            {#Bonjour et bienvenue sur mon Portfolio !#}
-                            {#<br>#}
-                            {#Vous pouvez maintenant écouter un aperçu des musiques que j'écoute quand je travaille.#}
-                        {#</em>#}
-                    {#</span>#}
-                    {#<footer class="blockquote-footer">Elodie</footer>#}
-                {#</blockquote>#}
-            {#{% else %}#}
+        {% if is_granted('ROLE_ADMIN') %}
+            <div class="col-3 justify-content-center">
+                <img src="{{ asset('images/admin.png') }}" alt="me" class="rounded-circle">
+            </div>
+            <div class="col-9 text-center">
+                <h1 class="h1">Administration</h1>
+                <br>
                 <blockquote class="blockquote">
-                    <span id="citation">
-                        <em>
-                            "Assurez-vous d’apprendre quelque chose de nouveau chaque jour."
-                        </em>
-                    </span>
+                        <span id="citation">
+                <em>
+                Bonjour et bienvenue sur mon Portfolio !
+                <br>
+                Vous pouvez maintenant écouter un aperçu des musiques que j'écoute quand je travaille.
+                </em>
+                </span>
+                    <footer class="blockquote-footer">Elodie</footer>
+                </blockquote>
+        {% else %}
+            <div class="col-3 justify-content-center">
+                <img src="{{ asset('images/Me.jpg') }}" alt="me" class="rounded-circle">
+            </div>
+            <div class="col-9 text-center">
+                <h1 class="h1">Elodie Vianai, développeuse web</h1>
+                <br>
+                <blockquote class="blockquote">
+                        <span id="citation">
+                            <em>
+                                "Assurez-vous d’apprendre quelque chose de nouveau chaque jour."
+                            </em>
+                        </span>
                     <footer class="blockquote-footer">Anders M. Andersen</footer>
                 </blockquote>
-            {#{% endif %}#}
-        </div>
+            </div>
+        {% endif %}
     </section>
 
     <!-- ABOUT + ASSETS SECTION !-->
@@ -76,27 +82,33 @@
         <h2 class="h2 padding-bottom-3">Mes intérêts</h2>
         <div class="row justify-content-center">
             <div class="col-2">
-                <i class="fa fa-laptop"></i>
+                {#<i class="fa fa-laptop"></i>#}
+                <img src="{{ asset('images/technology.png') }}">
                 <span>Technologies</span>
             </div>
             <div class="col-2">
-                <i class="fa fa-globe"></i>
+                {#<i class="fa fa-globe"></i>#}
+                <img src="{{ asset('images/internet.png') }}">
                 <span>Univers du web</span>
             </div>
             <div class="col-2">
-                <i class="fa fa-trophy"></i>
+                {#<i class="fa fa-trophy"></i>#}
+                <img src="{{ asset('images/sports.png') }}">
                 <span>Sports</span>
             </div>
             <div class="col-2">
-                <i class="fa fa-camera-retro"></i>
+                {#<i class="fa fa-camera-retro"></i>#}
+                <img src="{{ asset('images/photography.png') }}">
                 <span>Photographie</span>
             </div>
             <div class="col-2">
-                <i class="fa fa-plane"></i>
+                {#<i class="fa fa-plane"></i>#}
+                <img src="{{ asset('images/travel.png') }}">
                 <span>Voyages</span>
             </div>
             <div class="col-2">
-                <i class="fa fa-film"></i>
+                {#<i class="fa fa-film"></i>#}
+                <img src="{{ asset('images/cinema.png') }}">
                 <span>Films & séries</span>
             </div>
         </div>

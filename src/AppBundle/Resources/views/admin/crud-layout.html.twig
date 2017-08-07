@@ -1,0 +1,23 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block title %}Gestion des {% block titleName %}{% endblock titleName %} - {{ parent() }}{% endblock title %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/crud.css') }}">
+{% endblock stylesheets %}
+
+{% block body %}
+    <div class="row">
+        {% block PageTitle %}{% endblock %}
+    </div>
+
+    <!-- BOUTON POUR AJOUTER UNE NOUVELLE ENTRÉE !-->
+    <div class="row">
+        {% block AddButton %}<!-- nom du bouton!-->{% endblock %}
+
+        <!-- TABLEAU !-->
+        {% block table %} {% endblock %}
+    </div>
+
+{% endblock %}
