@@ -1,0 +1,29 @@
+{% extends '@App/layout.html.twig' %}
+
+{% block title %}Suppression d'un projet - {{ parent() }}{% endblock title %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/Forms.css') }}">
+    {% endblock stylesheets %}
+
+{% block body %}
+    <h1 class="h1 margin-bottom-5 text-center">Supprimer un projet</h1>
+
+    <div class="jumbotron jumbotron-fluid deleteForm">
+        <p>
+            Etes-vous certain de vouloir supprimer projet "{{ project.name }}" ?
+        </p>
+        <form action="{{ path('delete-project', {'id': project.id}) }}" method="post">
+            <a href="{{ path('crud-projects') }}" class="btn btn-secondary">
+                <img src="{{ asset('images/back.png') }}">
+            </a>
+
+            <button type="submit" class="btn btn-danger">
+                <img src="{{ asset('images/delete-white.png') }}">
+            </button>
+
+            {# Generate the CSRF field #}
+            {{ form_rest(form) }}
+        </form>
+    </div>
+{% endblock body %}

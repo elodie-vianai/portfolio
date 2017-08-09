@@ -48,11 +48,6 @@ class ExperienceType extends AbstractType
             ->add('imagePath',          FileType::class)
             ->add('beginAt',            DateType::class)
             ->add('endAt',              DateType::class)
-//            ->add('projects',           EntityType::class, array(
-//                'class'             =>  'AppBundle\Entity\Project',
-//                'choice_label'      =>  'name',
-//                'multiple'          =>  true
-//            ))
             ->add('save',               SubmitType::class)
             ->getForm();
 

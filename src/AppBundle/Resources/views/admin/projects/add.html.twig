@@ -1,0 +1,81 @@
+{% extends '@App/layout.html.twig' %}
+
+{% block title %}Ajouter un projet - {{ parent() }}{% endblock title %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/Forms.css') }}">
+    {{ parent() }}
+{% endblock stylesheets %}
+
+{% block body %}
+    <h1 class="h1 margin-bottom-5 text-center">Ajouter un projet</h1>
+
+    {{ form_start(form) }}
+
+
+    <div class="form-group padding-bottom-3">
+        <div class="row form-group backgroundWA">
+            <h3>Présentation du projet</h3>
+        </div>
+        <div class="row form-group">
+            {{ form_label(form.name, 'Nom du projet', {'label_attr': {'class': 'col-form-label col-2'} }) }}
+            {{ form_widget(form.name, {'label_attr': {'class': 'form-control col-4'} }) }}
+            <div class="col-1"></div>
+            {{ form_label(form.year, 'Date de réalisation du projet', {'label_attr': {'class': 'col-form-label col-3'} }) }}
+            {{ form_widget(form.year, {'label_attr': {'class': 'form-control col-2'} }) }}
+        </div>
+        <div class="row">
+            {{ form_label(form.imagePath, 'Screenshot du projet', {'label_attr': {'class': 'col-form-label col-3'} }) }}
+            {{ form_widget(form.imagePath, {'label_attr': {'class': 'form-control col-9'} }) }}
+        </div>
+    </div>
+
+    <div class="form-group padding-bottom-3">
+        <div class="row form-group backgroundWA">
+            <h3>Description du projet</h3>
+        </div>
+        <div class="row form-group">
+            {{ form_label(form.description, 'Description', {'label_attr': {'class': 'col-form-label col-2'} }) }}
+            {{ form_widget(form.description, {'label_attr': {'class': 'form-control col-10'} }) }}
+        </div>
+    </div>
+
+    <div class="form-group padding-bottom-3">
+        <div class="row form-group backgroundWA">
+            <h3>Technologies utilisées pour ce projet</h3>
+        </div>
+        <div class="row form-group">
+            {{ form_label(form.skills, 'Technologies utilisées pour ce projet', {'label_attr': {'class': 'col-form-label col-3'} }) }}
+            {{ form_widget(form.skills, {'label_attr': {'class': 'form-control col-9'} }) }}
+            <br>
+            <p id="aideAjout" class="form-text text-muted">Pour sélectionner plusieurs technologies, maintenez la touche CTRL enfoncée</p>
+        </div>
+    </div>
+
+    <div class="form-group padding-bottom-3">
+        <div class="row form-group backgroundWA">
+            <h3>Expérience liée à ce projet</h3>
+        </div>
+        <div class="row form-group">
+            {{ form_label(form.experience, 'Expérience', {'label_attr': {'class': 'col-form-label col-3'} }) }}
+            {{ form_widget(form.experience, {'label_attr': {'class': 'form-control col-9'} }) }}
+        </div>
+    </div>
+
+    <div class="alert alert-info">
+        <strong>Attention :</strong> ce projet sera ajouté directement sur la page d'accueil après validation du formulaire.
+    </div>
+
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-2">
+            <a href="{{ path('crud-projects') }}" class="btn btn-danger">Annuler</a>
+        </div>
+        <div class="col-2">{{ form_widget(form.save, {'attr': {'class': 'btn btn-success'}, 'label': 'Enregistrer' }) }}</div>
+        <div class="col-4"></div>
+    </div>
+
+    {{ form_rest(form) }}
+
+    {{ form_end(form) }}
+{% endblock body %}

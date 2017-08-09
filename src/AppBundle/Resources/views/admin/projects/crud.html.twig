@@ -1,0 +1,60 @@
+{% extends '@App/admin/crud-layout.html.twig' %}
+
+{% block titleName %}projets{% endblock titleName %}
+
+{% block body %}
+    {% block titrePage %}<h1 class="h1 text-center">Gestion des projets</h1>{% endblock %}
+
+    {% block boutonAjouter %}
+        <a href="{{ path('add-project') }}" class="btn btn-success margin-bottom-3" id="add-button">
+            Ajouter un nouveau projet
+        </a>
+    {% endblock %}
+
+    {% block table %}
+        <table class="table table-bordered margin-bottom-5 table_crud">
+            <thead class="table-info">
+            <tr>
+                <th class="align-middle text-center">Année</th>
+                <th class="align-middle text-center">Nom</th>
+                <th class="align-middle text-center">Description</th>
+                <th class="align-middle text-center">Image</th>
+                <th class="align-middle text-center">Technologies associées</th>
+                <th class="align-middle text-center" colspan="3">Édition</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for project in projects %}
+                <tr>
+                    <td  class="align-middle">{{ project.year }}</td>
+                    <td  class="align-middle">{{ project.name }}</td>
+                    <td  class="align-middle text-justify">{{ project.description }}</td>
+                    <td  class="align-middle">
+                        {% if project.imagePath is empty or null %}
+                            <img src="{{ asset('images/noImage-2.png') }}" class="logos_crud" alt="Aucune image disponible">
+                        {% else %}
+                            <img src="{{ asset('images/projects/'~project.imagePath) }}" class="logos_crud" alt="Image du projet">
+                        {% endif %}
+                    </td>
+                    <td  class="align-middle">
+                        <ul class="lists_crud">
+                            {% for skill in project.skills %}
+                                <li>{{ skill.name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                    <td class="align-middle" id="td-edition">
+                        <a class="btn btn-info" href="{{ path('projectDetail', {'id': project.id}) }}"><img src="{{ asset('images/eye.png') }}"></a>
+                    </td>
+                    <td class="align-middle" id="td-edition">
+                        <a class="btn btn-warning" href=""><img src="{{ asset('images/edit.png') }}"></a>
+                    </td>
+                    <td class="align-middle" id="td-edition">
+                        <a class="btn btn-danger" href="{{ path('delete-project', {'id': project.id }) }}"><img src="{{ asset('images/delete.png') }}"></a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endblock %}
+{% endblock %}
