@@ -16,7 +16,8 @@ class SkillController extends Controller
     /**
      * @Route ("/competences", name="skills")
      */
-    public function skillsAction(){
+    public function skillsAction()
+    {
         $skills = $this->getDoctrine()->getManager()->getRepository('AppBundle:Skill')->findAll();
 
         return $this->render('AppBundle:public:skills.html.twig', array(
@@ -80,13 +81,13 @@ class SkillController extends Controller
      */
     public function editAction(Skill $skill, Request $request)
     {
-        if (null === $skill){
+        if (null === $skill) {
             throw new NotFoundHttpException('La compétence demandée n\'existe pas.');
         }
 
-        $form = $this->createForm(SkillType::class , $skill);
+        $form = $this->createForm(SkillType::class, $skill);
 
-        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()){
+        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
             $request->getSession()->getFlashBag()->add('success', 'La compétence a bien été modifiée.');
@@ -95,8 +96,8 @@ class SkillController extends Controller
         }
 
         return $this->render('@App/admin/skills/edit.html.twig', array(
-            'skill'  => $skill,
-            'form'      => $form
+            'skill' => $skill,
+            'form' => $form
         ));
     }
 

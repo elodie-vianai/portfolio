@@ -47,7 +47,7 @@ class DefaultController extends Controller
     /**
      * @Route("/contact", name="contactPage")
      */
-    public function contactAction(Request $request)
+    public function contactAction()
     {
        return $this->render('AppBundle:home:contact.html.twig');
     }

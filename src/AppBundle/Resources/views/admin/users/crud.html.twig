@@ -1,0 +1,42 @@
+{% extends '@App/admin/crud-layout.html.twig' %}
+
+{% block titleName %}utilisateurs{% endblock titleName %}
+
+{% block body %}
+    {% block titrePage %}<h1 class="h1 text-center">Gestion des utilisateurs</h1>{% endblock %}
+
+    {#{% block boutonAjouter %}#}
+        {#<a href="" class="btn btn-success margin-bottom-3" id="add-button">#}
+            {#Ajouter une nouvelle formation#}
+        {#</a>#}
+    {#{% endblock %}#}
+
+    {% block table %}
+        <table class="table table-bordered margin-bottom-5 table_crud">
+            <thead class="table-info">
+            <tr>
+                <th class="align-middle text-center">ID</th>
+                <th class="align-middle text-center">Nom d'utilisateur</th>
+                <th class="align-middle text-center">Rôle</th>
+                <th class="align-middle text-center" colspan="2">Édition</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    <td  class="align-middle">{{ user.id }}</td>
+                    <td  class="align-middle">{{ user.username }}</td>
+                    <td  class="align-middle">
+                        {% for role in user.roles %}
+                            {{ role }},
+                        {% endfor %}
+                    </td>
+                    <td class="align-middle" id="td-edition" colspan="2">
+                        <a class="btn btn-warning" href="{{ path('fos_user_profile_edit') }}"><img src="{{ asset('images/edit.png') }}"></a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endblock %}
+{% endblock body %}
