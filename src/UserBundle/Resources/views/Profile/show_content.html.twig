@@ -1,0 +1,33 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<h1 class="h1 margin-bottom-5 text-center">Mon compte</h1>
+
+<div class="jumbotron jumbotron-fluid jumbotronized">
+    <div class="fos_user_user_show">
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-4">
+                <strong>Nom d'utilisateur :</strong>
+            </div>
+            <div class="col-3">
+                <i>{{ user.username }}</i>
+            </div>
+        </div>
+
+        <div class="row padding-top-3 margin-bottom-5">
+            <div class="col-1"></div>
+            <div class="col-4">
+                <strong>Adresse mail :</strong>
+            </div>
+            <div class="col-5">
+                <i>{{ user.email }}</i>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6"></div>
+            <a class="btn btn-warning" href="{{ path('fos_user_profile_edit', {'id': user.id}) }}">
+                <img src="{{ asset('images/edit.png') }}">
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<h1 class="h1 margin-bottom-5 text-center">Inscription</h1>
+
+<div class="jumbotron jumbotron-fluid jumbotronized">
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+
+    {{ form_errors(form) }}
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-4">
+            {{ form_label(form.email, 'Email :') }}
+        </div>
+        <div class="col-6">
+            {{ form_widget(form.email, {'attr': {'class': 'form-control'} }) }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-4">
+            {{ form_label(form.email, 'Nom d\'utilisateur :') }}
+        </div>
+        <div class="col-3">
+            {{ form_widget(form.username, {'attr': {'class': 'form-control'} }) }}
+        </div>
+    </div>
+
+    {#<div class="row">#}
+        {#<div class="col-1"></div>#}
+        {#<div class="col-4">#}
+            {#{{ form_label(form.plainPassword, 'Mot de passe :') }}#}
+        {#</div>#}
+        {#<div class="col-3">#}
+            {#{{ form_widget(form.plainPassword, {'attr': {'class': 'form-control'} }) }}#}
+        {#</div>#}
+    {#</div>#}
+
+    {#<div class="row">#}
+        {#<div class="col-1"></div>#}
+        {#<div class="col-4">#}
+            {#{{ form_label(form.password_confirmation, 'Confirmation du mot de passe :') }}#}
+        {#</div>#}
+        {#<div class="col-3">#}
+            {#{{ form_widget(form.password_confirmation, {'attr': {'class': 'form-control'} }) }}#}
+        {#</div>#}
+    {#</div>#}
+
+    <div>
+        <input type="submit" value="S'inscrire" />
+    </div>
+    {{ form_rest(form) }}
+
+    {{ form_end(form) }}
+
+</div>
