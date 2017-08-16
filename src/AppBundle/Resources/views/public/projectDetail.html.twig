@@ -16,10 +16,10 @@
     </div>
 
     <div class="row text-center margin-bottom-3" id="imgdiv">
-        {% if project.imagePath is empty or null %}
-            <img src="{{ asset('images/noImage.png') }}" alt="screenshot projet" class="img-fluid mx-auto" id="imageProject">
+        {% if project.image is empty or null %}
+            <img src="{{ asset('images/noImage.png') }}" alt="Aucune image disponible" class="img-fluid mx-auto" id="imageProject">
         {% else %}
-            <img src="{{ asset('images/projects/'~project.ImagePath) }}" alt="screenshot projet" class="img-fluid mx-auto" id="imageProject">
+            <img src="{{ asset('images/'~project.image.url) }}" alt="{{ project.image.alt }}" class="img-fluid mx-auto" id="imageProject">
         {% endif %}
     </div>
 

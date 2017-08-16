@@ -37,10 +37,10 @@
                     <td  class="align-middle">{{ training.institution }}</td>
                     <td  class="align-middle">{{ training.city }} ({{ training.department.code }})</td>
                     <td  class="align-middle">
-                        {% if training.imagePath is empty or null %}
+                        {% if training.image is empty or null %}
                             <img src="{{ asset('images/noImage-2.png') }}" class="logos_crud" alt="Aucune image disponible">
                         {% else %}
-                            <img src="{{ asset('images/logos/institutions/'~training.imagePath) }}" class="logos_crud" alt="Logo de l'établissement">
+                            <img src="{{ asset('images/'~training.image.url) }}" class="logos_crud" alt="{{ training.image.alt }}">
                         {% endif %}
                     </td>
                     <td class="align-middle" id="td-edition">

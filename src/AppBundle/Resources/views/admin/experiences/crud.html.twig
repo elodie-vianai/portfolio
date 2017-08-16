@@ -36,10 +36,10 @@
                     <td  class="align-middle">{{ experience.company }}</td>
                     <td  class="align-middle">{{ experience.city }} ({{ experience.department.code }})</td>
                     <td  class="align-middle">
-                        {% if experience.imagePath is empty or null %}
+                        {% if experience.image is empty or null %}
                             <img src="{{ asset('images/noImage-2.png') }}" class="logos_crud" alt="Aucune image disponible">
                         {% else %}
-                            <img src="{{ asset('images/logos/companies/'~experience.imagePath) }}" class="logos_crud" alt="Logo de l'entreprise">
+                            <img src="{{ asset('images/'~experience.image.url) }}" class="logos_crud" alt="{{ experience.image.alt }}">
                         {% endif %}
                     </td>
                     <td  class="align-middle">

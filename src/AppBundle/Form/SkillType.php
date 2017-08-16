@@ -5,8 +5,7 @@ namespace AppBundle\Form;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
+use AppBundle\Form\ImageType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -29,8 +28,8 @@ class SkillType extends AbstractType
                     'Expert'            => 4
                 )
             ))
-            ->add('imagePath',          FileType::class)
-            ->add('category',   ChoiceType::class, array(
+            ->add('image',        ImageType::class)
+            ->add('category',     ChoiceType::class, array(
                 'choices'   =>  array(
                     ''=>null,
                     'Bureautique'=>'Bureautique',

@@ -57,7 +57,7 @@
 
                     </td>
                     <td  class="align-middle text-center">
-                        <img src="{{ asset('images/logos/skills/'~skill.imagePath) }}" class="text-center logos_crud" alt="Logo compétence">
+                        <img src="{{ asset('images/'~skill.image.url) }}" class="text-center logos_crud" alt="{{ skill.image.alt }}">
                     </td>
                     <td  class="align-middle text-center">{{ skill.category }}</td>
                     <td class="align-middle" id="td-edition">

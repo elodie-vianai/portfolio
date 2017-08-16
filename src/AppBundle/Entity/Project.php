@@ -37,18 +37,17 @@ class Project
     private $description;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="image_path", type="string", length=255, nullable=true)
-     */
-    private $imagePath;
-
-    /**
      * @var int
      *
      * @ORM\Column(name="year", type="integer")
      */
     private $year;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Image", cascade={"persist"})
+     * @ORM\JoinColumn(unique=false)
+     */
+    private $image;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Experience", inversedBy="projects")
@@ -129,25 +128,25 @@ class Project
     /**
      * Set imagePath
      *
-     * @param string $imagePath
+     * @param Image $image
      *
      * @return Project
      */
-    public function setImagePath($imagePath)
+    public function setImage(Image $image)
     {
-        $this->imagePath = $imagePath;
+        $this->image = $image;
 
         return $this;
     }
 
     /**
-     * Get imagePath
+     * Get image
      *
      * @return string
      */
-    public function getImagePath()
+    public function getImage()
     {
-        return $this->imagePath;
+        return $this->image;
     }
 
     /**

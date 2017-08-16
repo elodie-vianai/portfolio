@@ -1,9 +1,10 @@
 <?php
 
-# Fixture pour les tests.
+# Fixture pour les tests.Y-
 
 namespace AppBundle\DataFixtures\ORM;
 
+use AppBundle\Entity\Image;
 use AppBundle\Entity\Training;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
@@ -19,10 +20,10 @@ class LoadTraining extends AbstractFixture implements OrderedFixtureInterface
         $training1->setInstitution('Lycée Jean-Pierre Vernant');
         $training1->setCity('Pins-Justaret');
         $begin_at = new \DateTime();
-        $begin_at->setDate(2009, 9, 02);
+        $begin_at->setDate(2009,9,2);
         $training1->setBeginAt($begin_at);
         $end_at = new \DateTime();
-        $end_at->setDate(2010, 7, 02);
+        $end_at->setDate(2010,7,1);
         $training1->setEndAt($end_at);
         $training1->setMention('P');
         $training1->setDepartment($this->getReference('dep31'));
@@ -33,13 +34,13 @@ class LoadTraining extends AbstractFixture implements OrderedFixtureInterface
         $training2->setInstitution('Université Toulouse 2 Le Mirail');
         $training2->setCity('Toulouse');
         $begin_at = new \DateTime();
-        $begin_at->setDate(2010, 10, 17);
+        $begin_at->setDate(2010,10,4);
         $training2->setBeginAt($begin_at);
         $end_at = new \DateTime();
-        $end_at->setDate(2011, 5, 27);
+        $end_at->setDate(2011,5,14);
         $training2->setEndAt($end_at);
         $training2->setMention('P');
-        $training2->setImagePath('logoMirail.png');
+        $training2->setImage($this->getReference('Mirail'));
         $training2->setDepartment($this->getReference('dep31'));
 
         $training3  = new Training();
@@ -48,13 +49,13 @@ class LoadTraining extends AbstractFixture implements OrderedFixtureInterface
         $training3->setInstitution('Université Toulouse 2 Le Mirail');
         $training3->setCity('Toulouse');
         $begin_at = new \DateTime();
-        $begin_at->setDate(2011, 9, 26);
+        $begin_at->setDate(2011,9,19);
         $training3->setBeginAt($begin_at);
         $end_at = new \DateTime();
-        $end_at->setDate(2014, 5, 30);
+        $end_at->setDate(2014,5,30);
         $training3->setEndAt($end_at);
         $training3->setMention('P');
-        $training3->setImagePath('logoMirail.png');
+        $training3->setImage($this->getReference('Mirail'));
         $training3->setDepartment($this->getReference('dep31'));
 
         $training4  = new Training();
@@ -63,13 +64,13 @@ class LoadTraining extends AbstractFixture implements OrderedFixtureInterface
         $training4->setInstitution('Université Toulouse 2 Jean Jaurès');
         $training4->setCity('Pins-Justaret');
         $begin_at = new \DateTime();
-        $begin_at->setDate(2014, 9, 15);
+        $begin_at->setDate(2014,9,9);
         $training4->setBeginAt($begin_at);
         $end_at = new \DateTime();
-        $end_at->setDate(2015, 5, 29);
+        $end_at->setDate(2015,5,29);
         $training4->setEndAt($end_at);
         $training4->setMention('AB');
-        $training4->setImagePath('logoUT2J.png');
+        $training4->setImage($this->getReference('UT2J'));
         $training4->setDepartment($this->getReference('dep31'));
 
         $training5  = new Training();
@@ -78,13 +79,13 @@ class LoadTraining extends AbstractFixture implements OrderedFixtureInterface
         $training5->setInstitution('Université Toulouse 2 Jean Jaurès');
         $training5->setCity('Toulouse');
         $begin_at = new \DateTime();
-        $begin_at->setDate(2015, 9, 7);
+        $begin_at->setDate(2015,9,7);
         $training5->setBeginAt($begin_at);
         $end_at = new \DateTime();
-        $end_at->setDate(2016, 6, 10);
+        $end_at->setDate(2016, 6,10);
         $training5->setEndAt($end_at);
         $training5->setMention('AB');
-        $training5->setImagePath('logoUT2J.png');
+        $training5->setImage($this->getReference('UT2J'));
         $training5->setDepartment($this->getReference('dep31'));
 
         $training6 = new Training();
@@ -93,13 +94,13 @@ class LoadTraining extends AbstractFixture implements OrderedFixtureInterface
         $training6->setInstitution('Université Toulouse 2 Jean Jaurès');
         $training6->setCity('Toulouse');
         $begin_at = new \DateTime();
-        $begin_at->setDate(2016, 9, 5);
+        $begin_at->setDate(2016,9,5);
         $training6->setBeginAt($begin_at);
         $end_at = new \DateTime();
-        $end_at->setDate(2017, 9, 29);
+        $end_at->setDate(2017,9,29);
         $training6->setEndAt($end_at);
         $training6->setMention('P');
-        $training6->setImagePath('logoUT2J.png');
+        $training6->setImage($this->getReference('UT2J'));
         $training6->setDepartment($this->getReference('dep31'));
 
         $manager->persist($training1);
@@ -121,6 +122,6 @@ class LoadTraining extends AbstractFixture implements OrderedFixtureInterface
 
     public function getOrder()
     {
-        return 3;
+        return 4;
     }
 }

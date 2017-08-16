@@ -12,4 +12,14 @@ use Doctrine\ORM\EntityRepository;
  */
 class ExperienceRepository extends EntityRepository
 {
+    public function experiences(){
+        $qb = $this->createQueryBuilder('e');
+
+        $qb->select('e, DATE_DIFF(e.endAt, e.beginAt)' )
+            ->orderBy('e.endAt', 'DESC');
+
+        $result = $qb->getQuery()->getResult();
+
+//        dump($result);die;
+    }
 }

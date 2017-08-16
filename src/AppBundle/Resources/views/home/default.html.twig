@@ -128,7 +128,7 @@
                 <div class="carousel-inner" role="listbox">
                     {% for project in projects %}
                         <div class="carousel-item {% if lastProject.0.id == project.id %}active{% endif %}">
-                            {% if project.imagePath %}
+                            {% if project.image %}
                                 {#{% if 'user' in user.roles %}#}
                                 {#<a href="/user/projet/{{ project.id }}" class="carrousel-link">#}
                                 {#<img class="d-block carousel-images" src="/img{{ project.image_path }}">#}
@@ -136,7 +136,7 @@
                                 {#</a>#}
                                 {#{% else %}#}
                                 <a href="/projet/{{ project.id }}" class="carrousel-link">
-                                    <img class="d-block carousel-images" src="{{ asset('images/projects/'~project.imagePath) }}">
+                                    <img class="d-block carousel-images" src="{{ asset('images/'~project.image.url) }}" alt="{{ project.image.alt }}">
                                     <div class="carousel-caption d-none d-block">{{ project.name }}</div>
                                 </a>
                                 {#{% endif %}#}

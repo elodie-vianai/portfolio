@@ -30,10 +30,10 @@
                     <td  class="align-middle">{{ project.name }}</td>
                     <td  class="align-middle text-justify">{{ project.description }}</td>
                     <td  class="align-middle">
-                        {% if project.imagePath is empty or null %}
+                        {% if project.image is empty or null %}
                             <img src="{{ asset('images/noImage-2.png') }}" class="logos_crud" alt="Aucune image disponible">
                         {% else %}
-                            <img src="{{ asset('images/projects/'~project.imagePath) }}" class="logos_crud" alt="Image du projet">
+                            <img src="{{ asset('images/'~project.image.url) }}" class="logos_crud" alt="{{ project.image.alt }}">
                         {% endif %}
                     </td>
                     <td  class="align-middle">

@@ -26,6 +26,7 @@ class ExperienceController extends Controller
                 null,
                 0
             );
+        $em->getRepository('AppBundle:Experience')->experiences();
 
         $projects = $em->getRepository('AppBundle:Project')
             ->findBy(

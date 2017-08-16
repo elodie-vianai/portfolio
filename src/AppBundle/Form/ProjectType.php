@@ -24,7 +24,7 @@ class ProjectType extends AbstractType
             ->add('year',           IntegerType::class)
             ->add('name',           TextType::class)
             ->add('description',    TextareaType::class)
-            ->add('imagePath',      FileType::class)
+            ->add('image',          ImageType::class)
             ->add('skills',         EntityType::class, array(
                 'class'             =>      'AppBundle\Entity\Skill',
                 'choice_label'      =>      'name',

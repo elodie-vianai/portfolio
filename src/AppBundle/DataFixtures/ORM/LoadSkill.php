@@ -15,7 +15,7 @@ class LoadSkill extends AbstractFixture implements OrderedFixtureInterface
     {
         $skill1 = new Skill();
         $skill1->setName('HTML 5');
-        $skill1->setImagePath('HTML.png');
+        $skill1->setImage($this->getReference('html-image'));
         $skill1->setLevel(4);
         $skill1->setCategory('Technologies');
         $manager->persist($skill1);
@@ -23,7 +23,7 @@ class LoadSkill extends AbstractFixture implements OrderedFixtureInterface
 
         $skill2 = new Skill();
         $skill2->setName('CSS 3');
-        $skill2->setImagePath('CSS.png');
+        $skill2->setImage($this->getReference('css-image'));
         $skill2->setLevel(4);
         $skill2->setCategory('Technologies');
         $manager->persist($skill2);
@@ -31,7 +31,7 @@ class LoadSkill extends AbstractFixture implements OrderedFixtureInterface
 
         $skill3 = new Skill();
         $skill3->setName('JavaScript');
-        $skill3->setImagePath('Javascript.png');
+        $skill3->setImage($this->getReference('javascript-image'));
         $skill3->setLevel(1);
         $skill3->setCategory('Technologies');
         $manager->persist($skill3);
@@ -39,7 +39,7 @@ class LoadSkill extends AbstractFixture implements OrderedFixtureInterface
 
         $skill4 = new Skill();
         $skill4->setName('PHP procédural');
-        $skill4->setImagePath('PHPOld.png');
+        $skill4->setImage($this->getReference('phpold-image'));
         $skill4->setLevel(2);
         $skill4->setCategory('Technologies');
         $manager->persist($skill4);
@@ -47,7 +47,7 @@ class LoadSkill extends AbstractFixture implements OrderedFixtureInterface
 
         $skill5 = new Skill();
         $skill5->setName('PHP objet');
-        $skill5->setImagePath('PHPpoo.png');
+        $skill5->setImage($this->getReference('phpoo-image'));
         $skill5->setLevel(2);
         $skill5->setCategory('Technologies');
         $manager->persist($skill5);
@@ -55,7 +55,7 @@ class LoadSkill extends AbstractFixture implements OrderedFixtureInterface
 
         $skill6 = new Skill();
         $skill6->setName('Bootstrap 3');
-        $skill6->setImagePath('Bootstrap3.png');
+        $skill6->setImage($this->getReference('bootstrap3-image'));
         $skill6->setLevel(3);
         $skill6->setCategory('Technologies');
         $manager->persist($skill6);
@@ -63,7 +63,7 @@ class LoadSkill extends AbstractFixture implements OrderedFixtureInterface
 
         $skill7 = new Skill();
         $skill7->setName('Bootstrap 4');
-        $skill7->setImagePath('Bootstrap4.png');
+        $skill7->setImage($this->getReference('bootstrap4-image'));
         $skill7->setLevel(3);
         $skill7->setCategory('Technologies');
         $manager->persist($skill7);
@@ -71,7 +71,7 @@ class LoadSkill extends AbstractFixture implements OrderedFixtureInterface
 
         $skill8 = new Skill();
         $skill8->setName('Slim');
-        $skill8->setImagePath('Slim.png');
+        $skill8->setImage($this->getReference('slim-image'));
         $skill8->setLevel(1);
         $skill8->setCategory('Technologies');
         $manager->persist($skill8);
@@ -79,7 +79,7 @@ class LoadSkill extends AbstractFixture implements OrderedFixtureInterface
 
         $skill9 = new Skill();
         $skill9->setName('Twig');
-        $skill9->setImagePath('Twig.png');
+        $skill9->setImage($this->getReference('twig-image'));
         $skill9->setLevel(4);
         $skill9->setCategory('Technologies');
         $manager->persist($skill9);
@@ -87,7 +87,7 @@ class LoadSkill extends AbstractFixture implements OrderedFixtureInterface
 
         $skill10 = new Skill();
         $skill10->setName('Symfony 3');
-        $skill10->setImagePath('Symfony3.png');
+        $skill10->setImage($this->getReference('symfony-image'));
         $skill10->setLevel(2);
         $skill10->setCategory('Technologies');
         $manager->persist($skill10);
@@ -98,6 +98,6 @@ class LoadSkill extends AbstractFixture implements OrderedFixtureInterface
 
     public function getOrder()
     {
-        return 2;
+        return 3;
     }
 }

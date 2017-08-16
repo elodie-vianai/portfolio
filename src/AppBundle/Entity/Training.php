@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Constraints\Date;
 
 /**
@@ -51,25 +52,15 @@ class Training
     private $city;
 
     /**
-     * @var Date
-     *
+     * @Date()
      * @ORM\Column(name="begin_at", type="date")
      */
     private $beginAt;
-
     /**
-     * @var Date
-     *
+     * @Date()
      * @ORM\Column(name="end_at", type="date", nullable=true)
      */
     private $endAt;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="image_path", type="string", length=255, nullable=true)
-     */
-    private $imagePath;
 
     /**
      * @var string
@@ -83,6 +74,13 @@ class Training
      * @ORM\JoinColumn(nullable=false)
      */
     private $department;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Image", cascade={"persist"})
+     * @ORM\JoinColumn(unique=false)
+     */
+    private $image;
+
 
 
     /**
@@ -194,7 +192,7 @@ class Training
     /**
      * Set beginAt
      *
-     * @param \DateTime $beginAt
+     * @param Date $beginAt
      *
      * @return Training
      */
@@ -240,30 +238,6 @@ class Training
     }
 
     /**
-     * Set imagePath
-     *
-     * @param string $imagePath
-     *
-     * @return Training
-     */
-    public function setImagePath($imagePath)
-    {
-        $this->imagePath = $imagePath;
-
-        return $this;
-    }
-
-    /**
-     * Get imagePath
-     *
-     * @return string
-     */
-    public function getImagePath()
-    {
-        return $this->imagePath;
-    }
-
-    /**
      * Set mention
      *
      * @param string $mention
@@ -288,6 +262,7 @@ class Training
     }
 
     /**
+     * Get department
      * @return mixed
      */
     public function getDepartment()
@@ -296,10 +271,32 @@ class Training
     }
 
     /**
+     * Get department
+     *
      * @param mixed $department
      */
     public function setDepartment(Department $department)
     {
         $this->department = $department;
+    }
+
+    /**
+     * Set image
+     *
+     * @param mixed $image
+     */
+    public function setImage(Image $image)
+    {
+        $this->image = $image;
+    }
+
+    /**
+     * Get Image
+     *
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }

@@ -10,10 +10,10 @@
     {% for training in trainings %}
         <div class="row padding-bottom-3">
             <div class="col-2">
-                {% if training.imagePath is empty or null %}
-                    <img src="{{ asset('images/noImage-2.png') }}" class="logos" alt="Logo de l'établissement">
+                {% if training.image is empty or null %}
+                    <img src="{{ asset('images/noImage-2.png') }}" class="logos" alt="Aucune image disponible">
                 {% else %}
-                    <img src="{{ asset('images/logos/institutions/'~training.imagePath) }}" class="logos" alt="Logo de l'établissement">
+                    <img src="{{ asset('images/'~training.image.url) }}" class="logos" alt="{{ training.image.alt }}">
                 {% endif %}
             </div>
             <div class="col-8">

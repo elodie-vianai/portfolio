@@ -66,11 +66,10 @@ class Experience
     private $endAt;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="image_path", type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Image", cascade={"persist"})
+     * @ORM\JoinColumn(unique=false)
      */
-    private $imagePath;
+    private $image;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Department")
@@ -253,27 +252,27 @@ class Experience
     }
 
     /**
-     * Set imagePath
+     * Set image
      *
-     * @param string $imagePath
+     * @param Image $image
      *
      * @return Experience
      */
-    public function setImagePath($imagePath)
+    public function setImage(Image $image)
     {
-        $this->imagePath = $imagePath;
+        $this->image = $image;
 
         return $this;
     }
 
     /**
-     * Get imagePath
+     * Get image
      *
      * @return string
      */
-    public function getImagePath()
+    public function getImage()
     {
-        return $this->imagePath;
+        return $this->image;
     }
 
     /**

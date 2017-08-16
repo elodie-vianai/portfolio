@@ -41,7 +41,7 @@
                     <td>{{ experience.company }}</td>
                     <td>{{ experience.city }}</td>
                     <td>{{ experience.department.code }}</td>
-                    <td><img src="{{ asset('images/logos/companies/'~experience.imagePath) }}" class="logos text-center" alt="logo de l'entreprise"></td>
+                    <td><img src="{{ asset('images/'~experience.image.url) }}" class="logos text-center" alt="{{ experience.image.alt }}"></td>
                 </tr>
             {% endfor %}
             </tbody>
@@ -58,10 +58,10 @@
             <!-- NEW CARD !-->
             <div class="card col-3">
                 <div class="thumbnail text-center">
-                    {% if project.imagePath is empty or null %}
+                    {% if project.image is empty or null %}
                         <img src="{{ asset('images/noImage-2.png') }}" class="logos" alt="Logo de l'établissement">
                     {% else %}
-                        <img class="card-img-top" src="{{ asset('images/projects/'~project.ImagePath) }}" alt="Card image cap">
+                        <img class="card-img-top" src="{{ asset('images/'~project.image.url) }}" alt="{{ project.image.alt }}">
                     {% endif %}
                 </div>
                 <div class="card-block">

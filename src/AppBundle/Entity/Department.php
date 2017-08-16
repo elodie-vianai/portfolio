@@ -36,12 +36,6 @@ class Department
      */
     private $department;
 
-//    /**
-//     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Experience", mappedBy="experience", cascade={"persist"})
-//     *
-//     */
-//    private $experiences;
-
 
 
 

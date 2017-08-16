@@ -18,7 +18,7 @@ class LoadProject extends AbstractFixture implements OrderedFixtureInterface
         $project1->setName('Exposition "En Mode Sport"');
         $project1->setDescription('Participation à l\'élaboration du catalogue et de l\'exposition En Mode Sport (été 2015).');
         $project1->setYear(2015);
-        $project1->setImagePath('EnModeSport.jpg');
+        $project1->setImage($this->getReference('EnModeSport-image'));
         $project1->setExperience($this->getReference('MNS'));
 
         $project2 = new Project();
@@ -37,7 +37,7 @@ class LoadProject extends AbstractFixture implements OrderedFixtureInterface
         $project3->setName('Portfolio v1');
         $project3->setDescription('Première version de mon application de présentation de mon portfolio de développeuse.');
         $project3->setYear(2017);
-        $project3->setImagePath('Portfolio.png');
+        $project3->setImage($this->getReference('portfolio-image'));
         $project3->setExperience($this->getReference('WA'));;
         $project3->addSkill($this->getReference('css'));
         $project3->addSkill($this->getReference('html'));
@@ -50,7 +50,7 @@ class LoadProject extends AbstractFixture implements OrderedFixtureInterface
         $project4->setName('Portfolio v2');
         $project4->setDescription('Deuxième version de mon application de présentation de mon portfolio de développeuse.');
         $project4->setYear(2017);
-        $project4->setImagePath('Portfolio.png');
+        $project4->setImage($this->getReference('portfolio-image'));
         $project4->setExperience($this->getReference('WA'));
         $project4->addSkill($this->getReference('css'));
         $project4->addSkill($this->getReference('html'));
@@ -64,7 +64,7 @@ class LoadProject extends AbstractFixture implements OrderedFixtureInterface
         $project5->setDescription('Troisième version de mon application de présentation de mon portfolio de développeuse. Sera présenté lors
             de ma soutenance de stage.');
         $project5->setYear(2017);
-        $project5->setImagePath('Portfolio.png');
+        $project5->setImage($this->getReference('portfolio-image'));
         $project5->setExperience($this->getReference('WA'));
         $project5->addSkill($this->getReference('css'));
         $project5->addSkill($this->getReference('html'));
@@ -90,7 +90,7 @@ class LoadProject extends AbstractFixture implements OrderedFixtureInterface
 
     public function getOrder()
     {
-        return 5;
+        return 6;
     }
 
 }
