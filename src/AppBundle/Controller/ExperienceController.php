@@ -19,14 +19,15 @@ class ExperienceController extends Controller
     public function experiencesAction(){
         $em = $this->getDoctrine()->getManager();
 
+//        $experiences = $em->getRepository('AppBundle:Experience')
+//            ->findBy(
+//                array(),
+//                array('endAt' => 'desc'),
+//                null,
+//                0
+//            );
         $experiences = $em->getRepository('AppBundle:Experience')
-            ->findBy(
-                array(),
-                array('endAt' => 'desc'),
-                null,
-                0
-            );
-        $em->getRepository('AppBundle:Experience')->experiences();
+            ->dateDiffExperience();
 
         $projects = $em->getRepository('AppBundle:Project')
             ->findBy(

@@ -48,7 +48,7 @@ class LoadExperience extends AbstractFixture implements OrderedFixtureInterface
         $experience3->setCompany('Computys');
         $experience3->setCity('Colomiers');
         $begin_at = new \DateTime();
-        $begin_at->setDate(2015, 11, 16);
+        $begin_at->setDate(2015, 10, 19);
         $experience3->setBeginAt($begin_at);
         $end_at = new \DateTime();
         $end_at->setDate(2015, 12, 18);

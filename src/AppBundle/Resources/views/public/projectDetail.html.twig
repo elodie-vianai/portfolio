@@ -61,7 +61,7 @@
     <div class="row padding-bottom-3">
         {% for skill in project.skills %}
             <div class="col-2 padding-3">
-                <img src="{{ asset('images/logos/skills/'~ skill.ImagePath) }}" alt="{{ skill.name }}" class="logosTechnos">
+                <img src="{{ asset('images/'~ skill.Image.url) }}" alt="{{ skill.name }}" class="logosTechnos">
             </div>
         {% endfor %}
     </div>

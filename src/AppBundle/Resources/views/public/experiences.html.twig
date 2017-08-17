@@ -21,27 +21,45 @@
             <tr>
                 <th>Date de début</th>
                 <th>Date de fin</th>
-                {#<th>Durée</th>#}
+                <th>Durée</th>
                 <th>Poste occupé</th>
-                <th>Type de contrat</th>
+                <th>Contrat</th>
                 <th>Entreprise</th>
                 <th>Ville</th>
-                <th>Departement</th>
                 <th>Logo</th>
             </tr>
             </thead>
             <tbody>
             {% for experience in experiences %}
                 <tr>
-                    <td scope="row">{{ experience.beginAt | date('M-Y') }}</td>
-                    <td>{{ experience.endAt | date('M-Y') }}</td>
-                    {#<td>{{ experience.duree }}</td>#}
-                    <td>{{ experience.name }}</td>
-                    <td>{{ experience.contract }}</td>
-                    <td>{{ experience.company }}</td>
-                    <td>{{ experience.city }}</td>
-                    <td>{{ experience.department.code }}</td>
-                    <td><img src="{{ asset('images/'~experience.image.url) }}" class="logos text-center" alt="{{ experience.image.alt }}"></td>
+                    <td scope="row">{{ experience.0.beginAt | date('M-Y') }}</td>
+                    <td>{{ experience.0.endAt | date('M-Y') }}</td>
+                    <td>
+                        {% if experience.1['diffYears'] == 0 %}
+                            {% if experience.1['diffMonths'] == 0 %}
+                                {{ experience.1['diffDays'] | abs }} jours
+                            {% else %}
+                                {{ experience.1['diffMonths'] | abs }} mois
+                            {% endif %}
+                        {% else %}
+                            {% if experience.1['diffYears'] == 1 %}
+                                {{ experience.1['diffYears'] | abs }} an
+                                {% if experience.1['diffMonths'] != 0 %}
+                                    et {{ experience.1['diffMonths'] | abs }} mois
+                                {% endif %}
+                            {% else %}
+                                {{ experience.1['diffYears'] | abs }} ans
+                                {% if experience.1['diffMonths'] != 0 %}
+                                    et {{ experience.1['diffMonths'] | abs }} mois
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}
+                    </td>
+                    <td>{{ experience.0.name }}</td>
+                    <td>{{ experience.0.contract }}</td>
+                    <td>{{ experience.0.company }}</td>
+                    <td>{{ experience.0.city }} ({{ experience.0.department.code }})</td>
+                    <td><img src="{{ asset('images/'~experience.0.image.url) }}" class="logos text-center" alt="{{ experience.0.image.alt }}"></td>
                 </tr>
             {% endfor %}
             </tbody>
