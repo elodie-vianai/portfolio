@@ -13,51 +13,60 @@
     {{ form_start(form) }}
 
     <div class="form-group margin-bottom-3">
-        <h4>La formation</h4>
+        <div class="row form-group backgroundWA">
+            <h4>La formation</h4>
+        </div>
 
         <div class="form-group row">
             {{ form_label(form.name, 'Nom de la formation', {'label_attr': {'class': 'col-form-label col-2'} }) }}
-            {{ form_widget(form.name, {'label_attr': {'class': 'form-control col-10'} }) }}
+            {{ form_widget(form.name, {'attr': {'class': 'form-control col-8'} }) }}
         </div>
 
         <div class="form-group row">
             {{ form_label(form.beginAt, 'Date de début', {'label_attr': {'class': 'col-form-label col-2'} }) }}
-            {{ form_widget(form.beginAt, {'label_attr': {'class': 'form-control col-5'} }) }}
+            {{ form_widget(form.beginAt, {'attr': {'class': 'col-2'} }) }}
+            <div class="col-1"></div>
             {{ form_label(form.endAt, 'Date de fin', {'label_attr': {'class': 'col-form-label col-2'} }) }}
-            {{ form_widget(form.endAt, {'label_attr': {'class': 'form-control col-3'} }) }}
+            {{ form_widget(form.endAt, {'attr': {'class': 'col-3'} }) }}
         </div>
 
         <div class="form-group row">
             {{ form_label(form.type, 'Type de formation', {'label_attr': {'class': 'col-form-label col-2'} }) }}
-            {{ form_widget(form.type, {'label_attr': {'class': 'form-control col-5'} }) }}
+            {{ form_widget(form.type, {'attr': {'class': 'form-control col-2'} }) }}
+            <div class="col-1"></div>
             {{ form_label(form.mention, 'Mention', {'label_attr': {'class': 'col-form-label col-2'} }) }}
-            {{ form_widget(form.mention, {'label_attr': {'class': 'form-control col-3'} }) }}
+            {{ form_widget(form.mention, {'attr': {'class': 'form-control col-3'} }) }}
         </div>
     </div>
 
     <div class="form-group margin-bottom-3">
-        <h4>Le lieu de la formation</h4>
+        <div class="row form-group backgroundWA">
+            <h4>Le lieu de la formation</h4>
+        </div>
 
         <div class="form-group row">
             {{ form_label(form.institution, 'Établissement', {'label_attr': {'class': 'col-form-label col-2'} }) }}
-            {{ form_widget(form.institution, {'label_attr': {'class': 'form-control col-10'} }) }}
+            {{ form_widget(form.institution, {'attr': {'class': 'form-control col-8'} }) }}
         </div>
 
 
         <div class="form-group row">
             {{ form_label(form.city, 'Ville', {'label_attr': {'class': 'col-form-label col-2'} }) }}
-            {{ form_widget(form.city, {'label_attr': {'class': 'form-control col-5'} }) }}
+            {{ form_widget(form.city, {'attr': {'class': 'form-control col-3'} }) }}
+            <div class="col-1"></div>
             {{ form_label(form.department, 'Département', {'label_attr': {'class': 'col-form-label col-2'} }) }}
-            {{ form_widget(form.department, {'label_attr': {'class': 'form-control col-3'} }) }}
+            {{ form_widget(form.department, {'attr': {'class': 'form-control col-2'} }) }}
         </div>
     </div>
 
     <div class="form-group margin-bottom-3">
-        <h4>Image</h4>
+        <div class="row form-group backgroundWA">
+            <h4>Image</h4>
+        </div>
 
         <div class="form-group row">
-            {{ form_label(form.image, 'Logo de l\établissement', {'label_attr': {'class': 'col-form-label col-3'} }) }}
-            {{ form_widget(form.image, {'label_attr': {'class': 'form-control col-9'} }) }}
+            {{ form_label(form.image.file, 'Logo de l\établissement', {'label_attr': {'class': 'col-form-label col-3'} }) }}
+            {{ form_widget(form.image.file, {'attr': {'class': 'form-control-file col-9'} }) }}
         </div>
     </div>
 

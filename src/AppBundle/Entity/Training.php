@@ -79,7 +79,7 @@ class Training
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Image", cascade={"persist"})
      * @ORM\JoinColumn(unique=false)
      */
-    private $image;
+    public $image;
 
 
 
@@ -299,4 +299,5 @@ class Training
     {
         return $this->image;
     }
+
 }

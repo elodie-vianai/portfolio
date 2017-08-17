@@ -39,7 +39,7 @@
                         {% if experience.image is empty or null %}
                             <img src="{{ asset('images/noImage-2.png') }}" class="logos_crud" alt="Aucune image disponible">
                         {% else %}
-                            <img src="{{ asset('images/'~experience.image.url) }}" class="logos_crud" alt="{{ experience.image.alt }}">
+                            <img src="{{ asset('images/logos/companies/'~experience.image.url) }}" class="logos_crud" alt="{{ experience.image.alt }}">
                         {% endif %}
                     </td>
                     <td  class="align-middle">

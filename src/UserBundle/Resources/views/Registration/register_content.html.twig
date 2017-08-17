@@ -6,7 +6,7 @@
 {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
 
     {{ form_errors(form) }}
-    <div class="row">
+    <div class="row margin-bottom-5">
         <div class="col-1"></div>
         <div class="col-4">
             {{ form_label(form.email, 'Email :') }}
@@ -16,35 +16,35 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row margin-bottom-5">
         <div class="col-1"></div>
         <div class="col-4">
             {{ form_label(form.email, 'Nom d\'utilisateur :') }}
         </div>
-        <div class="col-3">
+        <div class="col-6">
             {{ form_widget(form.username, {'attr': {'class': 'form-control'} }) }}
         </div>
     </div>
 
-    {#<div class="row">#}
-        {#<div class="col-1"></div>#}
-        {#<div class="col-4">#}
-            {#{{ form_label(form.plainPassword, 'Mot de passe :') }}#}
-        {#</div>#}
-        {#<div class="col-3">#}
-            {#{{ form_widget(form.plainPassword, {'attr': {'class': 'form-control'} }) }}#}
-        {#</div>#}
-    {#</div>#}
+    <div class="row margin-bottom-3 padding-top-3">
+        <div class="col-1"></div>
+        <div class="col-4">
+            {{ form_label(form.plainPassword.first, 'Mot de passe :') }}
+        </div>
+        <div class="col-6">
+            {{ form_widget(form.plainPassword.first, {'attr': {'class': 'form-control'} }) }}
+        </div>
+    </div>
 
-    {#<div class="row">#}
-        {#<div class="col-1"></div>#}
-        {#<div class="col-4">#}
-            {#{{ form_label(form.password_confirmation, 'Confirmation du mot de passe :') }}#}
-        {#</div>#}
-        {#<div class="col-3">#}
-            {#{{ form_widget(form.password_confirmation, {'attr': {'class': 'form-control'} }) }}#}
-        {#</div>#}
-    {#</div>#}
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-4">
+            {{ form_label(form.plainPassword.first, 'Confirmation du mot de passe :') }}
+        </div>
+        <div class="col-6">
+            {{ form_widget(form.plainPassword.second, {'attr': {'class': 'form-control'} }) }}
+        </div>
+    </div>
 
     <div>
         <input type="submit" value="S'inscrire" />

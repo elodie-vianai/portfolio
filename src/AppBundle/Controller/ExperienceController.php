@@ -104,7 +104,11 @@ class ExperienceController extends Controller
 
         $form = $this->createForm(ExperienceType::class , $experience);
 
-        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()){
+        $form->handleRequest($request);
+        if ($request->isMethod('POST') && $form->isValid()){
+            $experience->getImage()->preUpload();
+
+            $this->getDoctrine()->getManager()->persist($experience);
             $this->getDoctrine()->getManager()->flush();
 
             $request->getSession()->getFlashBag()->add('success', 'L\expérience a bien été modifiée.');
@@ -114,7 +118,7 @@ class ExperienceController extends Controller
 
         return $this->render('@App/admin/experiences/edit.html.twig', array(
             'experience'  => $experience,
-            'form'      => $form
+            'form'      => $form->createView()
         ));
     }
 

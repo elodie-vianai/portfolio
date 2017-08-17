@@ -87,7 +87,11 @@ class SkillController extends Controller
 
         $form = $this->createForm(SkillType::class, $skill);
 
-        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+        $form->handleRequest($request);
+        if ($request->isMethod('POST') && $form->isValid()){
+            $skill->getImage()->preUpload();
+
+            $this->getDoctrine()->getManager()->persist($skill);
             $this->getDoctrine()->getManager()->flush();
 
             $request->getSession()->getFlashBag()->add('success', 'La compétence a bien été modifiée.');
@@ -97,7 +101,7 @@ class SkillController extends Controller
 
         return $this->render('@App/admin/skills/edit.html.twig', array(
             'skill' => $skill,
-            'form' => $form
+            'form' => $form->createView()
         ));
     }
 

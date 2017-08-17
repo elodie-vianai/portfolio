@@ -79,7 +79,7 @@ class ProjectController extends Controller
 
 
     /**
-     * @Route("admin/projets/modifier/{id})", name="edit-projects")
+     * @Route("admin/projets/modifier/{id})", name="edit-project")
      * @param Project $project
      * @param Request $request
      * @return RedirectResponse|Response
@@ -92,7 +92,11 @@ class ProjectController extends Controller
 
         $form = $this->createForm(ProjectType::class , $project);
 
-        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()){
+        $form->handleRequest($request);
+        if ($request->isMethod('POST') && $form->isValid()){
+            $project->getImage()->preUpload();
+
+            $this->getDoctrine()->getManager()->persist($project);
             $this->getDoctrine()->getManager()->flush();
 
             $request->getSession()->getFlashBag()->add('success', 'Le projet a bien été modifié.');
@@ -102,7 +106,7 @@ class ProjectController extends Controller
 
         return $this->render('@App/admin/projects/edit.html.twig', array(
             'project'  => $project,
-            'form'      => $form
+            'form'      => $form->createView()
         ));
     }
 

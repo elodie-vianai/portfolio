@@ -6,7 +6,6 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -23,8 +22,8 @@ class TrainingType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name',               TextType::class)
-            ->add('type',               ChoiceType::class, array(
+            ->add('name',                   TextType::class)
+            ->add('type',                   ChoiceType::class, array(
                 'choices'   => array(
                     ''                  => null,
                     'Diplôme'           => 'Diplôme',
@@ -32,25 +31,25 @@ class TrainingType extends AbstractType
                     'Formation'         => 'Formation',
                 )
             ))
-            ->add('mention',            ChoiceType::class, array(
+            ->add('mention',                ChoiceType::class, array(
                 'choices'   => array(
-                    ''  => 'P',
+                    ''              => 'P',
                     'Assez Bien'    => 'AB',
                     'Bien'          => 'B',
                     'Très bien'     => 'TB'
                 )
             ))
-            ->add('institution',        TextType::class)
-            ->add('city',               TextType::class)
-            ->add('department',      EntityType::class, array(
+            ->add('institution',            TextType::class)
+            ->add('city',                   TextType::class)
+            ->add('department',             EntityType::class, array(
                 'class'             =>  'AppBundle\Entity\Department',
                 'choice_label'      =>  'department',
                 'multiple'          =>  false
             ))
-            ->add('image',              ImageType::class)
-            ->add('beginAt',            DateType::class)
-            ->add('endAt',              DateType::class)
-            ->add('save',               SubmitType::class)
+            ->add('image',               ImageType::class)
+            ->add('beginAt',                DateType::class)
+            ->add('endAt',                  DateType::class)
+            ->add('save',                   SubmitType::class)
             ->getForm();
 
         $builder->addEventListener(

@@ -40,6 +40,41 @@ class Image
      */
     private $alt;
 
+    /**
+     * @var UploadedFile
+     *
+     * @Assert\File()
+     */
+    private $file;
+
+
+//    /**
+//     * @ORM\PrePersist()
+//     * @ORM\PreUpdate()
+//     */
+//    public function preUpload(){
+//        // If there is no file, no action
+//        if (null === $this->file){
+//            return;
+//        }
+//
+//        // Save the name, the extension and the path of the file
+//        $this->url = $this->file->getClientOriginalName();
+//
+//        //Generate the attribute alt for the tag with the name of the original file
+//        $this->alt = $this->file->getClientOriginalName();
+//    }
+
+    /**
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function preUpload()
+    {
+        $this->url = $this->file->getClientOriginalName();
+
+        $this->alt = $this->file->getClientOriginalName();
+    }
 
 
     /**
@@ -99,5 +134,22 @@ class Image
     {
         return $this->alt;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    /**
+     * @param mixed $file
+     */
+    public function setFile(UploadedFile $file)
+    {
+        $this->file = $file;
+    }
+
 }
 

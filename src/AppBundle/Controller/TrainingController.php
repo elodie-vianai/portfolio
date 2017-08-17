@@ -96,18 +96,23 @@ class TrainingController extends Controller
         }
 
         $form = $this->createForm(TrainingType::class , $training);
+        $form->handleRequest($request);
+        if ($request->isMethod('POST') && $form->isValid()){
+            $training->getImage()->preUpload();
 
-        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()){
+            $this->getDoctrine()->getManager()->persist($training);
             $this->getDoctrine()->getManager()->flush();
 
-            $request->getSession()->getFlashBag()->add('success', 'La formation a bien été modifiée.');
+//            dump($training);die;
+
+            $request->getSession()->getFlashBag()->add('success', 'La formation a bien été modifiée.1111');
 
             return $this->redirectToRoute('crud-trainings');
         }
 
         return $this->render('@App/admin/trainings/edit.html.twig', array(
             'training'  => $training,
-            'form'      => $form
+            'form'      => $form->createView()
         ));
     }
 

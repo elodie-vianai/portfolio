@@ -19,14 +19,14 @@
         </div>
         <div class="row form-group">
             {{ form_label(form.name, 'Nom du projet', {'label_attr': {'class': 'col-form-label col-2'} }) }}
-            {{ form_widget(form.name, {'label_attr': {'class': 'form-control col-4'} }) }}
+            {{ form_widget(form.name, {'attr': {'class': 'form-control col-4'} }) }}
             <div class="col-1"></div>
             {{ form_label(form.year, 'Date de réalisation du projet', {'label_attr': {'class': 'col-form-label col-3'} }) }}
-            {{ form_widget(form.year, {'label_attr': {'class': 'form-control col-2'} }) }}
+            {{ form_widget(form.year, {'attr': {'class': 'form-control col-2'} }) }}
         </div>
         <div class="row">
-            {{ form_label(form.image, 'Screenshot du projet', {'label_attr': {'class': 'col-form-label col-3'} }) }}
-            {{ form_widget(form.image, {'label_attr': {'class': 'form-control col-9'} }) }}
+            {{ form_label(form.image.file, 'Screenshot du projet', {'label_attr': {'class': 'col-form-label col-3'} }) }}
+            {{ form_widget(form.image.file, {'attr': {'class': 'form-control-file col-9'} }) }}
         </div>
     </div>
 
@@ -36,7 +36,7 @@
         </div>
         <div class="row form-group">
             {{ form_label(form.description, 'Description', {'label_attr': {'class': 'col-form-label col-2'} }) }}
-            {{ form_widget(form.description, {'label_attr': {'class': 'form-control col-10'} }) }}
+            {{ form_widget(form.description, {'attr': {'class': 'form-control col-10'} }) }}
         </div>
     </div>
 
@@ -46,7 +46,7 @@
         </div>
         <div class="row form-group">
             {{ form_label(form.skills, 'Technologies utilisées pour ce projet', {'label_attr': {'class': 'col-form-label col-3'} }) }}
-            {{ form_widget(form.skills, {'label_attr': {'class': 'form-control col-9'} }) }}
+            {{ form_widget(form.skills, {'attr': {'class': 'form-control col-9'} }) }}
             <br>
             <p id="aideAjout" class="form-text text-muted">Pour sélectionner plusieurs technologies, maintenez la touche CTRL enfoncée</p>
         </div>
@@ -58,7 +58,7 @@
         </div>
         <div class="row form-group">
             {{ form_label(form.experience, 'Expérience', {'label_attr': {'class': 'col-form-label col-3'} }) }}
-            {{ form_widget(form.experience, {'label_attr': {'class': 'form-control col-9'} }) }}
+            {{ form_widget(form.experience, {'attr': {'class': 'form-control col-9'} }) }}
         </div>
     </div>
 

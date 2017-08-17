@@ -33,14 +33,18 @@
                     <td  class="align-middle" id="td-end_at">{{ training.endAt|date('M-Y') }}</td>
                     <td  class="align-middle">{{ training.type }}</td>
                     <td  class="align-middle">{{ training.name }}</td>
-                    <td  class="align-middle text-center">{{ training.mention }}</td>
+                    <td  class="align-middle text-center">
+                        {% if training.mention != 'P' %}
+                            {{ training.mention }}
+                        {% endif %}
+                    </td>
                     <td  class="align-middle">{{ training.institution }}</td>
                     <td  class="align-middle">{{ training.city }} ({{ training.department.code }})</td>
                     <td  class="align-middle">
                         {% if training.image is empty or null %}
                             <img src="{{ asset('images/noImage-2.png') }}" class="logos_crud" alt="Aucune image disponible">
                         {% else %}
-                            <img src="{{ asset('images/'~training.image.url) }}" class="logos_crud" alt="{{ training.image.alt }}">
+                            <img src="{{ asset('images/logos/institutions/'~training.image.url) }}" class="logos_crud" alt="{{ training.image.alt }}">
                         {% endif %}
                     </td>
                     <td class="align-middle" id="td-edition">
