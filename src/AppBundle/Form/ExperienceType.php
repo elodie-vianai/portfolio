@@ -47,7 +47,9 @@ class ExperienceType extends AbstractType
             ))
             ->add('image',              ImageType::class)
             ->add('beginAt',            DateType::class)
-            ->add('endAt',              DateType::class)
+            ->add('endAt',              DateType::class, array(
+                'required'      =>  false,
+            ))
             ->add('save',               SubmitType::class)
             ->getForm();
 

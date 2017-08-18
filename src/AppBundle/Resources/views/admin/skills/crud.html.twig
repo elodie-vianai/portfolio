@@ -24,6 +24,8 @@
                     <li class="page-item"><a class="page-link" id="crud-developpement" href="#">Développement</a></li>
                     <li class="page-item"><a class="page-link" id="crud-graphisme" href="#">Graphisme</a></li>
                     <li class="page-item"><a class="page-link" id="crud-langues" href="#">Langues</a></li>
+                    <li class="page-item"><a class="page-link" id="crud-professionnel" href="#">Professionnel</a></li>
+
                 </ul>
             </nav>
         </div>
@@ -57,13 +59,25 @@
 
                     </td>
                     <td  class="align-middle text-center">
-                        <img src="{{ asset('images/logos/skills/'~skill.image.url) }}" class="text-center logos_crud" alt="{{ skill.image.alt }}">
+                        {% if skill.image is empty or null %}
+                            <img src="{{ asset('images/noImage-2.png') }}" class="logos_crud" alt="Aucune image disponible">
+                        {% else %}
+                            <img src="{{ asset('images/logos/skills/'~skill.image.url) }}" class="text-center logos_crud" alt="{{ skill.image.alt }}">
+                        {% endif %}
                     </td>
-                    <td  class="align-middle text-center">{{ skill.category }}</td>
-                    <td class="align-middle" id="td-edition">
+                    <td  class="align-middle text-center" id="td-edition">
+                        {% if skill.category == 'Database' %}
+                            Bases de données
+                        {% elseif skill.category == 'OS' %}
+                            Système d'exploitation
+                        {% else %}
+                            {{ skill.category }}
+                        {% endif %}
+                    </td>
+                    <td class="align-middle text-center" id="td-edition">
                         <a class="btn btn-warning" href="{{ path('edit-skill', {'id' : skill.id}) }}"><img src="{{ asset('images/edit.png') }}"></a>
                     </td>
-                    <td class="align-middle" id="td-edition">
+                    <td class="align-middle text-center" id="td-edition">
                         <a class="btn btn-danger" href="{{ path('delete-skill', {'id': skill.id }) }}"><img src="{{ asset('images/delete.png') }}"></a>
                     </td>
                 </tr>

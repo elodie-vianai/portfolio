@@ -35,6 +35,7 @@
                 </span>
                     <footer class="blockquote-footer">Elodie</footer>
                 </blockquote>
+            </div>
         {% else %}
             <div class="col-3 justify-content-center">
                 <img src="{{ asset('images/Me.jpg') }}" alt="me" class="rounded-circle">
@@ -135,8 +136,8 @@
                                 {#<div class="carousel-caption d-none d-block">{{ project.name }}</div>#}
                                 {#</a>#}
                                 {#{% else %}#}
-                                <a href="/projet/{{ project.id }}" class="carrousel-link">
-                                    <img class="d-block carousel-images" src="{{ asset('images/'~project.image.url) }}" alt="{{ project.image.alt }}">
+                                <a href="{{ path('projectDetail', {'id': project.id}) }}" class="carrousel-link">
+                                    <img class="d-block carousel-images" src="{{ asset('images/projects/'~project.image.url) }}" alt="{{ project.image.alt }}">
                                     <div class="carousel-caption d-none d-block">{{ project.name }}</div>
                                 </a>
                                 {#{% endif %}#}

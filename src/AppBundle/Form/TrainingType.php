@@ -46,7 +46,9 @@ class TrainingType extends AbstractType
                 'choice_label'      =>  'department',
                 'multiple'          =>  false
             ))
-            ->add('image',               ImageType::class)
+            ->add('image',               ImageType::class, array(
+                'required'      =>  false,
+            ))
             ->add('beginAt',                DateType::class)
             ->add('endAt',                  DateType::class)
             ->add('save',                   SubmitType::class)

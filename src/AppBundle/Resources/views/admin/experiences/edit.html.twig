@@ -13,10 +13,10 @@
         </div>
         <div class="row form-group">
             {{ form_label(form.beginAt, 'Date de début', {'label_attr': {'class': 'col-form-label col-2'} }) }}
-            {{ form_widget(form.beginAt, {'label_attr': {'class': 'form-control col-3'} }) }}
+            {{ form_widget(form.beginAt, {'attr': {'class': 'col-3'} }) }}
             <div class="col-2"></div>
             {{ form_label(form.endAt, 'Date de fin', {'label_attr': {'class': 'col-form-label col-2'} }) }}
-            {{ form_widget(form.endAt, {'label_attr': {'class': 'form-control col-3'} }) }}
+            {{ form_widget(form.endAt, {'attr': {'class': 'col-3'} }) }}
         </div>
     </div>
 
@@ -25,10 +25,11 @@
             <h3>Contrat</h3>
         </div>
         <div class="row form-group">
-            {{ form_label(form.contract, 'Type de contrat', {'label_attr': {'class': 'col-form-label col-3'} }) }}
-            {{ form_widget(form.contract, {'label_attr': {'class': 'form-control col-3'} }) }}
             {{ form_label(form.name, 'Titre du poste occupé', {'label_attr': {'class': 'col-form-label col-2'} }) }}
-            {{ form_widget(form.name, {'label_attr': {'class': 'form-control col-4'} }) }}
+            {{ form_widget(form.name, {'attr': {'class': 'form-control col-4'} }) }}
+            <div class="col-1"></div>
+            {{ form_label(form.contract, 'Type de contrat', {'label_attr': {'class': 'col-form-label col-2'} }) }}
+            {{ form_widget(form.contract, {'attr': {'class': 'form-control col-2'} }) }}
         </div>
     </div>
 
@@ -37,25 +38,24 @@
             <h3>Entreprise / Administration</h3>
         </div>
         <div class="row form-group">
-            {{ form_label(form.company, 'Nom de l\'entreprise', {'label_attr': {'class': 'col-form-label col-3'} }) }}
-            {{ form_widget(form.company, {'label_attr': {'class': 'form-control col-9'} }) }}
+            {{ form_label(form.company, 'Nom de l\'entreprise', {'label_attr': {'class': 'col-form-label col-2'} }) }}
+            {{ form_widget(form.company, {'attr': {'class': 'form-control col-9'} }) }}
         </div>
         <div class="row form-group">
-            {{ form_label(form.city, 'Ville', {'label_attr': {'class': 'col-form-label col-3'} }) }}
-            {{ form_widget(form.city, {'label_attr': {'class': 'form-control col-9'} }) }}
+            {{ form_label(form.city, 'Ville', {'label_attr': {'class': 'col-form-label col-2'} }) }}
+            {{ form_widget(form.city, {'attr': {'class': 'form-control col-3'} }) }}
+            <div class="col-1"></div>
+            {{ form_label(form.department, 'Département', {'label_attr': {'class': 'col-form-label col-2'} }) }}
+            {{ form_widget(form.department, {'attr': {'class': 'form-control col-3'} }) }}
         </div>
         <div class="row form-group">
-            {{ form_label(form.department, 'Département', {'label_attr': {'class': 'col-form-label col-3'} }) }}
-            {{ form_widget(form.department, {'label_attr': {'class': 'form-control col-9'} }) }}
-        </div>
-        <div class="form-group row">
-            {{ form_label(form.image, 'Logo de l\entreprise', {'label_attr': {'class': 'col-form-label col-3'} }) }}
-            {{ form_widget(form.image, {'label_attr': {'class': 'form-control col-9'} }) }}
+            {{ form_label(form.image.file, 'Logo de l\entreprise', {'label_attr': {'class': 'col-form-label col-2'} }) }}
+            {{ form_widget(form.image.file, {'attr': {'class': 'form-control-file col-9'} }) }}
         </div>
     </div>
 
     <div class="alert alert-info">
-        <strong>Attention :</strong> cette expérience sera ajoutée directement sur la page d'accueil après validation du formulaire.
+        <strong>Attention :</strong> cette expérience va être modifiée !
     </div>
 
     <div class="row">

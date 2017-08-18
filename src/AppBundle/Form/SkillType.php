@@ -31,11 +31,17 @@ class SkillType extends AbstractType
             ->add('image',        ImageType::class)
             ->add('category',     ChoiceType::class, array(
                 'choices'   =>  array(
-                    ''=>null,
-                    'Bureautique'=>'Bureautique',
-                    'Graphisme'=>'Graphisme',
-                    'Langues'=>'Langues',
-                    'Technologies'=>'Technologies'
+                    ''                          => null,
+                    'Base de données'           => 'Database',
+                    'Bureautique'               => 'Bureautique',
+                    'Graphisme'                 => 'Graphisme',
+                    'Langues'                   => 'Langues',
+                    'Logiciels'                 => 'Logiciels',
+                    'Navigateurs'               => 'Navigateurs',
+                    'Professionnel'             => 'Professionnel',
+                    'Serveurs'                  => 'Serveurs',
+                    'Système d\'exploitation'   => 'OS',
+                    'Technologies'              => 'Technologies'
                 )))
             ->add('save',               SubmitType::class)
             ->getForm();

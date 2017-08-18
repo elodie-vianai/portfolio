@@ -1,0 +1,15 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+    <h1 class="h1 margin-bottom-5 text-center">Inscription</h1>
+
+    <div class="jumbotron jumbotron-fluid jumbotronized">
+        <h4 class="text-center">Félicitations !</h4>
+        <p>
+            Votre compte a bien été créé, vous êtes dès à présent connecté(e) !
+        </p>
+        <a type="button" href="{{ path('homepage') }}" class="btn btn-primary">Accueil</a>
+    </div>
+{% endblock fos_user_content %}

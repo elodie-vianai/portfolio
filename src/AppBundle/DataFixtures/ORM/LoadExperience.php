@@ -25,7 +25,7 @@ class LoadExperience extends AbstractFixture implements OrderedFixtureInterface
         $end_at = new \DateTime();
         $end_at->setDate(2017, 1, 1);
         $experience1->setEndAt($end_at);
-        $experience1->setImage($this->getReference('Flunch-image'));
+//        $experience1->setImage($this->getReference('Flunch-image'));
         $experience1->setDepartment($this->getReference('dep31'));
 
         $experience2 = new Experience();
@@ -39,7 +39,7 @@ class LoadExperience extends AbstractFixture implements OrderedFixtureInterface
         $end_at = new \DateTime();
         $end_at->setDate(2015, 6, 19);
         $experience2->setEndAt($end_at);
-        $experience2->setImage($this->getReference('MNS-image'));
+//        $experience2->setImage($this->getReference('MNS-image'));
         $experience2->setDepartment($this->getReference('dep06'));
 
         $experience3 = new Experience();
@@ -53,7 +53,7 @@ class LoadExperience extends AbstractFixture implements OrderedFixtureInterface
         $end_at = new \DateTime();
         $end_at->setDate(2015, 12, 18);
         $experience3->setEndAt($end_at);
-        $experience3->setImage($this->getReference('Computys-image'));
+//        $experience3->setImage($this->getReference('Computys-image'));
         $experience3->setDepartment($this->getReference('dep31'));
 
         $experience4 = new Experience();
@@ -67,7 +67,7 @@ class LoadExperience extends AbstractFixture implements OrderedFixtureInterface
         $end_at = new \DateTime();
         $end_at->setDate(2017, 9, 30);
         $experience4->setEndAt($end_at);
-        $experience4->setImage($this->getReference('WebAtrio-image'));
+//        $experience4->setImage($this->getReference('WebAtrio-image'));
         $experience4->setDepartment($this->getReference('dep31'));
 
         $manager->persist($experience1);

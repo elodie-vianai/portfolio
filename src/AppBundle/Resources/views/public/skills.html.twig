@@ -24,6 +24,7 @@
                 <li class="page-item"><a class="page-link" id="developpement" href="#">Développement</a></li>
                 <li class="page-item"><a class="page-link" id="graphisme" href="#">Graphisme</a></li>
                 <li class="page-item"><a class="page-link" id="langues" href="#">Langues</a></li>
+                <li class="page-item"><a class="page-link" id="professionnel" href="#">Professionnel</a></li>
             </ul>
         </nav>
     </div>
@@ -31,8 +32,8 @@
     <div class="row justify-content-center padding-bottom-3">
         {% for skill in skills %}
             <div class="image-container">
-                <img src="{{ asset('images/'~skill.image.url) }}" id="{{ skill.name }}" class="image-skill {{ skill.category|lower }}"
-                     data-toggle="tooltip" data-placement="top" title="{{ skill.image.alt }}" template="">
+                <img src="{{ asset('images/logos/skills/'~skill.image.url) }}" id="{{ skill.name }}" class="image-skill {{ skill.category|lower }}"
+                     data-toggle="tooltip" data-placement="top" title="{{ skill.image.alt }}">
             </div>
         {% endfor %}
     </div>

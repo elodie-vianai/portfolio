@@ -3,7 +3,7 @@
 {% block titleName %}utilisateurs{% endblock titleName %}
 
 {% block body %}
-    {% block titrePage %}<h1 class="h1 text-center">Gestion des utilisateurs</h1>{% endblock %}
+    {% block titrePage %}<h1 class="h1 text-center padding-bottom-5">Gestion des utilisateurs</h1>{% endblock %}
 
     {#{% block boutonAjouter %}#}
         {#<a href="" class="btn btn-success margin-bottom-3" id="add-button">#}
@@ -24,15 +24,18 @@
             <tbody>
             {% for user in users %}
                 <tr>
-                    <td  class="align-middle">{{ user.id }}</td>
+                    <td  class="align-middle text-center">{{ user.id }}</td>
                     <td  class="align-middle">{{ user.username }}</td>
                     <td  class="align-middle">
                         {% for role in user.roles %}
                             {{ role }},
                         {% endfor %}
                     </td>
-                    <td class="align-middle" id="td-edition" colspan="2">
+                    <td class="text-center" id="td-edition">
                         <a class="btn btn-warning" href="{{ path('fos_user_profile_edit') }}"><img src="{{ asset('images/edit.png') }}"></a>
+                    </td>
+                    <td class="text-center" id="td-edition">
+                        <a class="btn btn-danger" href="{{ path('delete-user', {'id': user.id}) }}"><img src="{{ asset('images/delete.png') }}"></a>
                     </td>
                 </tr>
             {% endfor %}

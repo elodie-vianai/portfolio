@@ -24,16 +24,20 @@ class ProjectType extends AbstractType
             ->add('year',           IntegerType::class)
             ->add('name',           TextType::class)
             ->add('description',    TextareaType::class)
-            ->add('image',          ImageType::class)
+            ->add('image',          ImageType::class, array(
+                'required'      =>  false,
+            ))
             ->add('skills',         EntityType::class, array(
                 'class'             =>      'AppBundle\Entity\Skill',
                 'choice_label'      =>      'name',
-                'multiple'          =>      true
+                'multiple'          =>      true,
+                'required'          =>      false,
             ))
             ->add('experience',     EntityType::class,array(
                 'class'             =>      'AppBundle\Entity\Experience',
                 'choice_label'      =>      'name',
-                'multiple'          =>      false
+                'multiple'          =>      false,
+                'required'          =>      false,
             ))
             ->add('save',           SubmitType::class)
             ->getForm();

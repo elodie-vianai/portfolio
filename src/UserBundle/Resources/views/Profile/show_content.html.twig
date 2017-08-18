@@ -24,10 +24,16 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-6"></div>
-            <a class="btn btn-warning" href="{{ path('fos_user_profile_edit', {'id': user.id}) }}">
-                <img src="{{ asset('images/edit.png') }}">
-            </a>
+            <div class="col-3"></div>
+            <div class="col-3">
+                <a class="btn btn-warning" href="{{ path('fos_user_profile_edit', {'id': user.id}) }}">
+                    <img src="{{ asset('images/edit.png') }}">
+                </a>
+            </div>
+            <div class="col-3">
+                <a class="btn btn-danger" href="{{ path('delete-user', {'id': app.user.id}) }}"><img src="{{ asset('images/delete.png') }}"></a>
+            </div>
+            <div class="col-3"></div>
         </div>
     </div>
 </div>

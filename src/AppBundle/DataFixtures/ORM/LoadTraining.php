@@ -40,7 +40,7 @@ class LoadTraining extends AbstractFixture implements OrderedFixtureInterface
         $end_at->setDate(2011,5,14);
         $training2->setEndAt($end_at);
         $training2->setMention('P');
-        $training2->setImage($this->getReference('Mirail'));
+//        $training2->setImage($this->getReference('Mirail'));
         $training2->setDepartment($this->getReference('dep31'));
 
         $training3  = new Training();
@@ -55,7 +55,7 @@ class LoadTraining extends AbstractFixture implements OrderedFixtureInterface
         $end_at->setDate(2014,5,30);
         $training3->setEndAt($end_at);
         $training3->setMention('P');
-        $training3->setImage($this->getReference('Mirail'));
+//        $training3->setImage($this->getReference('Mirail'));
         $training3->setDepartment($this->getReference('dep31'));
 
         $training4  = new Training();
@@ -70,7 +70,7 @@ class LoadTraining extends AbstractFixture implements OrderedFixtureInterface
         $end_at->setDate(2015,5,29);
         $training4->setEndAt($end_at);
         $training4->setMention('AB');
-        $training4->setImage($this->getReference('UT2J'));
+//        $training4->setImage($this->getReference('UT2J'));
         $training4->setDepartment($this->getReference('dep31'));
 
         $training5  = new Training();
@@ -85,7 +85,7 @@ class LoadTraining extends AbstractFixture implements OrderedFixtureInterface
         $end_at->setDate(2016, 6,10);
         $training5->setEndAt($end_at);
         $training5->setMention('AB');
-        $training5->setImage($this->getReference('UT2J'));
+//        $training5->setImage($this->getReference('UT2J'));
         $training5->setDepartment($this->getReference('dep31'));
 
         $training6 = new Training();
@@ -100,7 +100,7 @@ class LoadTraining extends AbstractFixture implements OrderedFixtureInterface
         $end_at->setDate(2017,9,29);
         $training6->setEndAt($end_at);
         $training6->setMention('P');
-        $training6->setImage($this->getReference('UT2J'));
+//        $training6->setImage($this->getReference('UT2J'));
         $training6->setDepartment($this->getReference('dep31'));
 
         $manager->persist($training1);

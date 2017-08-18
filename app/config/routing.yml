@@ -5,3 +5,7 @@ app:
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+user:
+    resource: '@UserBundle/Controller/UserController.php'
+    type: annotation
