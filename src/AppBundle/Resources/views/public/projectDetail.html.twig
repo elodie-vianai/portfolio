@@ -19,7 +19,7 @@
         {% if project.image is empty or null %}
             <img src="{{ asset('images/noImage.png') }}" alt="Aucune image disponible" class="img-fluid mx-auto" id="imageProject">
         {% else %}
-            <img src="{{ asset('images/projects/'~project.image.url) }}" alt="{{ project.image.alt }}" class="img-fluid mx-auto" id="imageProject">
+            <img src="{{ asset('images/projects/'~project.image) }}" alt="{{ project.name }}" class="img-fluid mx-auto" id="imageProject">
         {% endif %}
     </div>
 
@@ -61,7 +61,7 @@
     <div class="row padding-bottom-3">
         {% for skill in project.skills %}
             <div class="col-2 padding-3">
-                <img src="{{ asset('images/logos/skills/'~ skill.Image.url) }}" alt="{{ skill.name }}" class="logosTechnos">
+                <img src="{{ asset('images/logos/skills/'~ skill.Image) }}" alt="{{ skill.name }}" class="logosTechnos">
             </div>
         {% endfor %}
     </div>

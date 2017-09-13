@@ -10,116 +10,154 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
+/**
+ * Class LoadTraining
+ *
+ * @package AppBundle\DataFixtures\ORM
+ */
 class LoadTraining extends AbstractFixture implements OrderedFixtureInterface
 {
+    /**
+     * @var array
+     */
+    private $trainings = [
+        [
+            'name'              =>  'Baccalauréat général, série Littéraire',
+            'type'              =>  'Diplôme',
+            'institution'       =>  'Lycée Jean-Pierre Vernant',
+            'city'              =>  'Pins-Justaret',
+            'begin_at_year'     =>  '2009',
+            'begin_at_month'    =>  '9',
+            'begin_at_day'      =>  '2',
+            'end_at_year'       =>  '2010',
+            'end_at_month'      =>  '7',
+            'end_at_day'        =>  '1',
+            'mention'           =>  'P',
+            'dep'               =>  '31',
+            'ref'               =>  'bac',
+        ],
+        [
+            'name'              =>  'Licence Langues, Littérature et Civilisation Etrangères',
+            'type'              =>  'Formation',
+            'institution'       =>  'Université Toulouse 2 Le Mirail',
+            'city'              =>  'Toulouse',
+            'begin_at_year'     =>  '2010',
+            'begin_at_month'    =>  '10',
+            'begin_at_day'      =>  '4',
+            'end_at_year'       =>  '2011',
+            'end_at_month'      =>  '5',
+            'end_at_day'        =>  '14',
+            'mention'           =>  'P',
+            'dep'               =>  '31',
+            'image'             =>  'logoMirail.png',
+            'ref'               =>  'llcer',
+        ],
+        [
+            'name'              =>  'Licence d\'Histoire',
+            'type'              =>  'Diplôme',
+            'institution'       =>  'Université Toulouse 2 Le Mirail',
+            'city'              =>  'Toulouse',
+            'begin_at_year'     =>  '2011',
+            'begin_at_month'    =>  '9',
+            'begin_at_day'      =>  '19',
+            'end_at_year'       =>  '2014',
+            'end_at_month'      =>  '5',
+            'end_at_day'        =>  '30',
+            'mention'           =>  'P',
+            'dep'               =>  '31',
+            'image'             =>  'logoMirail.png',
+            'ref'               =>  'histoire',
+        ],
+        [
+            'name'              =>  'Licence professionnelle Image et Histoire',
+            'type'              =>  'Diplôme',
+            'institution'       =>  'Université Toulouse 2 Jean Jaurès',
+            'city'              =>  'Toulouse',
+            'begin_at_year'     =>  '2014',
+            'begin_at_month'    =>  '9',
+            'begin_at_day'      =>  '9',
+            'end_at_year'       =>  '2015',
+            'end_at_month'      =>  '5',
+            'end_at_day'        =>  '29',
+            'mention'           =>  'AB',
+            'dep'               =>  '31',
+            'image'             =>  'logoUT2J.png',
+            'ref'               =>  'lp',
+        ],
+        [
+            'name'              =>  'Maîtrise d\'Information-Documentation',
+            'type'              =>  'Diplôme',
+            'institution'       =>  'Université Toulouse 2 Jean Jaurès',
+            'city'              =>  'Toulouse',
+            'begin_at_year'     =>  '2015',
+            'begin_at_month'    =>  '9',
+            'begin_at_day'      =>  '7',
+            'end_at_year'       =>  '2016',
+            'end_at_month'      =>  '6',
+            'end_at_day'        =>  '10',
+            'mention'           =>  'AB',
+            'dep'               =>  '31',
+            'image'             =>  'logoUT2J.png',
+            'ref'               =>  'm1',
+        ],
+        [
+            'name'              =>  'Master 2 Ingénierie de l\'Information Numérique, I2N',
+            'type'              =>  'Diplôme',
+            'institution'       =>  'Université Toulouse 2 Jean Jaurès',
+            'city'              =>  'Toulouse',
+            'begin_at_year'     =>  '2016',
+            'begin_at_month'    =>  '9',
+            'begin_at_day'      =>  '5',
+            'end_at_year'       =>  '2017',
+            'end_at_month'      =>  '9',
+            'end_at_day'        =>  '29',
+            'mention'           =>  'P',
+            'dep'               =>  '31',
+            'image'             =>  'logoUT2J.png',
+            'ref'               =>  'm2',
+        ],
+    ];
+
+
+    /**
+     * Set trainings
+     *
+     * @param \Doctrine\Common\Persistence\ObjectManager $manager
+     */
     public function load(ObjectManager $manager)
     {
-        $training1  = new Training();
-        $training1->setName('Baccalauréat général, série Littéraire');
-        $training1->setType('Diplôme');
-        $training1->setInstitution('Lycée Jean-Pierre Vernant');
-        $training1->setCity('Pins-Justaret');
-        $begin_at = new \DateTime();
-        $begin_at->setDate(2009,9,2);
-        $training1->setBeginAt($begin_at);
-        $end_at = new \DateTime();
-        $end_at->setDate(2010,7,1);
-        $training1->setEndAt($end_at);
-        $training1->setMention('P');
-        $training1->setDepartment($this->getReference('dep31'));
+        foreach ($this->trainings as $item){
+            $training = new Training();
 
-        $training2  = new Training();
-        $training2->setName('Licence Langues, Littérature et Civilisation Etrangère');
-        $training2->setType('Formation');
-        $training2->setInstitution('Université Toulouse 2 Le Mirail');
-        $training2->setCity('Toulouse');
-        $begin_at = new \DateTime();
-        $begin_at->setDate(2010,10,4);
-        $training2->setBeginAt($begin_at);
-        $end_at = new \DateTime();
-        $end_at->setDate(2011,5,14);
-        $training2->setEndAt($end_at);
-        $training2->setMention('P');
-//        $training2->setImage($this->getReference('Mirail'));
-        $training2->setDepartment($this->getReference('dep31'));
+            $training->setName($item['name']);
+            $training->setType($item['type']);
+            $training->setInstitution($item['institution']);
+            $training->setCity($item['city']);
+            $begin_at = new \DateTime();
+            $begin_at->setDate($item['begin_at_year'], $item['begin_at_month'], $item['begin_at_day']);
+            $training->setBeginAt($begin_at);
+            $end_at = new \DateTime();
+            $end_at->setDate($item['end_at_year'], $item['end_at_month'], $item['end_at_day']);
+            $training->setBeginAt($end_at);
+            $training->setMention($item['mention']);
+            $training->setDepartment($this->getReference($item['dep']));
 
-        $training3  = new Training();
-        $training3->setName('Licence d\'Histoire');
-        $training3->setType('Diplôme');
-        $training3->setInstitution('Université Toulouse 2 Le Mirail');
-        $training3->setCity('Toulouse');
-        $begin_at = new \DateTime();
-        $begin_at->setDate(2011,9,19);
-        $training3->setBeginAt($begin_at);
-        $end_at = new \DateTime();
-        $end_at->setDate(2014,5,30);
-        $training3->setEndAt($end_at);
-        $training3->setMention('P');
-//        $training3->setImage($this->getReference('Mirail'));
-        $training3->setDepartment($this->getReference('dep31'));
+            if (isset($item['image'])) {
+                $training->setImage($item['image']);
+            }
 
-        $training4  = new Training();
-        $training4->setName('Licence professionnelle Image et Histoire');
-        $training4->setType('Diplôme');
-        $training4->setInstitution('Université Toulouse 2 Jean Jaurès');
-        $training4->setCity('Pins-Justaret');
-        $begin_at = new \DateTime();
-        $begin_at->setDate(2014,9,9);
-        $training4->setBeginAt($begin_at);
-        $end_at = new \DateTime();
-        $end_at->setDate(2015,5,29);
-        $training4->setEndAt($end_at);
-        $training4->setMention('AB');
-//        $training4->setImage($this->getReference('UT2J'));
-        $training4->setDepartment($this->getReference('dep31'));
+            $manager->persist($training);
 
-        $training5  = new Training();
-        $training5->setName('Maîtrise d\'Information-Documentation');
-        $training5->setType('Diplôme');
-        $training5->setInstitution('Université Toulouse 2 Jean Jaurès');
-        $training5->setCity('Toulouse');
-        $begin_at = new \DateTime();
-        $begin_at->setDate(2015,9,7);
-        $training5->setBeginAt($begin_at);
-        $end_at = new \DateTime();
-        $end_at->setDate(2016, 6,10);
-        $training5->setEndAt($end_at);
-        $training5->setMention('AB');
-//        $training5->setImage($this->getReference('UT2J'));
-        $training5->setDepartment($this->getReference('dep31'));
-
-        $training6 = new Training();
-        $training6->setName('Master 2 Ingénierie de l\'Information Numérique, I2N');
-        $training6->setType('Formation');
-        $training6->setInstitution('Université Toulouse 2 Jean Jaurès');
-        $training6->setCity('Toulouse');
-        $begin_at = new \DateTime();
-        $begin_at->setDate(2016,9,5);
-        $training6->setBeginAt($begin_at);
-        $end_at = new \DateTime();
-        $end_at->setDate(2017,9,29);
-        $training6->setEndAt($end_at);
-        $training6->setMention('P');
-//        $training6->setImage($this->getReference('UT2J'));
-        $training6->setDepartment($this->getReference('dep31'));
-
-        $manager->persist($training1);
-        $manager->persist($training2);
-        $manager->persist($training3);
-        $manager->persist($training4);
-        $manager->persist($training5);
-        $manager->persist($training6);
-
-        $this->addReference('bac', $training1);
-        $this->addReference('llcer', $training2);
-        $this->addReference('histoire', $training3);
-        $this->addReference('lp', $training4);
-        $this->addReference('m1', $training5);
-        $this->addReference('m2', $training6);
+            $this->setReference($item['ref'], $training);
+        }
 
         $manager->flush();
     }
 
+
+    /**
+     * @return int
+     */
     public function getOrder()
     {
         return 4;

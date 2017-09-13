@@ -24,7 +24,7 @@
 
         <div class="form-group row">
             {{ form_label(form.beginAt, 'Date de début', {'label_attr': {'class': 'col-form-label col-2'} }) }}
-            {{ form_widget(form.beginAt, {'attr': {'class': 'col-2'} }) }}
+            {{ form_widget(form.beginAt, {'attr': {'class': 'col-3'} }) }}
             <div class="col-1"></div>
             {{ form_label(form.endAt, 'Date de fin', {'label_attr': {'class': 'col-form-label col-2'} }) }}
             {{ form_widget(form.endAt, {'attr': {'class': 'col-3'} }) }}
@@ -64,9 +64,9 @@
             <h4>Image</h4>
         </div>
 
-        <div class="form-group row">
-            {{ form_label(form.image.file, 'Logo de l\établissement', {'label_attr': {'class': 'col-form-label col-3'} }) }}
-            {{ form_widget(form.image.file, {'attr': {'class': 'form-control-file col-9'} }) }}
+        <div class="row justify-content-start form-group ">
+            {{ form_label(form.imageFile, 'Logo de l\établissement', {'label_attr': {'class': 'col-form-label col-3'} }) }}
+            {{ form_widget(form.imageFile.file, {'attr': {'class': 'form-control-file col-9'} }) }}
         </div>
     </div>
 

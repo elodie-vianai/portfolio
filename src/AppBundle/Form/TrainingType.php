@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class TrainingType extends AbstractType
 {
@@ -43,12 +44,15 @@ class TrainingType extends AbstractType
             ->add('city',                   TextType::class)
             ->add('department',             EntityType::class, array(
                 'class'             =>  'AppBundle\Entity\Department',
-                'choice_label'      =>  'department',
+                'choice_label'      =>  'name',
                 'multiple'          =>  false
             ))
-            ->add('image',               ImageType::class, array(
-                'required'      =>  false,
-            ))
+            ->add(
+                'imageFile',
+                VichFileType::class,
+                [
+                    'required' => true,
+                ])
             ->add('beginAt',                DateType::class)
             ->add('endAt',                  DateType::class)
             ->add('save',                   SubmitType::class)

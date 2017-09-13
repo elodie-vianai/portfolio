@@ -44,7 +44,7 @@
                         {% if training.image is empty or null %}
                             <img src="{{ asset('images/noImage-2.png') }}" class="logos_crud" alt="Aucune image disponible">
                         {% else %}
-                            <img src="{{ asset('images/logos/institutions/'~training.image.url) }}" class="logos_crud" alt="{{ training.image.alt }}">
+                            <img src="{{ asset('images/logos/institutions/'~training.image) }}" class="logos_crud" alt="{{ training.name }}">
                         {% endif %}
                     </td>
                     <td class="align-middle" id="td-edition">
@@ -59,3 +59,9 @@
         </table>
     {% endblock %}
 {% endblock body %}
+
+
+
+
+
+

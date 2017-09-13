@@ -52,6 +52,9 @@ class TrainingController extends Controller
         return $this->render('@App/admin/trainings/crud.html.twig', array(
             'trainings' => $trainings,
         ));
+
+
+
     }
 
 

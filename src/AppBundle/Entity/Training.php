@@ -3,19 +3,25 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Constraints\Date;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Training
  *
  * @ORM\Table(name="training")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\TrainingRepository")
+ * @Vich\Uploadable
  */
 class Training
 {
     /**
+     * Training unique identifiant
+     *
      * @var int
+     * @Assert\Type("integer")
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -24,63 +30,105 @@ class Training
     private $id;
 
     /**
+     * Name of the training
+     *
      * @var string
+     * @Assert\Type("string")
      *
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
 
     /**
+     * Type of the training (diploma, training...)
+     *
      * @var string
+     * @Assert\Type("string")
      *
      * @ORM\Column(name="type", type="string", length=255)
      */
     private $type;
 
     /**
+     * Name of the institution where the training was followed
+     *
      * @var string
+     * @Assert\Type("string")
      *
      * @ORM\Column(name="institution", type="string", length=255)
      */
     private $institution;
 
     /**
+     * City where the institution is
+     *
      * @var string
+     * @Assert\Type("string")
      *
      * @ORM\Column(name="city", type="string", length=255)
      */
     private $city;
 
     /**
-     * @Date()
+     * Date of the beginning of the training
+     *
+     * @var Date
+     * @Assert\Type("date")
+     *
      * @ORM\Column(name="begin_at", type="date")
      */
     private $beginAt;
+
     /**
-     * @Date()
+     * Date of the end of the training
+     *
+     * @var Date
+     * @Assert\Type("date")
+     *
      * @ORM\Column(name="end_at", type="date", nullable=true)
      */
     private $endAt;
 
     /**
+     * Mention of the diploma
+     *
      * @var string
+     * @Assert\Type("string")
      *
      * @ORM\Column(name="mention", type="string", length=2)
      */
     private $mention;
 
     /**
+     * Department where the institution is
+     *
+     * @Assert\Type("object")
+     *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Department")
      * @ORM\JoinColumn(nullable=false)
      */
     private $department;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Image", cascade={"persist"})
-     * @ORM\JoinColumn(unique=false)
+     * @Assert\Type("object")
+     *
+     * @Vich\UploadableField(mapping="logo_institution", fileNameProperty="image")
+     *
+     * @var File $imageFile
+     * @Assert\Image(groups="training")
      */
-    public $image;
+    private $imageFile;
 
+    /**
+     * Name of the image file
+     *
+     * @var string
+     * @Assert\Type("string")
+     *
+     * @ORM\Column(name="image", type="string", length=255, nullable=true)
+     * @Assert\Image(groups="training")
+     */
+    private $image;
 
 
     /**
@@ -281,23 +329,47 @@ class Training
     }
 
     /**
-     * Set image
+     * Get image
      *
-     * @param mixed $image
-     */
-    public function setImage(Image $image)
-    {
-        $this->image = $image;
-    }
-
-    /**
-     * Get Image
-     *
-     * @return mixed
+     * @return string
      */
     public function getImage()
     {
         return $this->image;
+    }
+
+    /**
+     * Set Image
+     *
+     * @param string|null $image
+     *
+     * @return Training
+     */
+    public function setImage($image = null)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * @param \Symfony\Component\HttpFoundation\File\File|null $image
+     *
+     * @return Training
+     */
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;
+
+        return $this;
+    }
+
+    /**
+     * @return File|null
+     */
+    public function getImageFile()
+    {
+        return $this->imageFile;
     }
 
 }

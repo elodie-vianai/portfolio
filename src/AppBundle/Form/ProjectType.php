@@ -4,9 +4,7 @@ namespace AppBundle\Form;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -24,9 +22,12 @@ class ProjectType extends AbstractType
             ->add('year',           IntegerType::class)
             ->add('name',           TextType::class)
             ->add('description',    TextareaType::class)
-            ->add('image',          ImageType::class, array(
-                'required'      =>  false,
-            ))
+            ->add(
+                'imageFile',
+                VichFileType::class,
+                [
+                    'required' => true,
+                ])
             ->add('skills',         EntityType::class, array(
                 'class'             =>      'AppBundle\Entity\Skill',
                 'choice_label'      =>      'name',

@@ -32,9 +32,9 @@ class Department
     /**
      * @var string
      *
-     * @ORM\Column(name="department", type="string", length=255, unique=true)
+     * @ORM\Column(name="name", type="string", length=255, unique=true)
      */
-    private $department;
+    private $name;
 
 
 
@@ -74,61 +74,26 @@ class Department
     }
 
     /**
-     * Set department
+     * Set the name of the department
      *
-     * @param string $department
+     * @param string $name
      *
      * @return Department
      */
-    public function setDepartment($department)
+    public function setName($name)
     {
-        $this->department = $department;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get department
+     * Get the name of the department
      *
      * @return string
      */
-    public function getDepartment()
+    public function getName()
     {
-        return $this->department;
+        return $this->name;
     }
-
-
-//    /**
-//     * Link an experience to a department
-//     *
-//     * @param \AppBundle\Entity\Experience $experience
-//     *
-//     * @return Department
-//     */
-//    public function addExperience(Experience $experience)
-//    {
-//        $this->experiences[] = $experience;
-//
-//        return $this;
-//    }
-//
-//    /**
-//     * Remove an experience
-//     *
-//     * @param \AppBundle\Entity\Experience $experience
-//     */
-//    public function removeExperience(Experience $experience)
-//    {
-//        $this->experiences->removeElement($experience);
-//    }
-//
-//    /**
-//     * Get experiences
-//     *
-//     * @return \Doctrine\Common\Collections\Collection
-//     */
-//    public function getExperiences()
-//    {
-//        return $this->experiences;
-//    }
 }

@@ -62,7 +62,7 @@
                         {% if skill.image is empty or null %}
                             <img src="{{ asset('images/noImage-2.png') }}" class="logos_crud" alt="Aucune image disponible">
                         {% else %}
-                            <img src="{{ asset('images/logos/skills/'~skill.image.url) }}" class="text-center logos_crud" alt="{{ skill.image.alt }}">
+                            <img src="{{ asset('images/logos/skills/'~skill.image) }}" class="text-center logos_crud" alt="{{ skill.name }}">
                         {% endif %}
                     </td>
                     <td  class="align-middle text-center" id="td-edition">

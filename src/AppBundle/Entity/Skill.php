@@ -3,17 +3,24 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Skill
  *
  * @ORM\Table(name="skill")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\SkillRepository")
+ * @Vich\Uploadable
  */
 class Skill
 {
     /**
+     * Skill unique identifiant
+     *
      * @var int
+     * @Assert\Type("integer")
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -22,27 +29,51 @@ class Skill
     private $id;
 
     /**
+     * Name of the skill
+     *
      * @var string
+     * @Assert\Type("string")
      *
      * @ORM\Column(name="name", type="string", length=255, unique=true)
      */
     private $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Image", cascade={"persist"})
-     * @ORM\JoinColumn(unique=false)
+     * @Assert\Type("object")
+     *
+     * @Vich\UploadableField(mapping="logo_skill", fileNameProperty="image")
+     *
+     * @var File $imageFile
+     * @Assert\Image(groups="skill")
+     */
+    private $imageFile;
+
+    /**
+     * Name of the image file
+     *
+     * @var string
+     * @Assert\Type("string")
+     *
+     * @ORM\Column(name="image", type="string", length=255, nullable=false)
+     * @Assert\Image(groups="skill")
      */
     private $image;
 
     /**
+     * Level of the skill (from 1 for debutant to 5 to expert)
+     *
      * @var int
+     * @Assert\Type("integer")
      *
      * @ORM\Column(name="level", type="integer")
      */
     private $level;
 
     /**
+     * Category of the skill
+     *
      * @var string
+     * @Assert\Type("string")
      *
      * @ORM\Column(name="category", type="string", length=255)
      */
@@ -81,30 +112,6 @@ class Skill
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * Set imagePath
-     *
-     * @param Image $image
-     *
-     * @return Skill
-     */
-    public function setImage(Image $image)
-    {
-        $this->image = $image;
-
-        return $this;
-    }
-
-    /**
-     * Get image
-     *
-     * @return string
-     */
-    public function getImage()
-    {
-        return $this->image;
     }
 
     /**
@@ -153,5 +160,49 @@ class Skill
     public function getCategory()
     {
         return $this->category;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * Set Image
+     *
+     * @param string|null $image
+     *
+     * @return Skill
+     */
+    public function setImage($image = null)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * @param \Symfony\Component\HttpFoundation\File\File|null $image
+     *
+     * @return \AppBundle\Entity\Skill
+     */
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;
+
+        return $this;
+    }
+
+    /**
+     * @return File|null
+     */
+    public function getImageFile()
+    {
+        return $this->imageFile;
     }
 }

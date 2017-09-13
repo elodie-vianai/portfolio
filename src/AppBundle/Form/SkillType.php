@@ -5,7 +5,7 @@ namespace AppBundle\Form;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use AppBundle\Form\ImageType;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -28,7 +28,6 @@ class SkillType extends AbstractType
                     'Expert'            => 4
                 )
             ))
-            ->add('image',        ImageType::class)
             ->add('category',     ChoiceType::class, array(
                 'choices'   =>  array(
                     ''                          => null,
@@ -43,6 +42,12 @@ class SkillType extends AbstractType
                     'Système d\'exploitation'   => 'OS',
                     'Technologies'              => 'Technologies'
                 )))
+            ->add(
+                'imageFile',
+                VichFileType::class,
+                [
+                    'required' => true,
+                ])
             ->add('save',               SubmitType::class)
             ->getForm();
 

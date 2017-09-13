@@ -6,7 +6,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
-use AppBundle\Form\ImageType;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -42,10 +42,15 @@ class ExperienceType extends AbstractType
             ->add('city',               TextType::class)
             ->add('department',      EntityType::class, array(
                 'class'             =>  'AppBundle\Entity\Department',
-                'choice_label'      =>  'department',
+                'choice_label'      =>  'name',
                 'multiple'          =>  false
             ))
-            ->add('image',              ImageType::class)
+            ->add(
+                'imageFile',
+                VichFileType::class,
+                [
+                    'required' => true,
+                ])
             ->add('beginAt',            DateType::class)
             ->add('endAt',              DateType::class, array(
                 'required'      =>  false,

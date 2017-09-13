@@ -1,93 +1,103 @@
 <?php
 
-# Fixture pour les tests.
-
 namespace AppBundle\DataFixtures\ORM;
 
 use AppBundle\Entity\Project;
+use AppBundle\Form\ProjectType;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
-
+/**
+ * Class LoadProject
+ *
+ * @package AppBundle\DataFixtures\ORM
+ */
 class LoadProject extends AbstractFixture implements OrderedFixtureInterface
 {
+    /**
+     * @var array
+     */
+    private $projects = [
+        [
+            'name'          =>  'Exposition "En Mode Sport"',
+            'description'   =>  'Participation à l\'élaboration du catalogue et de l\'exposition En Mode Sport (été 2015).',
+            'year'          =>  '2015',
+            'experience'    =>  'MNS',
+            'image'         =>  'EnModeSport.jpg',
+            'ref'           =>  'ems',
+        ],
+        [
+            'name'          =>  'Les Voyages de Petit Louis, version 1',
+            'description'   =>  'Application permettant la gestion des archives de Louis Bernard Emont, alias Petit Louis, 
+                télégraphiste pour l\'aéropostale dans les années 30.',
+            'year'          =>  '2016',
+            'experience'    =>  'Computys',
+            'skills'         =>  [
+                'php',
+                'css',
+                'html',
+                'bootstrap3',
+            ],
+            'ref'           =>  'pl',
+        ],
+        [
+            'name'          =>  'Portfolio',
+            'description'   =>  'Mon portfolio de développeuse pour présenter mes formations, mes expériences, mes projets et mes compétences. 
+                Sera présenté lors de ma soutenance de fin d\'études.',
+            'year'          =>  '2017',
+            'experience'    =>  'WA',
+            'image'         =>  'Portfolio.png',
+            'skills'        =>  [
+                'css',
+                'html',
+                'bootstrap4',
+                'phpoo',
+                'symfony3',
+                'twig',
+            ],
+            'ref'           =>  'portfolio',
+        ],
+    ];
+
+
+    /**
+     * Set projects
+     *
+     * @param \Doctrine\Common\Persistence\ObjectManager $manager
+     */
     public function load(ObjectManager $manager)
     {
-        $project1 = new Project();
-        $project1->setName('Exposition "En Mode Sport"');
-        $project1->setDescription('Participation à l\'élaboration du catalogue et de l\'exposition En Mode Sport (été 2015).');
-        $project1->setYear(2015);
-//        $project1->setImage($this->getReference('EnModeSport-image'));
-        $project1->setExperience($this->getReference('MNS'));
+        foreach ($this->projects as $item){
+            $project = new Project();
 
-        $project2 = new Project();
-        $project2->setName('Les Voyages de Petit Louis, version 1');
-        $project2->setDescription('Application permettant la gestion des archives de Louis Bernard Emont, alias Petit Louis, 
-            télégraphiste pour l\'aéropostale dans les années 30.');
-        $project2->setYear(2016);
-        $project2->setExperience($this->getReference('Computys'));
-        $project2->addSkill($this->getReference('php'));
-        $project2->addSkill($this->getReference('css'));
-        $project2->addSkill($this->getReference('html'));
-        $project2->addSkill($this->getReference('bootstrap3'));
-        $project2->addSkill($this->getReference('javascript'));
+            $project->setName($item['name']);
+            $project->setDescription($item['description']);
+            $project->setYear($item['year']);
+            $project->setExperience($this->getReference($item['experience']));
 
-        $project3 = new Project();
-        $project3->setName('Portfolio v1');
-        $project3->setDescription('Première version de mon application de présentation de mon portfolio de développeuse.');
-        $project3->setYear(2017);
-//        $project3->setImage($this->getReference('portfolio-image'));
-        $project3->setExperience($this->getReference('WA'));;
-        $project3->addSkill($this->getReference('css'));
-        $project3->addSkill($this->getReference('html'));
-        $project3->addSkill($this->getReference('bootstrap3'));
-        $project3->addSkill($this->getReference('phpoo'));
-        $project3->addSkill($this->getReference('slim'));
-        $project3->addSkill($this->getReference('twig'));
+            if (isset($item['image'])) {
+                $project->setImage($item['image']);
+            }
 
-        $project4 = new Project();
-        $project4->setName('Portfolio v2');
-        $project4->setDescription('Deuxième version de mon application de présentation de mon portfolio de développeuse.');
-        $project4->setYear(2017);
-//        $project4->setImage($this->getReference('portfolio-image'));
-        $project4->setExperience($this->getReference('WA'));
-        $project4->addSkill($this->getReference('css'));
-        $project4->addSkill($this->getReference('html'));
-        $project4->addSkill($this->getReference('bootstrap4'));
-        $project4->addSkill($this->getReference('phpoo'));
-        $project4->addSkill($this->getReference('slim'));
-        $project4->addSkill($this->getReference('twig'));
+            if (isset($item['skills'])) {
+                foreach ($item['skills'] as $skill){
+                    $project->addSkill($this->getReference($skill));
+                }
+            }
 
-        $project5 = new Project();
-        $project5->setName('Portfolio v3');
-        $project5->setDescription('Troisième version de mon application de présentation de mon portfolio de développeuse. Sera présenté lors
-            de ma soutenance de stage.');
-        $project5->setYear(2017);
-//        $project5->setImage($this->getReference('portfolio-image'));
-        $project5->setExperience($this->getReference('WA'));
-        $project5->addSkill($this->getReference('css'));
-        $project5->addSkill($this->getReference('html'));
-        $project5->addSkill($this->getReference('bootstrap4'));
-        $project5->addSkill($this->getReference('phpoo'));
-        $project5->addSkill($this->getReference('symfony3'));
-        $project5->addSkill($this->getReference('twig'));
+            $manager->persist($project);
 
-        $manager->persist($project1);
-        $manager->persist($project2);
-        $manager->persist($project3);
-        $manager->persist($project4);
-        $manager->persist($project5);
-
-        $this->addReference('EnModeSport', $project1);
-        $this->addReference('PetitLouis', $project2);
-        $this->addReference('P1', $project3);
-        $this->addReference('P2', $project4);
-        $this->addReference('P3', $project5);
+            $this->setReference($item['ref'], $project);
+        }
 
         $manager->flush();
     }
 
+
+    /**
+     * @return int
+     */
     public function getOrder()
     {
         return 6;

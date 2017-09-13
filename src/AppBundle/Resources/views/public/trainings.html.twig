@@ -13,7 +13,7 @@
                 {% if training.image is empty or null %}
                     <img src="{{ asset('images/noImage-2.png') }}" class="logos" alt="Aucune image disponible">
                 {% else %}
-                    <img src="{{ asset('images/logos/institutions/'~training.image.url) }}" class="logos" alt="{{ training.image.alt }}">
+                    <img src="{{ asset('images/logos/institutions/'~training.image) }}" class="logos" alt="logo de {{ training.institution }}">
                 {% endif %}
             </div>
             <div class="col-8">

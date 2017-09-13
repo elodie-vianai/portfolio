@@ -136,7 +136,7 @@
                                 {#</a>#}
                                 {#{% else %}#}
                                 <a href="{{ path('projectDetail', {'id': project.id}) }}" class="carrousel-link">
-                                    <img class="d-block carousel-images" src="{{ asset('images/projects/'~project.image.url) }}" alt="{{ project.image.alt }}">
+                                    <img class="d-block carousel-images" src="{{ asset('images/projects/'~project.image) }}" alt="{{ project.name }}">
                                     <div class="carousel-caption d-none d-block">{{ project.name }}</div>
                                 </a>
                                 {#{% endif %}#}

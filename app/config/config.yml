@@ -8,7 +8,7 @@ imports:
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en
+    locale: fr
 
 framework:
     #esi: ~
@@ -95,3 +95,27 @@ fos_user:
     from_email:
         address: elodie.vianai@web-atrio.com
         sender_name: user
+
+# Vich Uploader Bundle (for uploadable files) Configuration
+vich_uploader:
+    db_driver: orm
+    mappings:
+        logo_skill:
+            uri_prefix: /images/logos/skills
+            upload_destination: '%kernel.root_dir%/../web/images/logos/skills'
+            namer: vich_uploader.namer_property
+            namer:
+                service: vich_uploader.namer_property
+                options: { property: 'name' }
+        logo_company:
+            uri_prefix: /images/logos/companies
+            upload_destination: '%kernel.root_dir%/../web/images/logos/companies'
+            namer: vich_uploader.namer_uniqid
+        logo_institution:
+            uri_prefix: /images/institutions
+            upload_destination: '%kernel.root_dir%/../web/images/institutions'
+            namer: vich_uploader.namer_uniqid
+        image_project:
+            uri_prefix: /images/projects
+            upload_destination: '%kernel.root_dir%/../web/images/projects'
+            namer: vich_uploader.namer_uniqid

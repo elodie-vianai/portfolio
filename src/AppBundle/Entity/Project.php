@@ -4,16 +4,24 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Security\Core\Validator\Constraints\UserPassword;
+use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Project
  *
  * @ORM\Table(name="project")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ProjectRepository")
+ * @Vich\Uploadable
  */
 class Project
 {
     /**
+     * Project unique identifiant
+     *
+     * @Assert\Type("integer")
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -23,44 +31,76 @@ class Project
     private $id;
 
     /**
+     * Name of the project
+     *
      * @var string
+     * @Assert\Type("string")
      *
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
 
     /**
+     * Description of the project
+     *
      * @var string
+     * @Assert\Type("text")
      *
      * @ORM\Column(name="description", type="text")
      */
     private $description;
 
     /**
+     * Year of the end of the project
+     *
      * @var int
+     * @Assert\Type("integer")
      *
      * @ORM\Column(name="year", type="integer")
      */
     private $year;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Image", cascade={"persist"})
-     * @ORM\JoinColumn(unique=false)
+     * @Assert\Type("object")
+     *
+     * @Vich\UploadableField(mapping="image_project", fileNameProperty="image")
+     *
+     * @var File $imageFile
+     * @Assert\Image(groups="project")
+     */
+    private $imageFile;
+
+    /**
+     * Name of the image file
+     *
+     * @var string
+     * @Assert\Type("string")
+     *
+     * @ORM\Column(name="image", type="string", length=255, nullable=true)
+     * @Assert\Image(groups="project")
      */
     private $image;
 
     /**
+     * Experience related to the project
+     *
+     * @Assert\Type("object")
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Experience", inversedBy="projects")
      * @ORM\JoinColumn(nullable=true)
      */
     private $experience;
 
     /**
+     * Skills used to make the project
+     *
+     * @Assert\Type("object")
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Skill", cascade={"persist"})
      */
     private $skills;
 
-
+    /**
+     * Project constructor.
+     */
     public function __construct()
     {
         $this->skills = new ArrayCollection();
@@ -126,20 +166,6 @@ class Project
     }
 
     /**
-     * Set imagePath
-     *
-     * @param Image $image
-     *
-     * @return Project
-     */
-    public function setImage(Image $image)
-    {
-        $this->image = $image;
-
-        return $this;
-    }
-
-    /**
      * Get image
      *
      * @return string
@@ -147,6 +173,40 @@ class Project
     public function getImage()
     {
         return $this->image;
+    }
+
+    /**
+     * Set Image
+     *
+     * @param string|null $image
+     *
+     * @return Project
+     */
+    public function setImage($image = null)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * @param \Symfony\Component\HttpFoundation\File\File|null $image
+     *
+     * @return Project
+     */
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;
+
+        return $this;
+    }
+
+    /**
+     * @return File|null
+     */
+    public function getImageFile()
+    {
+        return $this->imageFile;
     }
 
     /**
