@@ -15,6 +15,7 @@ class TrainingController extends Controller
 {
     /**
      * @Route ("/formations", name="trainings")
+     *
      * @return Response
      */
     public function trainingsAction()
@@ -38,6 +39,7 @@ class TrainingController extends Controller
 
     /**
      * @Route("/admin/formations", name="crud-trainings")
+     *
      * @return Response
      */
     public function crudAction()
@@ -60,7 +62,9 @@ class TrainingController extends Controller
 
     /**
      * @Route("/admin/formations/ajouter", name="add-training")
+     *
      * @param Request $request
+     *
      * @return RedirectResponse|Response
      */
     public function addAction(Request $request)
@@ -75,8 +79,6 @@ class TrainingController extends Controller
             $this->getDoctrine()->getManager()->persist($training);
             $this->getDoctrine()->getManager()->flush();
 
-            $request->getSession()->getFlashBag()->add('success', 'Formation bien enregistrée !');
-
             return $this->redirectToRoute('crud-trainings');
         }
 
@@ -88,8 +90,10 @@ class TrainingController extends Controller
 
     /**
      * @Route("admin/formations/modifier/{id})", name="edit-training")
+     *
      * @param Training $training
      * @param Request $request
+     *
      * @return RedirectResponse|Response
      */
     public function editAction(Training $training, Request $request)
@@ -101,14 +105,9 @@ class TrainingController extends Controller
         $form = $this->createForm(TrainingType::class , $training);
         $form->handleRequest($request);
         if ($request->isMethod('POST') && $form->isValid()){
-            $training->getImage()->preUpload();
 
             $this->getDoctrine()->getManager()->persist($training);
             $this->getDoctrine()->getManager()->flush();
-
-//            dump($training);die;
-
-            $request->getSession()->getFlashBag()->add('success', 'La formation a bien été modifiée.1111');
 
             return $this->redirectToRoute('crud-trainings');
         }
@@ -122,9 +121,10 @@ class TrainingController extends Controller
 
     /**
      * @Route("admin/formations/supprimer/{id}", name="delete-training")
+     *
      * @param Training $training
      * @param Request $request
-     * @internal param $id
+     *
      * @return RedirectResponse|Response
      */
     public function deleteAction(Training $training, Request $request)
@@ -139,8 +139,6 @@ class TrainingController extends Controller
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
             $this->getDoctrine()->getManager()->remove($training);
             $this->getDoctrine()->getManager()->flush();
-
-            $request->getSession()->getFlashBag()->add('success', 'La formation a bien été supprimée.');
 
             return $this->redirectToRoute('crud-trainings');
         }

@@ -138,7 +138,7 @@ class LoadTraining extends AbstractFixture implements OrderedFixtureInterface
             $training->setBeginAt($begin_at);
             $end_at = new \DateTime();
             $end_at->setDate($item['end_at_year'], $item['end_at_month'], $item['end_at_day']);
-            $training->setBeginAt($end_at);
+            $training->setEndAt($end_at);
             $training->setMention($item['mention']);
             $training->setDepartment($this->getReference($item['dep']));
 

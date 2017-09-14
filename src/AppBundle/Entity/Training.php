@@ -73,7 +73,7 @@ class Training
      * Date of the beginning of the training
      *
      * @var Date
-     * @Assert\Type("date")
+     * @Assert\Type("datetime")
      *
      * @ORM\Column(name="begin_at", type="date")
      */
@@ -83,7 +83,7 @@ class Training
      * Date of the end of the training
      *
      * @var Date
-     * @Assert\Type("date")
+     * @Assert\Type("datetime")
      *
      * @ORM\Column(name="end_at", type="date", nullable=true)
      */

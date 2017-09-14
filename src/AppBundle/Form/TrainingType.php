@@ -14,6 +14,11 @@ use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Vich\UploaderBundle\Form\Type\VichFileType;
 
+/**
+ * Class TrainingType
+ *
+ * @package AppBundle\Form
+ */
 class TrainingType extends AbstractType
 {
     /**
@@ -80,7 +85,9 @@ class TrainingType extends AbstractType
         ));
     }
 
-
+    /**
+     * @return string
+     */
     public function getBlockPrefix()
     {
         return 'crud-trainings';

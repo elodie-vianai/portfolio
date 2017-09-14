@@ -103,19 +103,24 @@ vich_uploader:
         logo_skill:
             uri_prefix: /images/logos/skills
             upload_destination: '%kernel.root_dir%/../web/images/logos/skills'
-            namer: vich_uploader.namer_property
             namer:
                 service: vich_uploader.namer_property
                 options: { property: 'name' }
         logo_company:
             uri_prefix: /images/logos/companies
             upload_destination: '%kernel.root_dir%/../web/images/logos/companies'
-            namer: vich_uploader.namer_uniqid
+            namer:
+              service: vich_uploader.namer_property
+              options: { property: 'company' }
         logo_institution:
             uri_prefix: /images/institutions
             upload_destination: '%kernel.root_dir%/../web/images/institutions'
-            namer: vich_uploader.namer_uniqid
+            namer:
+                service: vich_uploader.namer_property
+                options: { property: 'institution' }
         image_project:
             uri_prefix: /images/projects
             upload_destination: '%kernel.root_dir%/../web/images/projects'
-            namer: vich_uploader.namer_uniqid
+            namer:
+                service: vich_uploader.namer_property
+                options: { property: 'name' }

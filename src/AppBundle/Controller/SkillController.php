@@ -15,6 +15,8 @@ class SkillController extends Controller
 {
     /**
      * @Route ("/competences", name="skills")
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function skillsAction()
     {
@@ -28,6 +30,7 @@ class SkillController extends Controller
 
     /**
      * @Route("/admin/competences", name="crud-skills")
+     *
      * @return Response
      */
     public function crudAction()
@@ -47,7 +50,9 @@ class SkillController extends Controller
 
     /**
      * @Route("/admin/competences/ajouter", name="add-skill")
+     *
      * @param Request $request
+     *
      * @return RedirectResponse|Response
      */
     public function addAction(Request $request)
@@ -62,8 +67,6 @@ class SkillController extends Controller
             $this->getDoctrine()->getManager()->persist($skill);
             $this->getDoctrine()->getManager()->flush();
 
-            $request->getSession()->getFlashBag()->add('success', 'Compétence bien enregistrée !');
-
             return $this->redirectToRoute('crud-skills');
         }
 
@@ -75,8 +78,10 @@ class SkillController extends Controller
 
     /**
      * @Route("admin/competences/modifier/{id})", name="edit-skill")
+     *
      * @param Skill $skill
      * @param Request $request
+     *
      * @return RedirectResponse|Response
      */
     public function editAction(Skill $skill, Request $request)
@@ -89,12 +94,9 @@ class SkillController extends Controller
 
         $form->handleRequest($request);
         if ($request->isMethod('POST') && $form->isValid()){
-            $skill->getImage()->preUpload();
 
             $this->getDoctrine()->getManager()->persist($skill);
             $this->getDoctrine()->getManager()->flush();
-
-            $request->getSession()->getFlashBag()->add('success', 'La compétence a bien été modifiée.');
 
             return $this->redirectToRoute('crud-skills');
         }
@@ -108,9 +110,10 @@ class SkillController extends Controller
 
     /**
      * @Route("admin/competences/supprimer/{id}", name="delete-skill")
+     *
      * @param Skill $skill
      * @param Request $request
-     * @internal param $id
+     *
      * @return RedirectResponse|Response
      */
     public function deleteAction(Skill $skill, Request $request)
@@ -125,8 +128,6 @@ class SkillController extends Controller
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
             $this->getDoctrine()->getManager()->remove($skill);
             $this->getDoctrine()->getManager()->flush();
-
-            $request->getSession()->getFlashBag()->add('success', 'La compétence a bien été supprimée.');
 
             return $this->redirectToRoute('crud-skills');
         }

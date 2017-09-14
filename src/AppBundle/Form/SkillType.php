@@ -13,8 +13,17 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 
+/**
+ * Class SkillType
+ *
+ * @package AppBundle\Form
+ */
 class SkillType extends AbstractType
 {
+    /**
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
+     * @param array                                        $options
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -73,7 +82,9 @@ class SkillType extends AbstractType
         ));
     }
 
-
+    /**
+     * @return string
+     */
     public function getBlockPrefix()
     {
         return 'crud-skills';

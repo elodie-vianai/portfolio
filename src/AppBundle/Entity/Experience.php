@@ -74,7 +74,7 @@ class Experience
      * Date of the beginning of the contract
      *
      * @var Date
-     * @Assert\Type("date")
+     * @Assert\Type("datetime")
      *
      * @ORM\Column(name="begin_at", type="date")
      */
@@ -84,7 +84,7 @@ class Experience
      * Date of the end of the contract
      *
      * @var Date
-     * @Assert\Type("date")
+     * @Assert\Type("datetime")
      *
      * @ORM\Column(name="end_at", type="date", nullable=true)
      */

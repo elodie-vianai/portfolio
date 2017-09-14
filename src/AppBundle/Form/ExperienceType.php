@@ -14,6 +14,11 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 
+/**
+ * Class ExperienceType
+ *
+ * @package AppBundle\Form
+ */
 class ExperienceType extends AbstractType
 {
     /**
@@ -80,7 +85,9 @@ class ExperienceType extends AbstractType
         ));
     }
 
-
+    /**
+     * @return string
+     */
     public function getBlockPrefix()
     {
         return 'crud-experiences';

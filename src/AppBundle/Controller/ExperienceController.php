@@ -15,17 +15,12 @@ class ExperienceController extends Controller
 {
     /**
      * @Route ("/experiences", name="experiences")
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function experiencesAction(){
         $em = $this->getDoctrine()->getManager();
 
-//        $experiences = $em->getRepository('AppBundle:Experience')
-//            ->findBy(
-//                array(),
-//                array('endAt' => 'desc'),
-//                null,
-//                0
-//            );
         $experiences = $em->getRepository('AppBundle:Experience')
             ->dateDiffExperience();
 
@@ -46,6 +41,7 @@ class ExperienceController extends Controller
 
     /**
      * @Route("/admin/experiences", name="crud-experiences")
+     *
      * @return Response
      */
     public function crudAction(){
@@ -64,7 +60,9 @@ class ExperienceController extends Controller
 
     /**
      * @Route("/admin/experiences/ajouter", name="add-experience")
+     *
      * @param Request $request
+     *
      * @return RedirectResponse|Response
      */
     public function addAction(Request $request)
@@ -79,8 +77,6 @@ class ExperienceController extends Controller
             $this->getDoctrine()->getManager()->persist($experience);
             $this->getDoctrine()->getManager()->flush();
 
-            $request->getSession()->getFlashBag()->add('success', 'Expérience bien enregistrée !');
-
             return $this->redirectToRoute('crud-experiences');
         }
 
@@ -92,8 +88,10 @@ class ExperienceController extends Controller
 
     /**
      * @Route("admin/experiences/modifier/{id})", name="edit-experience")
+     *
      * @param Experience $experience
      * @param Request $request
+     *
      * @return RedirectResponse|Response
      */
     public function editAction(Experience $experience, Request $request)
@@ -106,12 +104,9 @@ class ExperienceController extends Controller
 
         $form->handleRequest($request);
         if ($request->isMethod('POST') && $form->isValid()){
-            $experience->getImage()->preUpload();
 
             $this->getDoctrine()->getManager()->persist($experience);
             $this->getDoctrine()->getManager()->flush();
-
-            $request->getSession()->getFlashBag()->add('success', 'L\expérience a bien été modifiée.');
 
             return $this->redirectToRoute('crud-experiences');
         }
@@ -125,8 +120,10 @@ class ExperienceController extends Controller
 
     /**
      * @Route("/admin/experiences/supprimer/{id}", name="delete-experience")
+     *
      * @param Experience $experience
      * @param Request $request
+     *
      * @return RedirectResponse|Response
      */
     public function deleteAction(Experience $experience, Request $request){
@@ -140,8 +137,6 @@ class ExperienceController extends Controller
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
             $this->getDoctrine()->getManager()->remove($experience);
             $this->getDoctrine()->getManager()->flush();
-
-            $request->getSession()->getFlashBag()->add('success', 'L\'expérience a bien été supprimée.');
 
             return $this->redirectToRoute('crud-experiences');
         }

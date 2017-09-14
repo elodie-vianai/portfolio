@@ -14,8 +14,17 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 
+/**
+ * Class ProjectType
+ *
+ * @package AppBundle\Form
+ */
 class ProjectType extends AbstractType
 {
+    /**
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
+     * @param array                                        $options
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -64,7 +73,9 @@ class ProjectType extends AbstractType
         ));
     }
 
-
+    /**
+     * @return string
+     */
     public function getBlockPrefix()
     {
         return 'crud-projects';

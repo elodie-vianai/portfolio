@@ -16,7 +16,9 @@ class ProjectController extends Controller
 {
     /**
      * @Route ("/detail-projet/{id}", name="projectDetail")
+     *
      * @param $id
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function detailAction($id)
@@ -32,6 +34,7 @@ class ProjectController extends Controller
 
     /**
      * @Route("/admin/projets", name="crud-projects")
+     *
      * @return Response
      */
     public function crudAction()
@@ -67,8 +70,6 @@ class ProjectController extends Controller
             $this->getDoctrine()->getManager()->persist($project);
             $this->getDoctrine()->getManager()->flush();
 
-            $request->getSession()->getFlashBag()->add('success', 'Projet bien enregistré !');
-
             return $this->redirectToRoute('crud-projects');
         }
 
@@ -80,8 +81,10 @@ class ProjectController extends Controller
 
     /**
      * @Route("admin/projets/modifier/{id})", name="edit-project")
+     *
      * @param Project $project
      * @param Request $request
+     *
      * @return RedirectResponse|Response
      */
     public function editAction(Project $project, Request $request)
@@ -94,12 +97,9 @@ class ProjectController extends Controller
 
         $form->handleRequest($request);
         if ($request->isMethod('POST') && $form->isValid()){
-            $project->getImage()->preUpload();
 
             $this->getDoctrine()->getManager()->persist($project);
             $this->getDoctrine()->getManager()->flush();
-
-            $request->getSession()->getFlashBag()->add('success', 'Le projet a bien été modifié.');
 
             return $this->redirectToRoute('crud-projects');
         }
@@ -113,9 +113,10 @@ class ProjectController extends Controller
 
     /**
      * @Route("admin/projets/supprimer/{id}", name="delete-project")
+     *
      * @param Project $project
      * @param Request $request
-     * @internal param $id
+     *
      * @return RedirectResponse|Response
      */
     public function deleteAction(Project $project, Request $request)
@@ -130,8 +131,6 @@ class ProjectController extends Controller
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
             $this->getDoctrine()->getManager()->remove($project);
             $this->getDoctrine()->getManager()->flush();
-
-            $request->getSession()->getFlashBag()->add('success', 'Le projet a bien été supprimée.');
 
             return $this->redirectToRoute('crud-projects');
         }

@@ -10,6 +10,8 @@ class DefaultController extends Controller
 {
     /**
      * @Route("/", name="homepage")
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function indexAction()
     {
@@ -46,6 +48,8 @@ class DefaultController extends Controller
 
     /**
      * @Route("/contact", name="contactPage")
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function contactAction()
     {
