@@ -22,7 +22,3 @@ services:
         resource: '../../src/AppBundle/Controller'
         public: true
         tags: ['controller.service_arguments']
-
-
-    ev.api.spotify:
-        class: AppBundle\Service\ApiSpotify

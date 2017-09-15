@@ -37,14 +37,6 @@ class DefaultController extends Controller
 
         //users
         $user = $this->getUser();
-//        $userRoles = $user->getRoles();
-//        foreach ($userRoles as $role)
-//        {
-//            if($role === 'ROLE_USER')
-//            {
-//              $this->get('ev.api.spotify')->spotifyAuthentification();
-//            }
-//        }
 
         return $this->render('AppBundle:home:default.html.twig', array(
             'projects'          =>  $projects,
