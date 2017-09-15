@@ -20,7 +20,7 @@ $(document).ready(function () {
         $('.langues').css('opacity', '1');
         $('.logiciels').css('opacity', '1');
         $('.navigateurs').css('opacity', '1');
-        $('.serveurs').css('opacity', '1');
+        $('.serveur').css('opacity', '1');
         $('.os').css('opacity', '1');
         $('.technologies').css('opacity', '1');
         $('.professionnel').css('opacity', '1');
@@ -33,7 +33,7 @@ $(document).ready(function () {
         $('.langues').css('opacity', '0.1');
         $('.logiciels').css('opacity', '0.1');
         $('.navigateurs').css('opacity', '0.1');
-        $('.serveurs').css('opacity', '0.1');
+        $('.serveur').css('opacity', '0.1');
         $('.os').css('opacity', '0.1');
         $('.technologies').css('opacity', '0.1');
         $('.professionnel').css('opacity', '0.1');
@@ -46,7 +46,7 @@ $(document).ready(function () {
         $('.langues').css('opacity', '0.1');
         $('.logiciels').css('opacity', '1');
         $('.navigateurs').css('opacity', '1');
-        $('.serveurs').css('opacity', '1');
+        $('.serveur').css('opacity', '1');
         $('.os').css('opacity', '1');
         $('.technologies').css('opacity', '1');
         $('.professionnel').css('opacity', '0.1');
@@ -59,7 +59,7 @@ $(document).ready(function () {
         $('.langues').css('opacity', '0.1');
         $('.logiciels').css('opacity', '0.1');
         $('.navigateurs').css('opacity', '0.1');
-        $('.serveurs').css('opacity', '0.1');
+        $('.serveur').css('opacity', '0.1');
         $('.os').css('opacity', '0.1');
         $('.technologies').css('opacity', '0.1');
         $('.professionnel').css('opacity', '0.1');
@@ -85,7 +85,7 @@ $(document).ready(function () {
         $('.langues').css('opacity', '0.1');
         $('.logiciels').css('opacity', '0.1');
         $('.navigateurs').css('opacity', '0.1');
-        $('.serveurs').css('opacity', '0.1');
+        $('.serveur').css('opacity', '0.1');
         $('.os').css('opacity', '0.1');
         $('.technologies').css('opacity', '0.1');
         $('.professionnel').css('opacity', '1');
@@ -102,7 +102,7 @@ $(document).ready(function () {
         $('.langues').show();
         $('.logiciels').show();
         $('.navigateurs').show();
-        $('.serveurs').show();
+        $('.serveur').show();
         $('.os').show();
         $('.technologies').show();
         $('.professionnel').show();
@@ -115,7 +115,7 @@ $(document).ready(function () {
         $('.langues').hide();
         $('.logiciels').hide();
         $('.navigateurs').hide();
-        $('.serveurs').hide();
+        $('.serveur').hide();
         $('.os').hide();
         $('.technologies').hide();
         $('.professionnel').hide();
@@ -128,7 +128,7 @@ $(document).ready(function () {
         $('.langues').hide();
         $('.logiciels').show();
         $('.navigateurs').show();
-        $('.serveurs').show();
+        $('.serveur').show();
         $('.os').show();
         $('.technologies').show();
         $('.professionnel').hide();
@@ -141,7 +141,7 @@ $(document).ready(function () {
         $('.langues').hide();
         $('.logiciels').hide();
         $('.navigateurs').hide();
-        $('.serveurs').hide();
+        $('.serveur').hide();
         $('.os').hide();
         $('.technologies').hide();
         $('.professionnel').hide();
@@ -154,7 +154,7 @@ $(document).ready(function () {
         $('.langues').show();
         $('.logiciels').hide();
         $('.navigateurs').hide();
-        $('.serveurs').hide();
+        $('.serveur').hide();
         $('.os').hide();
         $('.technologies').hide();
         $('.professionnel').hide();
@@ -167,7 +167,7 @@ $(document).ready(function () {
         $('.langues').hide();
         $('.logiciels').hide();
         $('.navigateurs').hide();
-        $('.serveurs').hide();
+        $('.serveur').hide();
         $('.os').hide();
         $('.technologies').hide();
         $('.professionnel').show();

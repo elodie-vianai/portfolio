@@ -42,19 +42,9 @@
                 <a href="https://fr.linkedin.com/in/elodie-vianai" target="_blank">
                     <img src="{{ asset('images/logos/LinkedinLogo.png') }}" alt="logo Linkedin">
                 </a>
-                {#{% if 'user' in user.roles %}#}
-                    {#<a href="user/contact">#}
-                        {#<img src="{{ asset('images/logos/email.png') }}" alt="logo contact">#}
-                    {#</a>#}
-                {#{% elseif 'admin' in user.roles %}#}
-                    {#<a href="admin/contact">#}
-                        {#<img src="{{ asset('images/logos/email.png') }}" alt="logo contact">#}
-                    {#</a>#}
-                {#{% else %}#}
-                    <a href="{{ path('contactPage') }}">
-                        <img src="{{ asset('images/logos/email.png') }}" alt="logo contact">
-                    </a>
-                {#{% endif %}#}
+                <a href="{{ path('contactPage') }}">
+                    <img src="{{ asset('images/logos/email.png') }}" alt="logo contact">
+                </a>
             </div>
         </div>
     </footer>

@@ -199,7 +199,7 @@ class LoadSkill extends AbstractFixture implements OrderedFixtureInterface
             'name'      => 'SublimText',
             'level'     =>  4,
             'category'  =>  'Logiciels',
-            'image'     =>  'SumblimText.jpg',
+            'image'     =>  'SublimText.jpg',
         ],
         [
             'name'      => 'Symfony 3',
