@@ -1,53 +1,63 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="author" content="Elodie VIANAI;Web-atrio;">
+        <title>{% block title %}Elodie's portfolio{% endblock title %}</title>
 
-{% block stylesheets %}
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/header.css') }}">
-{% endblock stylesheets %}
+        <link rel="stylesheet" type="text/css" href="{{ asset('lib/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/header.css') }}">
+        {% block stylesheets %}<!-- Additional stylesheets links here !-->{% endblock stylesheets %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+    </head>
 
-{% block title %}Elodie's portfolio{% endblock title %}
+    <body>
+        <header id="header">
+            {% if is_granted('ROLE_ADMIN') %}
+                {% include ('AppBundle:headers:adminHeader.html.twig') %}
+            {% elseif is_granted('ROLE_USER') %}
+                {% include ('AppBundle:headers:userHeader.html.twig') %}
+            {% else %}
+                {% include ('AppBundle:headers:anonymHeader.html.twig') %}
+            {% endif %}
+        </header>
 
-{% block header %}
-    <header id="header">
-        {% if is_granted('ROLE_ADMIN') %}
-            {% include ('AppBundle:headers:adminHeader.html.twig') %}
-        {% elseif is_granted('ROLE_USER') %}
-            {% include ('AppBundle:headers:userHeader.html.twig') %}
-        {% else %}
-            {% include ('AppBundle:headers:anonymHeader.html.twig') %}
-        {% endif %}
-    </header>
-{% endblock header %}
 
-{% block content %}
-    <div class="container">
-        {% block body %}<!-- Rest of the page here !-->{% endblock body %}
-    </div>
-{% endblock content %}
-
-{% block footer %}
-    <footer class="panel-footer text-center" id="footer">
-        <div class="row">
-            <br>
-            <div class="col-4">
-                Créé par Elodie Vianai
+        {% block content %}
+            <div class="container">
+                {% block body %}<!-- Rest of the page here !-->{% endblock body %}
             </div>
-            <div class="col-4">
-                Portfolio - 2017
-            </div>
-            <div class="col-4">
-                <a href="https://twitter.com/elodiev31" target="_blank">
-                    <img src="{{ asset('images/logos/TwitterLogo.png') }}" alt="logo Twitter">
-                </a>
-                <a href="https://fr.linkedin.com/in/elodie-vianai" target="_blank">
-                    <img src="{{ asset('images/logos/LinkedinLogo.png') }}" alt="logo Linkedin">
-                </a>
-                <a href="{{ path('contactPage') }}">
-                    <img src="{{ asset('images/logos/email.png') }}" alt="logo contact">
-                </a>
-            </div>
-        </div>
-    </footer>
-{% endblock footer %}
+        {% endblock content %}
 
-{% block javascript %}<!-- JavaScript links here !-->{% endblock %}
+
+        <footer class="panel-footer text-center" id="footer">
+            <div class="row">
+                <br>
+                <div class="col-4">
+                    Créé par Elodie Vianai
+                </div>
+                <div class="col-4">
+                    Portfolio - 2017
+                </div>
+                <div class="col-4">
+                    <a href="https://twitter.com/elodiev31" target="_blank">
+                        <img src="{{ asset('images/logos/TwitterLogo.png') }}" alt="logo Twitter">
+                    </a>
+                    <a href="https://fr.linkedin.com/in/elodie-vianai" target="_blank">
+                        <img src="{{ asset('images/logos/LinkedinLogo.png') }}" alt="logo Linkedin">
+                    </a>
+                    <a href="{{ path('contactPage') }}">
+                        <img src="{{ asset('images/logos/email.png') }}" alt="logo contact">
+                    </a>
+                </div>
+            </div>
+        </footer>
+
+
+        <script src="{{ asset('lib/tether.min.js') }}"></script>
+        <script src="{{ asset('lib/jquery-3.2.1.min.js') }}"></script>
+        <script src="{{ asset('lib/bootstrap.min.js') }}"></script>
+        {% block javascript %}<!-- Additional JavaScript links here !-->{% endblock %}
+    </body>
+</html>
