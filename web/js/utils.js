@@ -13,163 +13,39 @@ $(document).ready(function () {
     /**
      * Pictures become transparent when its button is clicked
      */
-    $('#tout').on('click', function(e) {
-        $('.bureautique').css('opacity', '1');
-        $('.database').css('opacity', '1');
-        $('.graphisme').css('opacity', '1');
-        $('.langues').css('opacity', '1');
-        $('.logiciels').css('opacity', '1');
-        $('.navigateurs').css('opacity', '1');
-        $('.serveur').css('opacity', '1');
-        $('.os').css('opacity', '1');
-        $('.technologies').css('opacity', '1');
-        $('.professionnel').css('opacity', '1');
+    $('.page-link').on('click', function (e) {
+        e.preventDefault();
+
+        var category = $(e.target).data('category');
+
+        $('#skills-zone div').hide();
+
+        if(category !== 'all') {
+            $('#skills-zone div.' + category).show();
+        }
+        else {
+            $('#skills-zone div').show();
+        }
     });
 
-    $('#bureautique').on('click', function(e) {
-        $('.bureautique').css('opacity', '1');
-        $('.database').css('opacity', '0.1');
-        $('.graphisme').css('opacity', '0.1');
-        $('.langues').css('opacity', '0.1');
-        $('.logiciels').css('opacity', '0.1');
-        $('.navigateurs').css('opacity', '0.1');
-        $('.serveur').css('opacity', '0.1');
-        $('.os').css('opacity', '0.1');
-        $('.technologies').css('opacity', '0.1');
-        $('.professionnel').css('opacity', '0.1');
-    });
-
-    $('#developpement').on('click', function(e) {
-        $('.bureautique').css('opacity', '0.1');
-        $('.database').css('opacity', '1');
-        $('.graphisme').css('opacity', '0.1');
-        $('.langues').css('opacity', '0.1');
-        $('.logiciels').css('opacity', '1');
-        $('.navigateurs').css('opacity', '1');
-        $('.serveur').css('opacity', '1');
-        $('.os').css('opacity', '1');
-        $('.technologies').css('opacity', '1');
-        $('.professionnel').css('opacity', '0.1');
-    });
-
-    $('#graphisme').on('click', function(e) {
-        $('.bureautique').css('opacity', '0.1');
-        $('.database').css('opacity', '0.1');
-        $('.graphisme').css('opacity', '1');
-        $('.langues').css('opacity', '0.1');
-        $('.logiciels').css('opacity', '0.1');
-        $('.navigateurs').css('opacity', '0.1');
-        $('.serveur').css('opacity', '0.1');
-        $('.os').css('opacity', '0.1');
-        $('.technologies').css('opacity', '0.1');
-        $('.professionnel').css('opacity', '0.1');
-    });
-
-    $('#langues').on('click', function(e) {
-        $('.bureautique').css('opacity', '0.1');
-        $('.database').css('opacity', '0.1');
-        $('.graphisme').css('opacity', '0.1');
-        $('.langues').css('opacity', '1');
-        $('.logiciels').css('opacity', '0.1');
-        $('.navigateurs').css('opacity', '0.1');
-        $('.serveurs').css('opacity', '0.1');
-        $('.os').css('opacity', '0.1');
-        $('.technologies').css('opacity', '0.1');
-        $('.professionnel').css('opacity', '0.1');
-    });
-
-    $('#professionnel').on('click', function(e) {
-        $('.bureautique').css('opacity', '0.1');
-        $('.database').css('opacity', '0.1');
-        $('.graphisme').css('opacity', '0.1');
-        $('.langues').css('opacity', '0.1');
-        $('.logiciels').css('opacity', '0.1');
-        $('.navigateurs').css('opacity', '0.1');
-        $('.serveur').css('opacity', '0.1');
-        $('.os').css('opacity', '0.1');
-        $('.technologies').css('opacity', '0.1');
-        $('.professionnel').css('opacity', '1');
-    });
 
     /********** SKILLS (crud) **********/
     /**
      * Pictures become transparent when its button is clicked
      */
-    $('#crud-tout').on('click', function(e) {
-        $('.bureautique').show();
-        $('.database').show();
-        $('.graphisme').show();
-        $('.langues').show();
-        $('.logiciels').show();
-        $('.navigateurs').show();
-        $('.serveur').show();
-        $('.os').show();
-        $('.technologies').show();
-        $('.professionnel').show();
-    });
 
-    $('#crud-bureautique').on('click', function(e) {
-        $('.bureautique').show();
-        $('.database').hide();
-        $('.graphisme').hide();
-        $('.langues').hide();
-        $('.logiciels').hide();
-        $('.navigateurs').hide();
-        $('.serveur').hide();
-        $('.os').hide();
-        $('.technologies').hide();
-        $('.professionnel').hide();
-    });
+    $('.page-link').on('click', function (e) {
+        e.preventDefault();
 
-    $('#crud-developpement').on('click', function(e) {
-        $('.bureautique').hide();
-        $('.database').show();
-        $('.graphisme').hide();
-        $('.langues').hide();
-        $('.logiciels').show();
-        $('.navigateurs').show();
-        $('.serveur').show();
-        $('.os').show();
-        $('.technologies').show();
-        $('.professionnel').hide();
-    });
+        var category = $(e.target).data('category');
 
-    $('#crud-graphisme').on('click', function(e) {
-        $('.bureautique').hide();
-        $('.database').hide();
-        $('.graphisme').show();
-        $('.langues').hide();
-        $('.logiciels').hide();
-        $('.navigateurs').hide();
-        $('.serveur').hide();
-        $('.os').hide();
-        $('.technologies').hide();
-        $('.professionnel').hide();
-    });
+        $('#skills-table tbody tr').hide();
 
-    $('#crud-langues').on('click', function(e) {
-        $('.bureautique').hide();
-        $('.database').hide();
-        $('.graphisme').hide();
-        $('.langues').show();
-        $('.logiciels').hide();
-        $('.navigateurs').hide();
-        $('.serveur').hide();
-        $('.os').hide();
-        $('.technologies').hide();
-        $('.professionnel').hide();
-    });
-
-    $('#crud-professionnel').on('click', function(e) {
-        $('.bureautique').hide();
-        $('.database').hide();
-        $('.graphisme').hide();
-        $('.langues').hide();
-        $('.logiciels').hide();
-        $('.navigateurs').hide();
-        $('.serveur').hide();
-        $('.os').hide();
-        $('.technologies').hide();
-        $('.professionnel').show();
+        if(category !== 'tout') {
+            $('#skills-table tbody tr.' + category).show();
+        }
+        else {
+            $('#skills-table tbody tr').show();
+        }
     });
 });
