@@ -44,7 +44,7 @@ class Project
      * Description of the project
      *
      * @var string
-     * @Assert\Type("text")
+     * @Assert\Type("string")
      *
      * @ORM\Column(name="description", type="text")
      */
