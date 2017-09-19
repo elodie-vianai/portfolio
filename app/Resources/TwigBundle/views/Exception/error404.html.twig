@@ -1,0 +1,21 @@
+{% extends '@App/layout.html.twig' %}
+
+{% block title %}Erreur 404 - {{ parent() }}{% endblock %}
+
+{% block content %}
+    <section class="http-error">
+        <div class="row justify-content-center padding-bottom-3">
+            <h1 class="h1 text-center">Erreur 404 : document introuvable</h1>
+        </div>
+
+        <div class="row text-center justify-content-center padding-bottom-3">
+            <p class="http-infos text-center">La page que vous demandez n'existe pas ou plus.</p>
+        </div>
+
+        <div class="row text-center justify-content-center">
+            <p>
+                <a href="{{ path('homepage') }}" class="btn btn-primary">Accueil</a>
+            </p>
+        </div>
+    </section>
+{% endblock %}
