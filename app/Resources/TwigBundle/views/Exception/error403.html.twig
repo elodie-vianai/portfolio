@@ -8,14 +8,16 @@
             <h1 class="h1 text-center">Erreur 403 : Accès non autorisé</h1>
         </div>
 
-        <div class="row text-center justify-content-center padding-bottom-3">
-            <p class="http-infos text-center">Vous n'êtes pas autorisé à accéder à cette page.</p>
-        </div>
+        <section class="alert alert-danger" role="alert">
+            <div class="row text-center justify-content-center padding-bottom-3">
+                <p class="http-infos text-center">Vous n'êtes pas autorisé à accéder à cette page.</p>
+            </div>
 
-        <div class="row text-center justify-content-center">
-            <p>
-                <a href="{{ path('homepage') }}" class="btn btn-primary">Accueil</a>
-            </p>
-        </div>
+            <div class="row text-center justify-content-center">
+                <p>
+                    <a href="{{ path('homepage') }}" class="btn btn-primary">Accueil</a>
+                </p>
+            </div>
+        </section>
     </section>
 {% endblock %}
