@@ -20,6 +20,7 @@ security:
             pattern: ^/
             form_login:
                 provider: fos_userbundle
+                success_handler: security.authentication.customized_success_handler
             logout:
                 path: fos_user_security_logout
                 target: /
