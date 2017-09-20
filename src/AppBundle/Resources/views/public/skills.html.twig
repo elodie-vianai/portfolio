@@ -27,20 +27,20 @@
                 {#<li class="page-item"><a class="page-link" href="#" data-target='professionnel'>Professionnel</a></li>#}
             {#</ul>#}
             <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="#" id='all'>Tout afficher</a></li>
-                <li class="page-item"><a class="page-link" href="#" id='bureautique'>Bureautique</a></li>
-                <li class="page-item"><a class="page-link" href="#" id='developpement'>Développement</a></li>
-                <li class="page-item"><a class="page-link" href="#" id='graphisme'>Graphisme</a></li>
-                <li class="page-item"><a class="page-link" href="#" id='langues'>Langues</a></li>
-                <li class="page-item"><a class="page-link" href="#" id='professionnel'>Professionnel</a></li>
+                <li class="page-item"><a class="page-link" href="#" id='all' data-category="all">Tout afficher</a></li>
+                <li class="page-item"><a class="page-link" href="#" id='bureautique' data-category="bureautique">Bureautique</a></li>
+                <li class="page-item"><a class="page-link" href="#" id='developpement' data-category="developpement">Développement</a></li>
+                <li class="page-item"><a class="page-link" href="#" id='graphisme' data-category="graphisme">Graphisme</a></li>
+                <li class="page-item"><a class="page-link" href="#" id='langues' data-category="langues">Langues</a></li>
+                <li class="page-item"><a class="page-link" href="#" id='professionnel' data-category="professionnel">Professionnel</a></li>
             </ul>
         </nav>
     </div>
 
-    <div class="row justify-content-center padding-bottom-3">
+    <div id="skills-zone" class="row justify-content-center padding-bottom-3">
         {% for skill in skills %}
-            <div class="image-container">
-                <img src="{{ asset('images/logos/skills/'~skill.image) }}" id="{{ skill.name }}" class="image-skill {{ skill.category|lower }}"
+            <div class="image-container {{ skill.category|lower }}">
+                <img src="{{ asset('images/logos/skills/'~skill.image) }}" id="{{ skill.name }}" class="image-skill"
                      data-toggle="tooltip" data-placement="top" title="{{ skill.name }}">
             </div>
         {% endfor %}

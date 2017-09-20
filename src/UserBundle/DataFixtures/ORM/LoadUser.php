@@ -20,10 +20,10 @@ class LoadUser extends AbstractFixture implements OrderedFixtureInterface
         $user1->setRoles(array('ROLE_ADMIN'));
 
         $user2 = new User();
-        $user2->setUsername('simple-user');
-        $user2->setPassword('mdp');
-        $user2->setPlainPassword('mdp');
-        $user2->setEmail('simple-user@externe.com');
+        $user2->setUsername('test');
+        $user2->setPassword('test');
+        $user2->setPlainPassword('test');
+        $user2->setEmail('test@externe.com');
         $user2->setEnabled(1);
         $user2->setSalt('');
         $user2->setRoles(array('ROLE_USER'));

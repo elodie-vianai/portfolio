@@ -83,32 +83,26 @@
         <h2 class="h2 padding-bottom-3">Mes intérêts</h2>
         <div class="row justify-content-center">
             <div class="col-2">
-                {#<i class="fa fa-laptop"></i>#}
                 <img src="{{ asset('images/technology.png') }}">
                 <span>Technologies</span>
             </div>
             <div class="col-2">
-                {#<i class="fa fa-globe"></i>#}
                 <img src="{{ asset('images/internet.png') }}">
                 <span>Univers du web</span>
             </div>
             <div class="col-2">
-                {#<i class="fa fa-trophy"></i>#}
                 <img src="{{ asset('images/sports.png') }}">
                 <span>Sports</span>
             </div>
             <div class="col-2">
-                {#<i class="fa fa-camera-retro"></i>#}
                 <img src="{{ asset('images/photography.png') }}">
                 <span>Photographie</span>
             </div>
             <div class="col-2">
-                {#<i class="fa fa-plane"></i>#}
                 <img src="{{ asset('images/travel.png') }}">
                 <span>Voyages</span>
             </div>
             <div class="col-2">
-                {#<i class="fa fa-film"></i>#}
                 <img src="{{ asset('images/cinema.png') }}">
                 <span>Films & séries</span>
             </div>
@@ -130,24 +124,11 @@
                     {% for project in projects %}
                         <div class="carousel-item {% if lastProject.0.id == project.id %}active{% endif %}">
                             {% if project.image %}
-                                {#{% if 'user' in user.roles %}#}
-                                {#<a href="/user/projet/{{ project.id }}" class="carrousel-link">#}
-                                {#<img class="d-block carousel-images" src="/img{{ project.image_path }}">#}
-                                {#<div class="carousel-caption d-none d-block">{{ project.name }}</div>#}
-                                {#</a>#}
-                                {#{% else %}#}
                                 <a href="{{ path('projectDetail', {'id': project.id}) }}" class="carrousel-link">
                                     <img class="d-block carousel-images" src="{{ asset('images/projects/'~project.image) }}" alt="{{ project.name }}">
                                     <div class="carousel-caption d-none d-block">{{ project.name }}</div>
                                 </a>
-                                {#{% endif %}#}
                             {% else %}
-                                {#{% if 'user' in user.roles %}#}
-                                {#<a href="/user/projet/{{ project.id }}" class="carrousel-link">#}
-                                {#<img class="d-block carousel-images" src="/img{{ project.image_path }}">#}
-                                {#<div class="carousel-caption d-none d-block">{{ project.name }}</div>#}
-                                {#</a>#}
-                                {#{% else %}#}
                                 <a href="/projet/{{ project.id }}" class="carrousel-link">
                                     <img class="d-block carousel-images" src="{{ asset('images/noImage-2.png') }}">
                                     <div class="carousel-caption d-none d-block">{{ project.name }}</div>
@@ -168,5 +149,99 @@
         </div>
     </section>
 
+
     <!-- MUSIC SECTION !-->
+    {% if playlists is not empty %}
+        <section id="section-spotify" class="padding-bottom-5">
+            <h2 class="h2 padding-bottom-3">Mes playlists</h2>
+
+            <div id="player" class="apiSpotify">
+                <div class="row topgroup">
+                    <div class="col text-center">
+                        <a href="#" class=" font-weight-bold playlist-link">Aperçu de mes playlists</a>
+                    </div>
+                </div>
+                <div class="row midgroup">
+                    <div class="menuview">
+                        <div class="list scrollable">
+                            <b><a href="#">PLAYLISTS</a></b>
+                            <ul class="list-unstyled menuitems">
+                                {% for playlist in playlists %}
+                                    <li value="{{ playlist.idPlaylist }}">
+                                        <a class="playlist-link" href="#" data-id="{{ playlist.idPlaylist }}">
+                                            {{playlist.namePlaylist}}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="preview">
+                            <div class="img-responsive img-thumbail" id="albumImg"><!-- CF. api_spotify.js !--></div>
+                            <div class="track" id="track">
+                                <b id="trackName"></b>
+                                <br>
+                                <a class="artiste" id="trackArtist"><!-- CF. api_spotify.js !--></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mainview table-responsive">
+                        <div class="titrePlaylist">
+                            <h3 id="titrePlaylist"><!-- CF. api_spotify.js !--></h3>
+                        </div>
+                        <table id="listTracks" class="table table-condensed table-hover">
+                            <tr>
+                                <th>Liste des playlists</th>
+                            </tr>
+                            {% for playlist in playlists %}
+                                <tr>
+                                    <td>
+                                        <a class="playlist-link" href="#" data-id="{{ playlist.idPlaylist }}">
+                                            {{playlist.namePlaylist}}
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row bottomgroup">
+                    <audio id="audioPlayer"></audio>
+                    <div class="col-lg-2 leftcontrols">
+                        <div class="prevbutton">
+                            <a class="prevlink"><img src="{{ asset('images/spotify/btn-prev.png') }}" /></a>
+                        </div>
+                        <div class="playbutton" >
+                            <div id="playbtn">
+                                <a class="control">
+                                    <img src="{{ asset('images/spotify/btn-play.png') }}" />
+                                </a>
+                            </div>
+                            <div id="pausebtn">
+                                <a class="control">
+                                    <img src="{{ asset('images/spotify/btn-pause.png') }}" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="nextbutton">
+                            <a class="nextlink"><img src="{{ asset('images/spotify/btn-next.png') }}" /></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 seekcontrols">
+                        <div id="currentTime"></div>
+                        <div class="progress">
+                            <div id="bar" class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                                <div id="nowBar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                                    <span class="sr-only"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-1 rightcontrols">
+                        <span id="duration"><!-- CF. api_spotify.js !--></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endif %}
 {% endblock body %}
