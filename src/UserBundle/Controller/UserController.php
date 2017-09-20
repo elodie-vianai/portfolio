@@ -42,14 +42,6 @@ class UserController extends Controller
             throw new NotFoundHttpException('L\'utilisateur d\'id ' . $user->getId() . 'n\'existe pas.');
         }
 
-
-        if ($this->getUser() == $user) {
-            $currentUser = 'currentUser';
-        }
-//        else{
-////            $currentUser = 'admin';
-//        }
-
         // Creation of an empty form that will contain only the CSRF field to protect the deletion from this flaw
         $form = $this->get('form.factory')->create();
 

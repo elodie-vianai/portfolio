@@ -12,6 +12,11 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Class ProjectController
+ *
+ * @package AppBundle\Controller
+ */
 class ProjectController extends Controller
 {
     /**

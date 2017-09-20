@@ -120,6 +120,10 @@ ul.menuitems li a:hover {
     cursor: pointer;
 }
 
+.mainview .artiste{
+    color: white;
+}
+
 
 /* BOTTOM ZONE */
 .bottomgroup {

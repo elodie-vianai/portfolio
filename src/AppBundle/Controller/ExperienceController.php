@@ -11,6 +11,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Class ExperienceController
+ *
+ * @package AppBundle\Controller
+ */
 class ExperienceController extends Controller
 {
     /**

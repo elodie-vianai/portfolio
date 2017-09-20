@@ -19,18 +19,18 @@
         <div class="row d-flex justify-content-end">
             <nav aria-label="Page navigation">
                 <ul class="pagination">
-                    <li class="page-item"><a class="page-link" id="crud-tout" href="#">Tout afficher</a></li>
-                    <li class="page-item"><a class="page-link" id="crud-bureautique" href="#">Bureautique</a></li>
-                    <li class="page-item"><a class="page-link" id="crud-developpement" href="#">Développement</a></li>
-                    <li class="page-item"><a class="page-link" id="crud-graphisme" href="#">Graphisme</a></li>
-                    <li class="page-item"><a class="page-link" id="crud-langues" href="#">Langues</a></li>
-                    <li class="page-item"><a class="page-link" id="crud-professionnel" href="#">Professionnel</a></li>
+                    <li class="page-item"><a class="page-link" data-category="tout" id="crud-tout" href="#">Tout afficher</a></li>
+                    <li class="page-item"><a class="page-link" data-category="bureautique" id="crud-bureautique" href="#">Bureautique</a></li>
+                    <li class="page-item"><a class="page-link" data-category="developpement" id="crud-developpement" href="#">Développement</a></li>
+                    <li class="page-item"><a class="page-link" data-category="graphisme" id="crud-graphisme" href="#">Graphisme</a></li>
+                    <li class="page-item"><a class="page-link" data-category="langues" id="crud-langues" href="#">Langues</a></li>
+                    <li class="page-item"><a class="page-link" data-category="professionnel" id="crud-professionnel" href="#">Professionnel</a></li>
 
                 </ul>
             </nav>
         </div>
 
-        <table class="table table-bordered margin-bottom-5">
+        <table id="skills-table" class="table table-bordered margin-bottom-5">
             <thead class="table-info">
             <tr>
                 <th class="align-middle text-center">Nom compétence</th>
@@ -66,12 +66,12 @@
                         {% endif %}
                     </td>
                     <td  class="align-middle text-center" id="td-edition">
-                        {% if skill.category == 'Database' %}
+                        {% if skill.type == 'Database' %}
                             Bases de données
-                        {% elseif skill.category == 'OS' %}
+                        {% elseif skill.type == 'OS' %}
                             Système d'exploitation
                         {% else %}
-                            {{ skill.category }}
+                            {{ skill.type }}
                         {% endif %}
                     </td>
                     <td class="align-middle text-center" id="td-edition">

@@ -79,6 +79,16 @@ class Skill
      */
     private $category;
 
+    /**
+     * Type of the skill
+     *
+     * @var string
+     * @Assert\Type("string")
+     *
+     * @ORM\Column(name="type", type="string", length=255)
+     */
+    private $type;
+
 
     /**
      * Get id
@@ -204,5 +214,25 @@ class Skill
     public function getImageFile()
     {
         return $this->imageFile;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param $type
+     *
+     * @return Skill
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
     }
 }
