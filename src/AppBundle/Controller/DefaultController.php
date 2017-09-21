@@ -71,6 +71,7 @@ class DefaultController extends Controller
        return $this->render('AppBundle:home:contact.html.twig');
     }
 
+
     /**
      * @Route("/telecharger-un-cv", name="cv-pdf-generator")
      *
@@ -79,5 +80,24 @@ class DefaultController extends Controller
     public function CVonPDF(){
 
         return $this->render('@App/public/CVonPDF.html.twig');
+    }
+
+
+    /**
+     * @Route("/telechargement-cv", name="downloadCV")
+     */
+    public function generateCvInPDFAction(){
+        $em = $this->getDoctrine();
+
+        $data = 'Hello world !';
+
+        $html = $this->renderView(
+            '@App/CV/cv.html.twig',
+        [
+            'data'  => $data,
+        ]
+        );
+
+        return $this->get('ev.pdf.pdf_generator')->generate($html, 'cv_Elodie_Vianai.pdf');
     }
 }

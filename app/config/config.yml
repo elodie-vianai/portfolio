@@ -128,7 +128,7 @@ vich_uploader:
 knp_snappy:
     pdf:
         enabled: true
-        binary: 'xvfb-run wkhtmltopdf'
+        binary: '"C:\Program Files (x86)\wkhtmltopdf\bin\wkhtmltopdf.exe"'
         options:
             enable-forms: true
             encoding: UTF-8
