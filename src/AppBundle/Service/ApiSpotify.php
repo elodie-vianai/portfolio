@@ -38,7 +38,7 @@ class ApiSpotify
         $session = new Session(
             'e4260c06bdf44c3890f309769a80f195',
             '69ac9c880d5d4b55a81b7161d64e3222',
-            'http://portfolio-v3.dev:8080/spotify'
+            'http://portfolio-v3.dev:8080/app_dev.php/spotify'
         );
 
         $api = new SpotifyWebAPI();

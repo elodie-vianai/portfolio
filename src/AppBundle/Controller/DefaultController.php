@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 
 
 /**
@@ -17,7 +18,7 @@ class DefaultController extends Controller
     /**
      * @Route("/", name="homepage")
      *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function indexAction()
     {
@@ -63,10 +64,20 @@ class DefaultController extends Controller
     /**
      * @Route("/contact", name="contactPage")
      *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function contactAction()
     {
        return $this->render('AppBundle:home:contact.html.twig');
+    }
+
+    /**
+     * @Route("/telecharger-un-cv", name="cv-pdf-generator")
+     *
+     * @return Response
+     */
+    public function CVonPDF(){
+
+        return $this->render('@App/public/CVonPDF.html.twig');
     }
 }

@@ -1,0 +1,18 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block title %}CV - {{ parent() }}{% endblock title %}
+
+{% block body %}
+    <div class="row justify-content-center padding-bottom-3">
+        <h1 class="h1 text-center">Télécharger mon CV</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <p class="justify-content-center text-center alert alert-warning" role="alert">
+                Ce document contient des données personnelles. <br>
+                Merci de ne pas en faire mauvais usage ni de les transmettre à des personnes mal intentionnées.
+            </p>
+        </div>
+    </div>
+{% endblock %}

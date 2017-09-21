@@ -124,3 +124,13 @@ vich_uploader:
             namer:
                 service: vich_uploader.namer_property
                 options: { property: 'name' }
+
+knp_snappy:
+    pdf:
+        enabled: true
+        binary: 'xvfb-run wkhtmltopdf'
+        options:
+            enable-forms: true
+            encoding: UTF-8
+    image:
+        enabled: false
