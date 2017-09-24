@@ -1,0 +1,16 @@
+@startuml
+
+title: Project
+
+class Project #pink {
+    +id: int
+    +name: varchar
+    +description: text
+    +year: int
+    +experience_id: int
+    +image: varchar
+
+    -getExperience()
+}
+
+@enduml

@@ -1,0 +1,11 @@
+@startuml
+
+title: Department
+
+class Department #palegreen {
+    +id: int
+    +code: varchar
+    +name: varchar
+}
+
+@enduml

@@ -1,0 +1,19 @@
+@startuml
+
+title: Experience
+
+class Experience #lightblue {
+    +id: int
+    +name: varchar
+    +contract: varchar
+    +company: varchar
+    +begin_at: datetime
+    +end_at: datetime
+    +city: varchar
+    +department_id: int
+    +image: varchar
+
+    -getDepartment()
+}
+
+@enduml

@@ -1,0 +1,22 @@
+@startuml
+
+!include User.puml
+
+!include Department.puml
+
+!include Experience.puml
+
+!include Project.puml
+
+!include Skill.puml
+
+!include Training.puml
+
+Training "*" -- "1" Department
+Experience "*" -- "1" Department
+Project "*" -- "1" Experience
+Skill "*" -- "*" Project
+
+title: Portfolio
+
+@enduml

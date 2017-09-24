@@ -1,0 +1,13 @@
+@startuml
+
+title: User
+
+class User {
+    +id: int
+    +username: varchar
+    +email: varchar
+    +password: varchar
+    +roles: varchar
+}
+
+@enduml

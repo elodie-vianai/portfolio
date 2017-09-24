@@ -1,0 +1,14 @@
+@startuml
+
+title: Skill
+
+class Skill #FFA786 {
+    +id: int
+    +name: varchar
+    +level: int
+    +category: varchar
+    +type: varchar
+    +image: varchar
+}
+
+@enduml

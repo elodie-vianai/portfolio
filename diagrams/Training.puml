@@ -1,0 +1,20 @@
+@startuml
+
+title: Training
+
+class Training #E4C3FE {
+    +id: int
+    +name: varchar
+    +type: varchar
+    +institution: varchar
+    +begin_at: datetime
+    +end_at: datetime
+    +mention: varchar
+    +city: varchar
+    +department_id: int
+    +image: varchar
+
+    -getDepartment()
+}
+
+@enduml
