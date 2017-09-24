@@ -96,7 +96,7 @@ class LoadExperience extends AbstractFixture implements OrderedFixtureInterface
             $experience->setCompany($item['company']);
             $experience->setCity($item['city']);
             $begin_at = new  \DateTime();
-            $begin_at->setDate($item['end_at_year'], $item['end_at_month'], $item['end_at_day']);
+            $begin_at->setDate($item['begin_at_year'], $item['begin_at_month'], $item['begin_at_day']);
             $experience->setBeginAt($begin_at);
             $end_at = new  \DateTime();
             $end_at->setDate($item['end_at_year'], $item['end_at_month'], $item['end_at_day']);

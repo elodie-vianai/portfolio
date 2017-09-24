@@ -45,7 +45,7 @@ class DefaultController extends Controller
 
         $playlists = '';
         if (isset($spotify_token)) {
-            $playlists = $this->get('ev.api.spotify')->getSpotify();
+            $playlists = $this->get('ev.api.spotify')->getPlaylistsSpotify();
         }
 
         //users

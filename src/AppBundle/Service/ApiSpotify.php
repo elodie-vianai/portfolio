@@ -27,7 +27,6 @@ class ApiSpotify
         $this->container = $container;
     }
 
-
     /**
      * Authentication process to get the token. If the token is set, it is used. If not, we ask it to Spotify.
      *
@@ -70,7 +69,7 @@ class ApiSpotify
      *
      * @return array
      */
-    public function getSpotify(){
+    public function getPlaylistsSpotify(){
         $api = new SpotifyWebAPI();
 
         $api->setAccessToken($this->container->get('session')->get('spotify_token'));

@@ -16,8 +16,6 @@ class ExperienceRepository extends EntityRepository
     {
         $qb = $this->createQueryBuilder('e');
 
-//        , DATE_DIFF(e.endAt, e.beginAt)
-
         $qb->select('e, e.beginAt, e.endAt')
             ->orderBy('e.endAt', 'DESC');
 
@@ -25,23 +23,13 @@ class ExperienceRepository extends EntityRepository
 
         $results = '';
         foreach ($resultstemp as $result){
-//            $beginAtYears =
-//            $beginAtMonths =
-//            $beginAtDays = ;
-
-//            $endAtYears =
-//            $endAtMonths =
-//            $endAtDays =
-
             $result[1]['diffYears'] = $result['beginAt']->format('Y') - $result['endAt']->format('Y');
             $result[1]['diffMonths'] = $result['beginAt']->format('m') - $result['endAt']->format('m');;
             $result[1]['diffDays'] = $result['beginAt']->format('d') - $result['endAt']->format('d');
 
             $results[] = $result;
-//            var_dump($result);die;
-
         }
-//        var_dump($results);die;
+
         return $results;
     }
 }
