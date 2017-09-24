@@ -18,16 +18,19 @@
     </div>
 
     <div class="row form-group">
+        {{ form_label(form.category, 'Catégorie', {'label_attr': {'class': 'col-form-label col-3'} }) }}
+        {{ form_widget(form.category, {'attr': {'class': 'form-control col-3'} }) }}
+        <div class="col-1"></div>
+        {{ form_label(form.type, 'Type', {'label_attr': {'class': 'col-form-label col-3'} }) }}
+        {{ form_widget(form.type, {'attr': {'class': 'form-control col'} }) }}
+    </div>
+
+    <div class="row form-group ">
         {{ form_label(form.level, 'Niveau de maîtrise', {'label_attr': {'class': 'col-form-label col-3'} }) }}
         {{ form_widget(form.level, {'attr': {'class': 'form-control col-3'} }) }}
         <div class="col-1"></div>
-        {{ form_label(form.category, 'Catégorie', {'label_attr': {'class': 'col-form-label col-2'} }) }}
-        {{ form_widget(form.category, {'attr': {'class': 'form-control col-3'} }) }}
-    </div>
-
-    <div class="row justify-content-start form-group ">
         {{ form_label(form.imageFile, 'Logo de la compétence', {'label_attr': {'class': 'col-form-label col-3'} }) }}
-        {{ form_widget(form.imageFile.file, {'attr': {'class': 'form-control-file col-9'} }) }}
+        {{ form_widget(form.imageFile.file, {'attr': {'class': 'form-control-file col'} }) }}
     </div>
 
     <div class="alert alert-info">

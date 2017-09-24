@@ -37,7 +37,7 @@ class SkillType extends AbstractType
                     'Expert'            => 4
                 )
             ))
-            ->add('category',     ChoiceType::class, array(
+            ->add('type',     ChoiceType::class, array(
                 'choices'   =>  array(
                     ''                          => null,
                     'Base de données'           => 'Database',
@@ -50,6 +50,15 @@ class SkillType extends AbstractType
                     'Serveurs'                  => 'Serveurs',
                     'Système d\'exploitation'   => 'OS',
                     'Technologies'              => 'Technologies'
+                )))
+            ->add('category',     ChoiceType::class, array(
+                'choices'   =>  array(
+                    ''                          => null,
+                    'Bureautique'               => 'Bureautique',
+                    'Developpement'             => 'Développement',
+                    'Graphisme'                 => 'Graphisme',
+                    'Langues'                   => 'Langues',
+                    'Professionnel'             => 'Professionnel',
                 )))
             ->add(
                 'imageFile',
